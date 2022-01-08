@@ -1,19 +1,12 @@
 package org.mrlem.sample.compose.ui.screens
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import org.mrlem.sample.compose.ui.theme.ComposeSampleTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun GreetingScreen(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun DefaultPreview() {
-    ComposeSampleTheme {
-        GreetingScreen("Android")
-    }
+fun GreetingScreen(viewModel: GreetingViewModel = viewModel()) {
+    GreetingLayout(
+        state = viewModel.state.value,
+        onClick = { viewModel.incrementCounter() }
+    )
 }
