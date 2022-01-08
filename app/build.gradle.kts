@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -49,6 +51,11 @@ android {
     }
 }
 
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.7.0")
@@ -60,9 +67,15 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
     implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("com.google.dagger:hilt-android:${Versions.hilt}")
+
+    kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
+
     testImplementation("junit:junit:4.13.2")
+
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
+
     debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
 }

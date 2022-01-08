@@ -5,9 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.ui.screens.GreetingScreen
 import org.mrlem.sample.compose.ui.theme.ComposeSampleTheme
 
+// TODO - components: that's where the design system goes
+// TODO - view model: isolation per composable
+// TODO - view model: lifecycle callbacks
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
