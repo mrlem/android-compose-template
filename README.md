@@ -1,11 +1,28 @@
 # Compose Sample
 
-A sample project featuring:
+A project template with the following objectives in mind:
+
+* encourage usage of modern UI tools
+* make it easy to write new features
+* optimize for incremental build
+
+Behind the scenes:
 
 * UI: compose
+* DI: hilt
 * Build:
   - kts gradle scripts
-  - buildSrc to simplify gradle scripts
-* Structure: feature modules (incremental build friendly)
+  - buildSrc commons
+* Features x layer modularization
 
-The idea is to provide a clean start for new projects.
+## Future
+
+A few ideas among others:
+
+* Navigation
+* Provide a basic UI (toolbar)
+* Provide :arch:data and add a sample retrofit service in :feature:greeting:data
+
+## About
+
+Author: *Sébastien Guillemin*
