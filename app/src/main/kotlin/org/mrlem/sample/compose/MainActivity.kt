@@ -9,10 +9,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.feature.greeting.ui.GreetingScreen
 import org.mrlem.sample.compose.ui.theme.ComposeSampleTheme
 
-// TODO - components: that's where the design system goes: externalize
-// TODO - view model: isolation per composable
-// TODO - view model: lifecycle callbacks
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
