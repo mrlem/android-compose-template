@@ -5,5 +5,5 @@ plugins {
 }
 
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha02")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.Lifecycle.compose}")
 }

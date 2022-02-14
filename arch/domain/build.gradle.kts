@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-    api("javax.inject:javax.inject:1")
+    api("javax.inject:javax.inject:${Versions.Javax.inject}")
 }

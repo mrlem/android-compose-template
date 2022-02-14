@@ -25,8 +25,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro",
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
             )
         }
     }
@@ -49,14 +49,14 @@ compose(isHiltEnabled = true)
 dependencies {
     implementation(project(":feature:greeting:ui"))
 
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("com.google.android.material:material:1.5.0")
+    implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
+    implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
+    implementation("androidx.core:core-ktx:${Versions.AndroidX.core}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.AndroidX.Lifecycle}")
+    implementation("com.google.android.material:material:${Versions.material}")
 
-    testImplementation("junit:junit:4.13.2")
+    testImplementation("junit:junit:${Versions.junit}")
 
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.AndroidX.Test.espresso}")
+    androidTestImplementation("androidx.test.ext:junit:${Versions.AndroidX.Test.junit}")
 }
