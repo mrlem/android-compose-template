@@ -26,6 +26,12 @@ object Versions {
 
     }
 
+    object Kotlinx {
+
+        const val coroutines = "1.6.0"
+
+    }
+
     object Sdk {
 
         const val compile = 31
