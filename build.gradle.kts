@@ -12,4 +12,14 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+    allprojects {
+        plugins.withType(BasePlugin::class.java) {
+            afterEvaluate {
+                configure<com.android.build.gradle.BaseExtension> {
+                    setCompileSdkVersion(Versions.Sdk.compile)
+                }
+            }
+        }
+    }
 }

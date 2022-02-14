@@ -1,3 +1,5 @@
+import extensions.compose
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -6,8 +8,6 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.Sdk.compile
-
     defaultConfig {
         applicationId = "org.mrlem.sample.compose"
         minSdk = Versions.Sdk.min
@@ -37,12 +37,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
-    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -50,31 +44,19 @@ android {
     }
 }
 
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
-}
+compose(isHiltEnabled = true)
 
 dependencies {
+    implementation(project(":feature:greeting:ui"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.compose.ui:ui:${Versions.compose}")
-    implementation("androidx.compose.material:material:${Versions.compose}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha02")
     implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("com.google.dagger:hilt-android:${Versions.hilt}")
-
-    kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation("com.google.android.material:material:1.5.0")
 
     testImplementation("junit:junit:4.13.2")
 
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
-
-    debugImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
 }
