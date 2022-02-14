@@ -5,11 +5,13 @@ A project template with the following objectives in mind:
 * encourage usage of modern UI tools
 * make it easy to write new features
 * optimize for incremental build
+* minimize external deps
 
 Behind the scenes:
 
 * UI: compose
 * DI: hilt
+* Async: coroutines & flow
 * Build:
   - kts gradle scripts
   - buildSrc commons
