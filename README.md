@@ -17,6 +17,7 @@ Behind the scenes:
   - kts gradle scripts
   - buildSrc commons
 * Features x layer modularization
+* Design: a demo app to showcase / discuss / help team member onboarding
 
 ## Future
 
