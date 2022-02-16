@@ -47,6 +47,7 @@ android {
 compose(isHiltEnabled = true)
 
 dependencies {
+    implementation(project(":design:theme"))
     implementation(project(":feature:greeting:ui"))
 
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")

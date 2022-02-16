@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.ui.theme
+package org.mrlem.sample.compose.design.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
