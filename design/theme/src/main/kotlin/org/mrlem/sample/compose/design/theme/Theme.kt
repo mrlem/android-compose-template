@@ -5,6 +5,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import org.mrlem.sample.compose.design.theme.Palette.Purple200
+import org.mrlem.sample.compose.design.theme.Palette.Purple500
+import org.mrlem.sample.compose.design.theme.Palette.Purple700
+import org.mrlem.sample.compose.design.theme.Palette.Teal200
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,

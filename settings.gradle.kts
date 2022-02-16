@@ -13,6 +13,7 @@ include(
     ":app",
     ":arch:domain",
     ":arch:ui",
+    ":design:demo",
     ":design:theme",
     ":feature:greeting:domain",
     ":feature:greeting:ui",

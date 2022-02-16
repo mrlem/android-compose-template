@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Compose Sample (Design)</string>
+    <string name="tab_palette_title">Palette</string>
+    <string name="tab_typography_title">Typography</string>
+</resources>
