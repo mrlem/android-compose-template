@@ -6,6 +6,7 @@ A project template with the following objectives in mind:
 * make it easy to write new features
 * optimize for incremental build
 * minimize external deps
+* encourage creation of a design system
 
 Behind the scenes:
 
@@ -21,8 +22,8 @@ Behind the scenes:
 
 A few ideas among others:
 
-* Navigation
-* Provide a basic UI (toolbar)
+* Navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
+* Provide a basic UI (scaffold)
 * Provide :arch:data and add a sample retrofit service in :feature:greeting:data
 
 ## About
