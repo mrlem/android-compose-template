@@ -10,8 +10,6 @@ plugins {
 android {
     defaultConfig {
         applicationId = "org.mrlem.sample.compose"
-        minSdk = Versions.Sdk.min
-        targetSdk = Versions.Sdk.target
         versionCode = 1
         versionName = "1.0"
 

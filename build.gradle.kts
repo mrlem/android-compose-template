@@ -17,7 +17,11 @@ buildscript {
         plugins.withType(BasePlugin::class.java) {
             afterEvaluate {
                 configure<com.android.build.gradle.BaseExtension> {
-                    setCompileSdkVersion(Versions.Sdk.compile)
+                    defaultConfig {
+                        minSdk = Versions.Sdk.min
+                        targetSdk = Versions.Sdk.target
+                        setCompileSdkVersion(Versions.Sdk.compile)
+                    }
                 }
             }
         }
