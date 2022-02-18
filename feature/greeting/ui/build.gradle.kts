@@ -1,4 +1,5 @@
 import extensions.compose
+import extensions.hilt
 
 plugins {
     id("com.android.library")
@@ -7,7 +8,8 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
-compose(isHiltEnabled = true)
+compose()
+hilt()
 
 dependencies {
     implementation(project(":arch:ui"))

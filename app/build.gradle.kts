@@ -1,4 +1,5 @@
 import extensions.compose
+import extensions.hilt
 import extensions.room
 
 plugins {
@@ -43,7 +44,8 @@ android {
     }
 }
 
-compose(isHiltEnabled = true)
+compose()
+hilt()
 room()
 
 dependencies {

@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-    api(project(":arch:domain"))
+    implementation(project(":arch:domain"))
 }

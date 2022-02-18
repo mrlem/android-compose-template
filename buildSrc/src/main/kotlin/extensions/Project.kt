@@ -8,7 +8,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
-fun Project.compose(isHiltEnabled: Boolean = false) {
+fun Project.compose() {
     if (plugins.hasPlugin(AppPlugin::class.java)) {
         androidApplication {
             buildFeatures {
@@ -29,11 +29,6 @@ fun Project.compose(isHiltEnabled: Boolean = false) {
         }
     }
 
-    // Allow references to generated code
-    kapt {
-        correctErrorTypes = true
-    }
-
     dependencies {
         add("implementation", "androidx.compose.material:material:${Versions.compose}")
         add("implementation", "androidx.compose.ui:ui:${Versions.compose}")
@@ -43,11 +38,6 @@ fun Project.compose(isHiltEnabled: Boolean = false) {
         add("debugImplementation", "androidx.compose.ui:ui-tooling:${Versions.compose}")
 
         add("androidTestImplementation", "androidx.compose.ui:ui-test-junit4:${Versions.compose}")
-
-        if (isHiltEnabled) {
-            add("api", "com.google.dagger:hilt-android:${Versions.hilt}")
-            add("kapt", "com.google.dagger:hilt-android-compiler:${Versions.hilt}")
-        }
     }
 }
 
@@ -57,6 +47,18 @@ fun Project.room() {
         add("implementation", "androidx.room:room-ktx:${Versions.AndroidX.room}")
         add("annotationProcessor", "androidx.room:room-compiler:${Versions.AndroidX.room}")
         add("kapt", "androidx.room:room-compiler:${Versions.AndroidX.room}")
+    }
+}
+
+fun Project.hilt() {
+    // Allow references to generated code
+    kapt {
+        correctErrorTypes = true
+    }
+
+    dependencies {
+        add("implementation", "com.google.dagger:hilt-android:${Versions.hilt}")
+        add("kapt", "com.google.dagger:hilt-android-compiler:${Versions.hilt}")
     }
 }
 

@@ -1,3 +1,4 @@
+import extensions.hilt
 import extensions.room
 
 plugins {
@@ -6,12 +7,10 @@ plugins {
     kotlin("kapt")
 }
 
+hilt()
 room()
 
 dependencies {
+    implementation(project(":arch:data"))
     implementation(project(":feature:greeting:domain"))
-
-    implementation("com.google.dagger:hilt-android:${Versions.hilt}")
-
-    kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 }
