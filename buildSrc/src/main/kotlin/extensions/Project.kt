@@ -51,6 +51,15 @@ fun Project.compose(isHiltEnabled: Boolean = false) {
     }
 }
 
+fun Project.room() {
+    dependencies {
+        add("implementation", "androidx.room:room-runtime:${Versions.AndroidX.room}")
+        add("implementation", "androidx.room:room-ktx:${Versions.AndroidX.room}")
+        add("annotationProcessor", "androidx.room:room-compiler:${Versions.AndroidX.room}")
+        add("kapt", "androidx.room:room-compiler:${Versions.AndroidX.room}")
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////
 // Private
 ///////////////////////////////////////////////////////////////////////////

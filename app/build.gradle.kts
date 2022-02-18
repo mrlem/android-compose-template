@@ -1,4 +1,5 @@
 import extensions.compose
+import extensions.room
 
 plugins {
     id("com.android.application")
@@ -43,10 +44,12 @@ android {
 }
 
 compose(isHiltEnabled = true)
+room()
 
 dependencies {
     implementation(project(":design:theme"))
     implementation(project(":feature:greeting:ui"))
+    implementation(project(":feature:greeting:data"))
 
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
