@@ -10,22 +10,23 @@ A project template with the following objectives in mind:
 
 Behind the scenes:
 
-* UI: compose
-* DI: hilt
-* Async: coroutines & flow
-* Build:
+* user interface: compose
+* dep injection: hilt
+* async: coroutines & flow 
+* database: room
+* build:
   - kts gradle scripts
   - buildSrc commons
-* Features x layer modularization
-* Design: a demo app to showcase / discuss / help team member onboarding
+* features x layer modularization
+* design: a demo app to showcase / discuss / help team member onboarding
 
 ## Future
 
 A few ideas among others:
 
-* Navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
-* Provide a basic UI (scaffold)
-* Provide :arch:data and add a sample retrofit service in :feature:greeting:data
+* navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
+* provide a basic UI (scaffold)
+* provide a sample retrofit service in :feature:greeting:data
 
 ## About
 
