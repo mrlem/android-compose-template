@@ -57,6 +57,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
     implementation("androidx.core:core-ktx:${Versions.AndroidX.core}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.AndroidX.Lifecycle}")
+    implementation("com.jakewharton.timber:timber:${Versions.timber}")
 
     testImplementation("junit:junit:${Versions.junit}")
 

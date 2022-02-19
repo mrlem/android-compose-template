@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.BaseViewModel
 import org.mrlem.sample.compose.feature.greeting.domain.repository.GreetingRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,12 +20,14 @@ class GreetingViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.Main) {
             greetingRepository.greetings
                 .collect { greetings ->
+                    Timber.d("received update")
                     updateState { copy(counter = greetings.size) }
                 }
         }
     }
 
     suspend fun incrementCounter() {
+        Timber.d("adding value")
         greetingRepository.add("Plop")
     }
 

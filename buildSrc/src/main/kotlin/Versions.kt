@@ -46,5 +46,6 @@ object Versions {
     const val hilt = "2.40.5"
     const val kotlin = "1.6.10"
     const val material = "1.5.0"
+    const val timber = "5.0.1"
 
 }
