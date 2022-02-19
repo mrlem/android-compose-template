@@ -26,9 +26,11 @@ class GreetingViewModel @Inject constructor(
         }
     }
 
-    suspend fun incrementCounter() {
+    fun incrementCounter() {
         Timber.d("adding value")
-        greetingRepository.add("Plop")
+        viewModelScope.launch(Dispatchers.IO) {
+            greetingRepository.add("Plop")
+        }
     }
 
 }

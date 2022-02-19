@@ -11,6 +11,6 @@ fun GreetingScreen(viewModel: GreetingViewModel = viewModel()) {
 
     GreetingLayout(
         state = viewModel.state.value,
-        onClick = { scope.launch { viewModel.incrementCounter() } },
+        onClick = { viewModel.incrementCounter() },
     )
 }
