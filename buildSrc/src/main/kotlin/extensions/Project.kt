@@ -35,7 +35,7 @@ fun Project.compose() {
         add("implementation", "androidx.compose.material:material:${Versions.compose}")
         add("implementation", "androidx.compose.ui:ui:${Versions.compose}")
         add("implementation", "androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
-        add("implementation", "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.Lifecycle.compose}")
+        add("implementation", "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.lifecycle}")
 
         add("debugImplementation", "androidx.compose.ui:ui-tooling:${Versions.compose}")
 

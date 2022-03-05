@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.Lifecycle.compose}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.lifecycle}")
 
     api("com.jakewharton.timber:timber:${Versions.timber}")
 }

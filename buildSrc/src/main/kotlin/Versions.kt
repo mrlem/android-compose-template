@@ -5,14 +5,8 @@ object Versions {
         const val activity = "1.4.0"
         const val appcompat = "1.4.1"
         const val core = "1.7.0"
-        const val room = "2.4.1"
-
-        object Lifecycle {
-
-            const val ktx = "2.4.1"
-            const val compose = "2.5.0-alpha02"
-
-        }
+        const val room = "2.4.2"
+        const val lifecycle = "2.4.1"
 
         object Test {
 
@@ -43,7 +37,7 @@ object Versions {
 
     }
 
-    const val compose = "1.1.0"
+    const val compose = "1.1.1"
     const val junit = "4.13.2"
     const val hilt = "2.41"
     const val kotlin = "1.6.10"
