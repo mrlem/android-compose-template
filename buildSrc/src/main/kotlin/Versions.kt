@@ -8,8 +8,10 @@ object Versions {
         const val room = "2.4.1"
 
         object Lifecycle {
+
             const val ktx = "2.4.1"
             const val compose = "2.5.0-alpha02"
+
         }
 
         object Test {
