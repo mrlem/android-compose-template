@@ -27,3 +27,5 @@ buildscript {
         }
     }
 }
+
+apply(file("gradle/projectDependencyGraph.gradle"))
