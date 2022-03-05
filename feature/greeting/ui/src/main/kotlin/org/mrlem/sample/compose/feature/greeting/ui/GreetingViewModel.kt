@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.BaseViewModel
+import org.mrlem.sample.compose.feature.greeting.domain.GreetingManager
 import org.mrlem.sample.compose.feature.greeting.domain.repository.GreetingRepository
 import timber.log.Timber
 import javax.inject.Inject
@@ -12,6 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class GreetingViewModel @Inject constructor(
     private val greetingRepository: GreetingRepository,
+    private val greetingManager: GreetingManager,
 ) : BaseViewModel<GreetingState>(
     initialState = GreetingState(),
 ) {
@@ -28,8 +30,8 @@ class GreetingViewModel @Inject constructor(
 
     fun incrementCounter() {
         Timber.d("adding value")
-        viewModelScope.launch(Dispatchers.IO) {
-            greetingRepository.add("Plop")
+        viewModelScope.launch {
+            greetingManager.greet()
         }
     }
 
