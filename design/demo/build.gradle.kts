@@ -3,7 +3,6 @@ import extensions.compose
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("kapt")
 }
 
 android {

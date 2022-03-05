@@ -9,6 +9,8 @@ import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 fun Project.compose() {
+    plugins.apply("kotlin-kapt")
+
     if (plugins.hasPlugin(AppPlugin::class.java)) {
         androidApplication {
             buildFeatures {
@@ -42,6 +44,8 @@ fun Project.compose() {
 }
 
 fun Project.room() {
+    plugins.apply("kotlin-kapt")
+
     dependencies {
         add("implementation", "androidx.room:room-runtime:${Versions.AndroidX.room}")
         add("implementation", "androidx.room:room-ktx:${Versions.AndroidX.room}")
@@ -51,6 +55,11 @@ fun Project.room() {
 }
 
 fun Project.hilt() {
+    plugins.apply("kotlin-kapt")
+    if (plugins.hasPlugin(AppPlugin::class.java)) {
+        plugins.apply("dagger.hilt.android.plugin")
+    }
+
     // Allow references to generated code
     kapt {
         correctErrorTypes = true

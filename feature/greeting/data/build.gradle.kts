@@ -4,7 +4,6 @@ import extensions.room
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
 }
 
 hilt()
