@@ -1,10 +1,10 @@
-package org.mrlem.sample.compose.feature.greeting.domain
+package org.mrlem.sample.compose.feature.greeting.data
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.mrlem.sample.compose.feature.greeting.domain.dao.GreetingDao
+import org.mrlem.sample.compose.feature.greeting.data.dao.GreetingDao
 
 interface GreetingDatabase {
 

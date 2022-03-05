@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.feature.greeting.domain.entity
+package org.mrlem.sample.compose.feature.greeting.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

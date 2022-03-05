@@ -1,10 +1,10 @@
-package org.mrlem.sample.compose.feature.greeting.domain.dao
+package org.mrlem.sample.compose.feature.greeting.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import org.mrlem.sample.compose.feature.greeting.domain.entity.Greeting
+import org.mrlem.sample.compose.feature.greeting.data.entity.Greeting
 
 @Dao
 interface GreetingDao {

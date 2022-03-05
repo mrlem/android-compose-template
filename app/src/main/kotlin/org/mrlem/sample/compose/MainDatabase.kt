@@ -6,8 +6,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.mrlem.sample.compose.feature.greeting.domain.GreetingDatabase
-import org.mrlem.sample.compose.feature.greeting.domain.entity.Greeting
+import org.mrlem.sample.compose.feature.greeting.data.GreetingDatabase
+import org.mrlem.sample.compose.feature.greeting.data.entity.Greeting
 
 @Database(entities = [Greeting::class], version = 1)
 abstract class MainDatabase : RoomDatabase(),
