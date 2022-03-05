@@ -10,6 +10,9 @@ import org.mrlem.sample.compose.feature.greeting.data.Module.Bindings
 import org.mrlem.sample.compose.feature.greeting.domain.repository.GreetingRepository
 import org.mrlem.sample.compose.feature.greeting.data.repository.GreetingRepositoryImpl
 
+/**
+ * Provides the DI a way to build all non-annotated objects for the feature.
+ */
 @InstallIn(SingletonComponent::class)
 @Module(includes = [ Bindings::class ])
 class Module {
@@ -19,11 +22,11 @@ class Module {
     interface Bindings {
 
         @Binds
-        fun provideGreetingRepository(impl: GreetingRepositoryImpl): GreetingRepository
+        fun greetingRepository(impl: GreetingRepositoryImpl): GreetingRepository
 
     }
 
     @Provides
-    fun provideGreetingDao(database: GreetingDatabase) = database.greetingDao()
+    fun greetingDao(database: GreetingDatabase) = database.greetingDao()
 
 }
