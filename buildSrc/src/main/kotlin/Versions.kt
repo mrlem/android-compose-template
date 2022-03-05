@@ -45,7 +45,7 @@ object Versions {
 
     const val compose = "1.1.0"
     const val junit = "4.13.2"
-    const val hilt = "2.40.5"
+    const val hilt = "2.41"
     const val kotlin = "1.6.10"
     const val material = "1.5.0"
     const val timber = "5.0.1"
