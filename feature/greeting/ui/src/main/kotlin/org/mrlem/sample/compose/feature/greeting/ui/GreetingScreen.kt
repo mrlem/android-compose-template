@@ -6,7 +6,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun GreetingScreen(viewModel: GreetingViewModel = viewModel()) {
     GreetingLayout(
-        state = viewModel.state.value,
+        state = viewModel.state,
         onClick = { viewModel.incrementCounter() },
     )
 }
