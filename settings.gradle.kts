@@ -16,6 +16,7 @@ include(
     ":arch:ui",
     ":design:demo",
     ":design:theme",
+    // new features
     ":feature:greeting:data",
     ":feature:greeting:domain",
     ":feature:greeting:ui",

@@ -48,6 +48,7 @@ room()
 
 dependencies {
     implementation(project(":design:theme"))
+    // new features
     implementation(project(":feature:greeting:ui"))
     implementation(project(":feature:greeting:data"))
 
