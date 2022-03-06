@@ -13,6 +13,6 @@ dependencies {
     implementation(project(":arch:data"))
     implementation(project(":feature:ghibli:domain"))
 
-    implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
+    api("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
     implementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
 }

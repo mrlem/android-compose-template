@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.migration.DisableInstallInCheck
+import okhttp3.OkHttpClient
 import org.mrlem.sample.compose.feature.ghibli.data.Module.Bindings
 import org.mrlem.sample.compose.feature.ghibli.data.remote.GhibliApi
 import org.mrlem.sample.compose.feature.ghibli.data.repository.GhibliRepositoryImpl
@@ -32,12 +33,18 @@ class Module {
     }
 
     @Provides
-    fun ghibliApi(retrofit: Retrofit) = retrofit.create(GhibliApi::class.java)
+    fun ghibliApi(retrofit: Retrofit): GhibliApi =
+        retrofit.create(GhibliApi::class.java)
 
     @Provides
-    fun retrofit(@ApplicationContext context: Context): Retrofit = Retrofit.Builder()
-        .baseUrl(context.getString(R.string.ghibli_api_baseurl))
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
+    fun retrofit(
+        @ApplicationContext context: Context,
+        client: OkHttpClient,
+    ): Retrofit =
+        Retrofit.Builder()
+            .baseUrl(context.getString(R.string.ghibli_api_baseurl))
+            .client(client)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
 
 }
