@@ -17,9 +17,9 @@ include(
     ":design:demo",
     ":design:theme",
     // new features
+    ":feature:filmdetail:ui",
+    ":feature:favorites:data",
+    ":feature:favorites:domain",
     ":feature:ghibli:data",
     ":feature:ghibli:domain",
-    ":feature:greeting:data",
-    ":feature:greeting:domain",
-    ":feature:greeting:ui",
 )

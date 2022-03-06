@@ -49,9 +49,9 @@ room()
 dependencies {
     implementation(project(":design:theme"))
     // new features
+    implementation(project(":feature:filmdetail:ui"))
+    implementation(project(":feature:favorites:data"))
     implementation(project(":feature:ghibli:data"))
-    implementation(project(":feature:greeting:ui"))
-    implementation(project(":feature:greeting:data"))
 
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
