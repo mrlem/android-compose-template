@@ -2,13 +2,9 @@ package org.mrlem.sample.compose.feature.filmdetail.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.indication
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -27,7 +23,7 @@ fun FilmDetailLayout(
             text = state.title,
             modifier = Modifier
                 .weight(1f)
-                .padding(12.dp),
+                .padding(16.dp),
         )
         Image(
             painter = painterResource(state.favoriteDrawable),
@@ -35,7 +31,7 @@ fun FilmDetailLayout(
             colorFilter = ColorFilter.tint(Color.Gray),
             modifier = Modifier
                 .clickable { onFavoriteClick() }
-                .padding(12.dp)
+                .padding(16.dp)
                 .wrapContentSize(),
         )
     }
@@ -44,5 +40,9 @@ fun FilmDetailLayout(
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    FilmDetailLayout()
+    FilmDetailLayout(
+        state = FilmDetailState(
+            title = "Le Voyage de Chihiro",
+        )
+    )
 }
