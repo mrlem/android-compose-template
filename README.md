@@ -15,6 +15,7 @@ Behind the scenes:
 * async: coroutines & flow 
 * database: room
 * rest apis: retrofit
+* coil for image loading
 * build:
   - kts gradle scripts
   - buildSrc commons
@@ -26,7 +27,7 @@ Behind the scenes:
 A few ideas among others:
 
 * navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
-* fetch images using coil
+* formalize typography
 
 ## About
 

@@ -7,7 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
-import org.mrlem.sample.compose.design.theme.Palette
 import org.mrlem.sample.compose.design.theme.Palette.RedHeart
 import org.mrlem.sample.compose.feature.favorites.domain.repository.FavoriteRepository
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository

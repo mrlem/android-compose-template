@@ -14,4 +14,7 @@ dependencies {
     implementation(project(":design:theme"))
     implementation(project(":feature:favorites:domain"))
     implementation(project(":feature:ghibli:domain"))
+
+    implementation("io.coil-kt:coil:${Versions.coil}")
+    implementation("io.coil-kt:coil-compose:${Versions.coil}")
 }

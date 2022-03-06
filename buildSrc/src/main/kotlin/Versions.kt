@@ -37,6 +37,7 @@ object Versions {
 
     }
 
+    const val coil = "2.0.0-rc01"
     const val compose = "1.1.1"
     const val junit = "4.13.2"
     const val hilt = "2.41"

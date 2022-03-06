@@ -6,11 +6,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.design.theme.Typography
 
@@ -26,22 +28,31 @@ fun FilmDetailLayout(
         scaffoldState = scaffoldState,
         topBar = {
             TopAppBar(
-                title = {
-                    Box(
-                        modifier = Modifier
-                            .padding(32.dp)
-                            .fillMaxSize(),
-                    ) {
-                        Text(
-                            text = state.title,
-                            modifier = Modifier
-                                .align(Alignment.BottomCenter),
-                        )
-                    }
-                },
+                contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .height(titleHeight),
-            )
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                ) {
+                    AsyncImage(
+                        model = state.image.toString(),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxSize(),
+                    )
+
+                    Text(
+                        text = state.title,
+                        style = Typography.h6,
+                        modifier = Modifier
+                            .padding(32.dp)
+                            .align(Alignment.BottomCenter),
+                    )
+                }
+            }
         },
     ) {
 

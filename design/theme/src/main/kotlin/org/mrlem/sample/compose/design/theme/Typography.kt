@@ -1,13 +1,21 @@
 package org.mrlem.sample.compose.design.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
 val Typography = Typography(
+    h6 = TextStyle(
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 20.sp,
+        letterSpacing = 0.15.sp,
+        shadow = Shadow(Color(0, 0, 0, 128), Offset(2f, 2f), 4f),
+    ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,

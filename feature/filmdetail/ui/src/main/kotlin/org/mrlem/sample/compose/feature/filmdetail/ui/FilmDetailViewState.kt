@@ -3,10 +3,9 @@ package org.mrlem.sample.compose.feature.filmdetail.ui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
-import java.net.URL
 
 data class FilmDetailState(
-    val image: URL? = null,
+    val image: String? = null,
     val title: String = "",
     val originalTitle: String = "",
     val originalTitleRomanised: String = "",
