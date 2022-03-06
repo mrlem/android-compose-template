@@ -10,16 +10,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 val Typography = Typography(
-    h6 = TextStyle(
+    subtitle1 = TextStyle(
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 24.sp,
+        letterSpacing = 0.15.sp,
+        shadow = Shadow(Color(0, 0, 0, 128), Offset(2f, 2f), 4f),
+    ),
+    subtitle2 = TextStyle(
         fontWeight = FontWeight.ExtraBold,
         fontSize = 20.sp,
         letterSpacing = 0.15.sp,
-        shadow = Shadow(Color(0, 0, 0, 128), Offset(2f, 2f), 4f),
     ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
+        fontSize = 14.sp,
     )
     /* Other default text styles to override
     button = TextStyle(

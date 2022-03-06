@@ -15,16 +15,14 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.mrlem.sample.compose.design.theme.Palette.Purple200
-import org.mrlem.sample.compose.design.theme.Palette.Purple500
-import org.mrlem.sample.compose.design.theme.Palette.Purple700
-import org.mrlem.sample.compose.design.theme.Palette.Teal200
+import org.mrlem.sample.compose.design.theme.Palette.BlueDeep
+import org.mrlem.sample.compose.design.theme.Palette.BlueDeeper
+import org.mrlem.sample.compose.design.theme.Palette.RedHeart
 
 private val colors = listOf(
-    "Purple200" to Purple200,
-    "Purple500" to Purple500,
-    "Purple700" to Purple700,
-    "Teal200" to Teal200,
+    "BlueDeep" to BlueDeep,
+    "BlueDeeper" to BlueDeeper,
+    "RedHeart" to RedHeart,
 )
 
 @Composable

@@ -46,7 +46,7 @@ fun FilmDetailLayout(
 
                     Text(
                         text = state.title,
-                        style = Typography.h6,
+                        style = Typography.subtitle1,
                         modifier = Modifier
                             .padding(32.dp)
                             .align(Alignment.BottomCenter),
@@ -64,18 +64,18 @@ fun FilmDetailLayout(
             Text(
                 text = state.originalTitle,
                 color = Color.LightGray,
-                style = Typography.body2,
+                style = Typography.caption,
             )
             Text(
                 text = state.originalTitleRomanised,
                 color = Color.LightGray,
-                style = Typography.body2,
+                style = Typography.caption,
             )
 
             Text(
                 text = stringResource(R.string.filmdetail_summary),
                 color = Color.DarkGray,
-                style = Typography.h6,
+                style = Typography.subtitle2,
                 modifier = Modifier
                     .padding(top = 16.dp),
             )
@@ -83,7 +83,7 @@ fun FilmDetailLayout(
                 text = state.summary,
                 textAlign = TextAlign.Justify,
                 color = Color.DarkGray,
-                style = Typography.body2,
+                style = Typography.body1,
                 modifier = Modifier
                     .padding(top = 16.dp)
                     .fillMaxWidth(),

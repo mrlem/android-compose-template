@@ -81,5 +81,27 @@ fun TypographyTab() {
                 )
             }
         }
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp),
+            ) {
+                Text(
+                    text = "caption",
+                    fontSize = 12.sp,
+                    color = Color.LightGray,
+                    modifier = Modifier
+                        .padding(bottom = 4.dp),
+                )
+                Text(
+                    text = "The quick brown fox jumps over the lazy dog",
+                    style = Typography.caption,
+                )
+            }
+        }
     }
 }
