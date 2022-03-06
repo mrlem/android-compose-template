@@ -31,6 +31,8 @@ class FilmDetailViewModel @Inject constructor(
                     originalTitle = film.originalTitle,
                     originalTitleRomanised = film.originalTitleRomanized,
                     summary = film.description,
+                    director = film.director,
+                    releaseDate = film.releaseDate,
                 ) }
             } catch (e: Exception) {
                 println("film retrieval failed: ${e.localizedMessage}")

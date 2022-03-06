@@ -27,7 +27,7 @@ Behind the scenes:
 A few ideas among others:
 
 * navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
-* formalize typography
+* list screen to demonstrate navigation & paging
 
 ## About
 

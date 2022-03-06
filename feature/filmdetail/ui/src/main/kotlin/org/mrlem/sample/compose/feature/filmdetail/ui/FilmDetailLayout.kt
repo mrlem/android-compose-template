@@ -89,11 +89,41 @@ fun FilmDetailLayout(
                 text = state.summary,
                 textAlign = TextAlign.Justify,
                 color = Color.DarkGray,
-                style = Typography.body1,
+                style = Typography.body2,
                 modifier = Modifier
                     .padding(top = 16.dp)
                     .fillMaxWidth(),
             )
+            Row(
+                modifier = Modifier
+                    .padding(top = 16.dp),
+            ) {
+                Text(
+                    text = stringResource(R.string.filmdetail_date),
+                    style = Typography.body1,
+                )
+                Text(
+                    text = state.releaseDate,
+                    style = Typography.body2,
+                    modifier = Modifier
+                        .padding(start = 4.dp),
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 4.dp),
+            ) {
+                Text(
+                    text = stringResource(R.string.filmdetail_director),
+                    style = Typography.body1,
+                )
+                Text(
+                    text = state.director,
+                    style = Typography.body2,
+                    modifier = Modifier
+                        .padding(start = 4.dp),
+                )
+            }
         }
     }
 
@@ -127,6 +157,8 @@ private fun DefaultPreview() {
                 originalTitle = "千と千尋の神隠し",
                 originalTitleRomanised = "Sen to Chihiro no kamikakushi",
                 summary = "Le film raconte l'histoire de Chihiro, une fillette de dix ans qui, alors qu'elle se rend en famille vers sa nouvelle maison, entre dans le monde des esprits. Après la transformation de ses parents en porcs par la sorcière Yubaba, Chihiro prend un emploi dans l'établissement de bains de la sorcière pour retrouver ses parents et regagner le monde des humains.",
+                director = "Hayao Miyazaki",
+                releaseDate = "2001",
             )
         )
     }

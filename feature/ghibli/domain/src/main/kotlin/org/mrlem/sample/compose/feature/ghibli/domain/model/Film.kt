@@ -7,4 +7,6 @@ data class Film(
     val originalTitleRomanized: String,
     val image: String,
     val description: String,
+    val director: String,
+    val releaseDate: String,
 )

@@ -3,4 +3,6 @@
     <string name="filmdetail_favorite_add">Add favorite</string>
     <string name="filmdetail_favorite_remove">Remove favorite</string>
     <string name="filmdetail_summary">Summary</string>
+    <string name="filmdetail_director">Director:</string>
+    <string name="filmdetail_date">Date:</string>
 </resources>

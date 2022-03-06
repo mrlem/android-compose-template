@@ -28,5 +28,7 @@ data class FilmDto(
         originalTitleRomanized = originalTitleRomanised,
         image = movieBanner,
         description = description,
+        director = director,
+        releaseDate = releaseDate,
     )
 }
