@@ -40,9 +40,9 @@ rm -f ../app/build.gradle.kts
 mv build.gradle.kts ../app/build.gradle.kts
 
 # create feature modules build gradle files
-cat greeting/data/build.gradle.kts | sed "s/greeting/$NAME/g" > $NAME/data/build.gradle.kts
-cat greeting/domain/build.gradle.kts | sed "s/greeting/$NAME/g" > $NAME/domain/build.gradle.kts
-cat greeting/ui/build.gradle.kts | sed "s/greeting/$NAME/g" > $NAME/ui/build.gradle.kts
+cat template/data/build.gradle.kts | sed "s/NAME/$NAME/g" > $NAME/data/build.gradle.kts
+cat template/domain/build.gradle.kts | sed "s/NAME/$NAME/g" > $NAME/domain/build.gradle.kts
+cat template/ui/build.gradle.kts | sed "s/NAME/$NAME/g" > $NAME/ui/build.gradle.kts
 
 # create manifests
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.data\" />" > $NAME/data/src/main/AndroidManifest.xml
