@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             FilmDetailScreen(
                                 id = it.arguments?.getString("id").orEmpty(),
-                                navigateToHome = { navController.navigate(Screens.Films.route) },
+                                navigateToHome = { navController.navigateUp() },
                             )
                         }
                     }

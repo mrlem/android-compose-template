@@ -58,6 +58,7 @@ fun FilmDetailLayout(
                     IconButton(
                         onClick = { onBackClick() },
                         modifier = Modifier
+                            .padding(top = 24.dp)
                             .align(Alignment.TopStart),
                     ) {
                         Icon(
