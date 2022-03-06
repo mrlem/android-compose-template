@@ -15,6 +15,7 @@ import org.mrlem.sample.compose.feature.ghibli.data.repository.GhibliRepositoryI
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Singleton
 
 /**
  * Provides the DI a way to build all non-annotated objects for the feature.
@@ -28,15 +29,18 @@ class Module {
     interface Bindings {
 
         @Binds
+        @Singleton
         fun ghibliRepository(impl: GhibliRepositoryImpl): GhibliRepository
 
     }
 
     @Provides
+    @Singleton
     fun ghibliApi(retrofit: Retrofit): GhibliApi =
         retrofit.create(GhibliApi::class.java)
 
     @Provides
+    @Singleton
     fun retrofit(
         @ApplicationContext context: Context,
         client: OkHttpClient,
