@@ -48,3 +48,8 @@ cat template/ui/build.gradle.kts | sed "s/NAME/$NAME/g" > $NAME/ui/build.gradle.
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.data\" />" > $NAME/data/src/main/AndroidManifest.xml
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.domain\" />" > $NAME/domain/src/main/AndroidManifest.xml
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.ui\" />" > $NAME/ui/src/main/AndroidManifest.xml
+
+# create git ignores
+cp -p template/.gitignore $NAME/data/
+cp -p template/.gitignore $NAME/domain/
+cp -p template/.gitignore $NAME/ui/
