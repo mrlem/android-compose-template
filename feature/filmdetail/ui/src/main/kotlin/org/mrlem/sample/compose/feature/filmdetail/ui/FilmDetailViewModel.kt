@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
@@ -19,10 +20,27 @@ class FilmDetailViewModel @Inject constructor(
 ) : ViewModel(),
     StateProvider<FilmDetailState> by StateDelegate(FilmDetailState()) {
 
-    private val filmId = "58611129-2dbc-4a81-a72f-77ddfc1b1b49"
+    private var getFilmJob: Job? = null
+    private var isFavoriteJob: Job? = null
 
-    init {
-        viewModelScope.launch {
+    // FIXME - no support for hilt view model assisted injection yet: see
+    //  https://github.com/google/dagger/issues/2287
+    var filmId: String? = null
+        set(value) {
+            field = value
+            cancelFilm()
+            value?.let { loadFilm(it) }
+        }
+
+    private fun cancelFilm() {
+        getFilmJob?.cancel()
+        getFilmJob = null
+        isFavoriteJob?.cancel()
+        isFavoriteJob = null
+    }
+
+    private fun loadFilm(filmId: String) {
+        getFilmJob = viewModelScope.launch {
             try {
                 val film = ghibliRepository.getFilm(filmId)
                 updateState { copy(
@@ -39,7 +57,7 @@ class FilmDetailViewModel @Inject constructor(
             }
         }
 
-        viewModelScope.launch {
+        isFavoriteJob = viewModelScope.launch {
             favoriteRepository.isFavorite(filmId)
                 .collect { isFavorite ->
                     val (drawable, text, color) = if (isFavorite) {
@@ -57,7 +75,7 @@ class FilmDetailViewModel @Inject constructor(
     }
 
     fun toggleFavorite() = viewModelScope.launch {
-        favoriteRepository.toggle(filmId)
+        filmId?.let { favoriteRepository.toggle(it) }
     }
 
 }

@@ -5,11 +5,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun FilmDetailScreen(
-    viewModel: FilmDetailViewModel = hiltViewModel(),
+    id: String,
     navigateToHome: () -> Unit,
 ) {
+    val viewModel: FilmDetailViewModel = hiltViewModel<FilmDetailViewModel>()
+        .apply { filmId = id }
+
     FilmDetailLayout(
         state = viewModel.state,
         onFavoriteClick = { viewModel.toggleFavorite() },
+        onBackClick = { navigateToHome() },
     )
 }

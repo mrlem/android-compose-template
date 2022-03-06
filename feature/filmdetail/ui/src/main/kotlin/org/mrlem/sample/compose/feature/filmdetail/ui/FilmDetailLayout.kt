@@ -22,6 +22,7 @@ import org.mrlem.sample.compose.design.theme.Typography
 fun FilmDetailLayout(
     state: FilmDetailState = FilmDetailState(),
     onFavoriteClick: () -> Unit = {},
+    onBackClick: () -> Unit = {},
 ) {
     val titleHeight = 160.dp
 
@@ -53,6 +54,17 @@ fun FilmDetailLayout(
                             .padding(32.dp)
                             .align(Alignment.BottomCenter),
                     )
+
+                    IconButton(
+                        onClick = { onBackClick() },
+                        modifier = Modifier
+                            .align(Alignment.TopStart),
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_back),
+                            contentDescription = stringResource(R.string.filmdetail_back),
+                        )
+                    }
                 }
             }
         },

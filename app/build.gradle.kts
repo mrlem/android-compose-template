@@ -49,6 +49,7 @@ room()
 dependencies {
     implementation(project(":design:theme"))
     // new features
+    implementation(project(":feature:filmslist:ui"))
     implementation(project(":feature:filmdetail:ui"))
     implementation(project(":feature:favorites:data"))
     implementation(project(":feature:ghibli:data"))

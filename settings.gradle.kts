@@ -17,6 +17,7 @@ include(
     ":design:demo",
     ":design:theme",
     // new features
+    ":feature:filmslist:ui",
     ":feature:filmdetail:ui",
     ":feature:favorites:data",
     ":feature:favorites:domain",
