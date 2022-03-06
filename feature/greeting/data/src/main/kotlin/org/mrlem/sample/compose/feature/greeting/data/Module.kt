@@ -23,7 +23,6 @@ class Module {
     interface Bindings {
 
         @Binds
-        @Singleton
         fun greetingRepository(impl: GreetingRepositoryImpl): GreetingRepository
 
     }

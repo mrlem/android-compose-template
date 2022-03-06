@@ -8,7 +8,9 @@ import org.mrlem.sample.compose.feature.greeting.data.dao.GreetingDao
 import org.mrlem.sample.compose.feature.greeting.domain.model.Greeting
 import org.mrlem.sample.compose.feature.greeting.domain.repository.GreetingRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class GreetingRepositoryImpl @Inject constructor(
     private val greetingDao: GreetingDao,
 ) : GreetingRepository {

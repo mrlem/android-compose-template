@@ -29,7 +29,6 @@ class Module {
     interface Bindings {
 
         @Binds
-        @Singleton
         fun ghibliRepository(impl: GhibliRepositoryImpl): GhibliRepository
 
     }
