@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
     implementation("androidx.core:core-ktx:${Versions.AndroidX.core}")
+    implementation("androidx.navigation:navigation-compose:${Versions.AndroidX.navigation}")
 
     testImplementation("junit:junit:${Versions.junit}")
 

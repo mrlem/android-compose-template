@@ -5,6 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailScreen
@@ -16,9 +19,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeSampleTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    FilmDetailScreen()
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screens.FilmDetail.route,
+                    ) {
+                        composable(route = Screens.FilmDetail.route) {
+                            FilmDetailScreen(
+                                navigateToHome = { navController.navigate(Screens.Films.route) },
+                            )
+                        }
+                        // TODO - list screen
+                    }
+
                 }
             }
         }

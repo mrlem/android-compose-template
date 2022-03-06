@@ -5,6 +5,7 @@ object Versions {
         const val activity = "1.4.0"
         const val appcompat = "1.4.1"
         const val core = "1.7.0"
+        const val navigation = "2.4.1"
         const val room = "2.4.2"
         const val lifecycle = "2.4.1"
 
