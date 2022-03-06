@@ -54,7 +54,6 @@ dependencies {
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
     implementation("androidx.core:core-ktx:${Versions.AndroidX.core}")
-    implementation("com.jakewharton.timber:timber:${Versions.timber}")
 
     testImplementation("junit:junit:${Versions.junit}")
 

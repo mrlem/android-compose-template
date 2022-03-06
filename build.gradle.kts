@@ -23,6 +23,10 @@ buildscript {
                         setCompileSdkVersion(Versions.Sdk.compile)
                     }
                 }
+
+                dependencies {
+                    add("implementation", "com.jakewharton.timber:timber:${Versions.timber}")
+                }
             }
         }
     }
