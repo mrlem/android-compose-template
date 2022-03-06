@@ -1,9 +1,13 @@
 #!/bin/sh
 
+# inputs
+# .. user
 NAME=$1
+# .. calculated
 MARKER="new features"
 PACKAGE=$( find ../app -name MainActivity.kt | xargs cat | grep package | sed "s/package //" )
 
+# preliminary checks
 if [ -z "$NAME" ]; then
   echo "usage $0 feature_name"
   exit 1
@@ -14,8 +18,8 @@ if [ -z "$PACKAGE" ]; then
   exit 1
 fi
 
+# create dirs
 PACKAGE_PATH=$( echo $PACKAGE | sed "s/\./\//g" )
-
 mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/dao
 mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/entity
 mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/repository
@@ -44,4 +48,3 @@ cat greeting/ui/build.gradle.kts | sed "s/greeting/$NAME/g" > $NAME/ui/build.gra
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.data\" />" > $NAME/data/src/main/AndroidManifest.xml
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.domain\" />" > $NAME/domain/src/main/AndroidManifest.xml
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest package=\"$PACKAGE.feature.$NAME.ui\" />" > $NAME/ui/src/main/AndroidManifest.xml
-
