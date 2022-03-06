@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
+import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
 import org.mrlem.sample.compose.feature.greeting.domain.GreetingManager
 import org.mrlem.sample.compose.feature.greeting.domain.repository.GreetingRepository
 import timber.log.Timber
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GreetingViewModel @Inject constructor(
+    private val ghibliRepository: GhibliRepository,
     private val greetingRepository: GreetingRepository,
     private val greetingManager: GreetingManager,
 ) : ViewModel(),
@@ -34,6 +36,15 @@ class GreetingViewModel @Inject constructor(
         Timber.d("adding value")
         viewModelScope.launch {
             greetingManager.greet()
+        }
+
+        viewModelScope.launch {
+            try {
+                val film = ghibliRepository.getFilm("58611129-2dbc-4a81-a72f-77ddfc1b1b49")
+                println("plop: film=$film")
+            } catch (e: Exception) {
+                println("plop: film retrieval failed: ${e.localizedMessage}")
+            }
         }
     }
 

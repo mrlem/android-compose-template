@@ -42,6 +42,7 @@ object Versions {
     const val hilt = "2.41"
     const val kotlin = "1.6.10"
     const val material = "1.5.0"
+    const val retrofit = "2.9.0"
     const val timber = "5.0.1"
 
 }

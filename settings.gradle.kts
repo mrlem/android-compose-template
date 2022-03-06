@@ -17,6 +17,8 @@ include(
     ":design:demo",
     ":design:theme",
     // new features
+    ":feature:ghibli:data",
+    ":feature:ghibli:domain",
     ":feature:greeting:data",
     ":feature:greeting:domain",
     ":feature:greeting:ui",

@@ -14,6 +14,7 @@ Behind the scenes:
 * dep injection: hilt
 * async: coroutines & flow 
 * database: room
+* rest apis: retrofit
 * build:
   - kts gradle scripts
   - buildSrc commons
@@ -26,7 +27,6 @@ A few ideas among others:
 
 * navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
 * provide a basic UI (scaffold)
-* provide a sample retrofit service in :feature:greeting:data
 
 ## About
 
