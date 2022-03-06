@@ -1,11 +1,14 @@
 package org.mrlem.sample.compose.feature.filmdetail.ui
 
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
+import org.mrlem.sample.compose.design.theme.Palette
+import org.mrlem.sample.compose.design.theme.Palette.RedHeart
 import org.mrlem.sample.compose.feature.favorites.domain.repository.FavoriteRepository
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
 import javax.inject.Inject
@@ -23,7 +26,13 @@ class FilmDetailViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val film = ghibliRepository.getFilm(filmId)
-                updateState { copy(title = film.title) }
+                updateState { copy(
+                    image = film.image,
+                    title = film.title,
+                    originalTitle = film.originalTitle,
+                    originalTitleRomanised = film.originalTitleRomanized,
+                    summary = film.description,
+                ) }
             } catch (e: Exception) {
                 println("film retrieval failed: ${e.localizedMessage}")
             }
@@ -32,14 +41,15 @@ class FilmDetailViewModel @Inject constructor(
         viewModelScope.launch {
             favoriteRepository.isFavorite(filmId)
                 .collect { isFavorite ->
-                    val (drawable, text) = if (isFavorite) {
-                        R.drawable.ic_favorite_on to R.string.filmdetail_favorite_remove
+                    val (drawable, text, color) = if (isFavorite) {
+                        Triple(R.drawable.ic_favorite_on, R.string.filmdetail_favorite_remove, RedHeart)
                     } else {
-                        R.drawable.ic_favorite_off to R.string.filmdetail_favorite_add
+                        Triple(R.drawable.ic_favorite_off, R.string.filmdetail_favorite_add, Color.LightGray)
                     }
                     updateState { copy(
                         favoriteDrawable = drawable,
                         favoriteText = text,
+                        favoriteColor = color,
                     ) }
                 }
         }

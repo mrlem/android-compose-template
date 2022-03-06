@@ -11,6 +11,7 @@ hilt()
 
 dependencies {
     implementation(project(":arch:ui"))
+    implementation(project(":design:theme"))
     implementation(project(":feature:favorites:domain"))
     implementation(project(":feature:ghibli:domain"))
 }

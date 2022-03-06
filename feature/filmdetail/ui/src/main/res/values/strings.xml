@@ -2,4 +2,5 @@
 <resources>
     <string name="filmdetail_favorite_add">Add favorite</string>
     <string name="filmdetail_favorite_remove">Remove favorite</string>
+    <string name="filmdetail_summary">Summary</string>
 </resources>

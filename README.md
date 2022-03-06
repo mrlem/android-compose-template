@@ -2,7 +2,7 @@
 
 A project template with the following objectives in mind:
 
-* encourage usage of modern UI tools
+* encourage usage of **modern UI** tools
 * make it easy to write new features
 * optimize for incremental build
 * minimize external deps
@@ -26,7 +26,7 @@ Behind the scenes:
 A few ideas among others:
 
 * navigation (see this [article](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d))
-* provide a basic UI (scaffold)
+* fetch images using coil
 
 ## About
 

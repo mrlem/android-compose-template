@@ -4,9 +4,8 @@ import androidx.compose.ui.graphics.Color
 
 object Palette {
 
-    val Purple200 = Color(0xFFBB86FC)
-    val Purple500 = Color(0xFF6200EE)
-    val Purple700 = Color(0xFF3700B3)
-    val Teal200 = Color(0xFF03DAC5)
+    val BlueDeeper = Color(0xFF204665)
+    val BlueDeep = Color(0xFF6086A5)
+    val RedHeart = Color(0xFFEE4400)
 
 }
