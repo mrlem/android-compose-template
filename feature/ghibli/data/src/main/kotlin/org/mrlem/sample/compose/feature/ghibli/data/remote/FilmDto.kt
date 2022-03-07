@@ -25,9 +25,11 @@ data class FilmDto(
         title = title,
         originalTitle = originalTitle,
         originalTitleRomanised = originalTitleRomanised,
-        image = movieBanner,
+        coverImage = image,
+        bannerImage = movieBanner,
         description = description,
         director = director,
         releaseDate = releaseDate,
     )
+
 }

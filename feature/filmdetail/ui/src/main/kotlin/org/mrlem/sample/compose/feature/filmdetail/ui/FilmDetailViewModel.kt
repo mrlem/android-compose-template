@@ -44,7 +44,7 @@ class FilmDetailViewModel @Inject constructor(
             try {
                 val film = ghibliRepository.getFilm(filmId)
                 updateState { copy(
-                    image = film.image,
+                    image = film.bannerImage,
                     title = film.title,
                     originalTitle = film.originalTitle,
                     originalTitleRomanised = film.originalTitleRomanised,
