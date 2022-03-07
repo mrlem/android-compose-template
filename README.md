@@ -17,6 +17,8 @@ The following [features](feature) are present as distinct modules:
 * ghibli: **web-service** access to [Studio Ghibli REST API](https://ghibliapi.herokuapp.com)
 * favorites: **local storage** access to store favorite films
 
+Aside from this, there is a feature creation [script](feature/create.sh). It creates data domain & ui gradle modules for a new feature.
+
 ## Technical stack
 
 * features x layer modularization
