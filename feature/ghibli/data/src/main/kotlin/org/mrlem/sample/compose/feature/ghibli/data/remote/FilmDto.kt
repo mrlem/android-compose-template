@@ -2,7 +2,6 @@ package org.mrlem.sample.compose.feature.ghibli.data.remote
 
 import com.squareup.moshi.Json
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
-import java.net.URL
 
 data class FilmDto(
     val id: String,
@@ -25,7 +24,7 @@ data class FilmDto(
         id = id,
         title = title,
         originalTitle = originalTitle,
-        originalTitleRomanized = originalTitleRomanised,
+        originalTitleRomanised = originalTitleRomanised,
         image = movieBanner,
         description = description,
         director = director,

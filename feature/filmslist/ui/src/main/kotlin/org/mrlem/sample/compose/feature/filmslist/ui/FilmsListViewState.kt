@@ -1,5 +1,7 @@
 package org.mrlem.sample.compose.feature.filmslist.ui
 
+import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
+
 data class FilmsListState(
-    val counter: Int = 0,
+    val films: List<Film> = emptyList(),
 )

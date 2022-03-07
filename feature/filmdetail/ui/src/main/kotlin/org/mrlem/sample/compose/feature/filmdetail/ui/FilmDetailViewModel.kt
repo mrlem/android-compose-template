@@ -47,7 +47,7 @@ class FilmDetailViewModel @Inject constructor(
                     image = film.image,
                     title = film.title,
                     originalTitle = film.originalTitle,
-                    originalTitleRomanised = film.originalTitleRomanized,
+                    originalTitleRomanised = film.originalTitleRomanised,
                     summary = film.description,
                     director = film.director,
                     releaseDate = film.releaseDate,

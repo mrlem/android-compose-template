@@ -26,7 +26,8 @@ Behind the scenes:
 
 A few ideas among others:
 
-* list screen to demonstrate navigation
+* simplify navigation using https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d
+* add chucker network traffic monitor
 * track deps versions updates
 
 ## About
