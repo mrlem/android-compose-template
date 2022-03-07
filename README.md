@@ -8,7 +8,7 @@ A project template with the following objectives in mind:
 * minimize external deps
 * encourage creation of a design system
 
-Behind the scenes:
+## Technical stack
 
 * user interface: compose
 * dep injection: hilt
@@ -16,9 +16,7 @@ Behind the scenes:
 * database: room
 * rest apis: retrofit
 * coil for image loading
-* build:
-  - kts gradle scripts
-  - buildSrc commons
+* build: kts gradle scripts + buildSrc to simplify
 * features x layer modularization
 * design: a demo app to showcase / discuss / help team member onboarding
 
