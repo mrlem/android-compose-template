@@ -43,22 +43,10 @@ fun FilmsListLayout(
 
         LazyColumn {
             items(state.films) { film ->
-                Column(
-                    modifier = Modifier
-                        .clickable { onClick(film.id) }
-                        .padding(16.dp)
-                        .fillMaxWidth(),
-                ) {
-                    Text(
-                        text = film.title,
-                        style = Typography.body2,
-                    )
-                    Text(
-                        text = film.originalTitle,
-                        color = Color.LightGray,
-                        style = Typography.caption,
-                    )
-                }
+                FilmsListItem(
+                    film = film,
+                    onClick = onClick,
+                )
             }
         }
 
