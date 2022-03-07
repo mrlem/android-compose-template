@@ -1,6 +1,7 @@
 package org.mrlem.sample.compose.di
 
 import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,12 +26,16 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun okHttpClient(cache: Cache): OkHttpClient =
+    fun okHttpClient(
+        @ApplicationContext context: Context,
+        cache: Cache,
+    ): OkHttpClient =
         OkHttpClient().newBuilder()
             .connectTimeout(CONNECTION_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .cache(cache)
+            .addInterceptor(ChuckerInterceptor.Builder(context).build())
             .build()
 
     @Provides

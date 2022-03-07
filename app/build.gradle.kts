@@ -58,9 +58,11 @@ dependencies {
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")
     implementation("androidx.core:core-ktx:${Versions.AndroidX.core}")
     implementation("androidx.navigation:navigation-compose:${Versions.AndroidX.navigation}")
+    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.AndroidX.Test.espresso}")
+    androidTestImplementation("androidx.test.ext:junit:${Versions.AndroidX.Test.junit}")
 
     testImplementation("junit:junit:${Versions.junit}")
 
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.AndroidX.Test.espresso}")
-    androidTestImplementation("androidx.test.ext:junit:${Versions.AndroidX.Test.junit}")
+    debugImplementation("com.github.chuckerteam.chucker:library:${Versions.chucker}")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}")
 }
