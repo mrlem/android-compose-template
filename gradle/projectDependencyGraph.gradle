@@ -59,6 +59,9 @@ task projectDependencyGraph {
             if (config.name.toLowerCase().endsWith('implementation')) {
               traits.add('style=dotted')
             }
+            if (dependency.path.startsWith(":arch:") || dependency.path.startsWith(":design:")) {
+              traits.add('color="#cccccc"')
+            }
           }
         }
       }
@@ -74,8 +77,10 @@ task projectDependencyGraph {
         traits.add('shape=box')
       }
 
-      if (project.path.startsWith(":arch:")) {
+      if (project.path.startsWith(":arch:") || project.path.startsWith(":design:")) {
         traits.add('fillcolor="#ffffff"')
+        traits.add('color="#cccccc"')
+        traits.add('fontcolor="#cccccc"')
       } else if (multiplatformProjects.contains(project)) {
         traits.add('fillcolor="#ffd2b3"')
       } else if (jsProjects.contains(project)) {
