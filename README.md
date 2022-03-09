@@ -37,7 +37,7 @@ Aside from this, there is a feature creation [script](feature/create.sh). It cre
 A few ideas among others:
 
 * simplify navigation using [compose destinations](https://proandroiddev.com/compose-destinations-simpler-and-safer-navigation-in-compose-with-no-compromises-74a59c6b727d)
-* track deps versions updates
+* UI feature template for Android Studio
 
 ## About
 
