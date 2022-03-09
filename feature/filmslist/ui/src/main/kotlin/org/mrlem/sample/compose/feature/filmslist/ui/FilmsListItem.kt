@@ -2,6 +2,7 @@ package org.mrlem.sample.compose.feature.filmslist.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,6 +53,7 @@ fun FilmsListItem(
             )
         }
     }
+    Divider(color = Color.LightGray)
 }
 
 @Preview(showBackground = true)
