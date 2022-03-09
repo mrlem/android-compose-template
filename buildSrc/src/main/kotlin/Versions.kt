@@ -47,5 +47,6 @@ object Versions {
     const val material = "1.5.0"
     const val retrofit = "2.9.0"
     const val timber = "5.0.1"
+    const val versions = "0.42.0"
 
 }
