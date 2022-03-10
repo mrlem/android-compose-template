@@ -22,15 +22,16 @@ Aside from this, there is a feature creation [script](feature/create.sh). It cre
 ## Technical stack
 
 * features x layer modularization
+* build: **kts** gradle scripts + buildSrc to simplify
 * dep injection: **hilt**
 * user interface: **compose**
 * async: **coroutines** & **flow** 
 * database: **room**
 * rest apis: **retrofit**
 * image loading: **coil**
-* build: **kts** gradle scripts + buildSrc to simplify
-* design: a design demo app to showcase / discuss / help team member onboarding about the design system
 * debugging: **chucker** on-device network traffic logger
+* nav animation: **google accompanist**
+* design: a design demo app to showcase / discuss / help team member onboarding about the design system
 
 ## Future
 

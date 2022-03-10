@@ -1,5 +1,11 @@
 object Versions {
 
+    object Accompanist {
+
+        const val navigationAnimation = "0.24.3-alpha"
+
+    }
+
     object AndroidX {
 
         const val activity = "1.4.0"
