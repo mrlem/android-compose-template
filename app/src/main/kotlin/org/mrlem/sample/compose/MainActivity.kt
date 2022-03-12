@@ -3,17 +3,19 @@ package org.mrlem.sample.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedContentScope.SlideDirection
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.mrlem.sample.compose.arch.ui.composable
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailDestination
 import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailScreen
+import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListDestination
 import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListScreen
 
 @AndroidEntryPoint
@@ -32,22 +34,21 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberAnimatedNavController()
                     AnimatedNavHost(
                         navController = navController,
-                        startDestination = Screens.Films.route,
+                        startDestination = FilmsListDestination.route,
                     ) {
                         composable(
-                            route = Screens.Films.route,
+                            destination = FilmsListDestination,
                         ) {
                             FilmsListScreen(
-                                navigateToFilm = { id -> navController.navigate(Screens.FilmDetail.with(id)) },
+                                navigateToFilm = { id -> navController.navigate(FilmDetailDestination.route(id)) },
                             )
                         }
                         composable(
-                            route = Screens.FilmDetail.route,
-                            arguments = Screens.FilmDetail.args,
-                            enterTransition = { slideIntoContainer(AnimatedContentScope.SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
-                            exitTransition = { slideOutOfContainer(AnimatedContentScope.SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
-                            popEnterTransition = { slideIntoContainer(AnimatedContentScope.SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
-                            popExitTransition = { slideOutOfContainer(AnimatedContentScope.SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
+                            destination = FilmDetailDestination,
+                            enterTransition = { slideIntoContainer(SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
+                            exitTransition = { slideOutOfContainer(SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
+                            popEnterTransition = { slideIntoContainer(SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
+                            popExitTransition = { slideOutOfContainer(SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
                         ) {
                             FilmDetailScreen(
                                 navigateToHome = { navController.navigateUp() },

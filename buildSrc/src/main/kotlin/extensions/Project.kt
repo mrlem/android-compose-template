@@ -68,6 +68,7 @@ fun Project.hilt() {
     dependencies {
         add("implementation", "com.google.dagger:hilt-android:${Versions.hilt}")
         add("kapt", "com.google.dagger:hilt-android-compiler:${Versions.hilt}")
+        // FIXME - not for all, only if compose
         add("implementation", "androidx.hilt:hilt-navigation-compose:1.0.0")
     }
 }

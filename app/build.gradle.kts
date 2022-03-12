@@ -48,6 +48,7 @@ room()
 
 dependencies {
     implementation(project(":design:theme"))
+    implementation(project(":arch:ui"))
     // new features
     implementation(project(":feature:filmslist:ui"))
     implementation(project(":feature:filmdetail:ui"))
