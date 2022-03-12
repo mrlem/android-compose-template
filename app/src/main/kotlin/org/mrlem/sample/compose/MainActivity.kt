@@ -16,6 +16,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailScreen
+import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailViewModel
 import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListScreen
 
 @AndroidEntryPoint
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = Screens.FilmDetail.route,
                             arguments = listOf(
-                                navArgument("id") {
+                                navArgument(FilmDetailViewModel.STATE_ID) {
                                     type = NavType.StringType
                                     nullable = false
                                 }
@@ -57,7 +58,6 @@ class MainActivity : ComponentActivity() {
                             popExitTransition = { slideOutOfContainer(AnimatedContentScope.SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
                         ) {
                             FilmDetailScreen(
-                                id = it.arguments?.getString("id").orEmpty(),
                                 navigateToHome = { navController.navigateUp() },
                             )
                         }

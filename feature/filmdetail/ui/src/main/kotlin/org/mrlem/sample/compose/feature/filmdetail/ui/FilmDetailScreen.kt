@@ -5,11 +5,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun FilmDetailScreen(
-    id: String,
     navigateToHome: () -> Unit,
 ) {
-    val viewModel: FilmDetailViewModel = hiltViewModel<FilmDetailViewModel>()
-        .apply { filmId = id }
+    val viewModel: FilmDetailViewModel = hiltViewModel()
 
     FilmDetailLayout(
         state = viewModel.state,

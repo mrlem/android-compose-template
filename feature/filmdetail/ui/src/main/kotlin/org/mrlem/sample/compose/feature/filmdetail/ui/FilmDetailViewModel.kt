@@ -1,10 +1,10 @@
 package org.mrlem.sample.compose.feature.filmdetail.ui
 
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
@@ -17,33 +17,22 @@ import javax.inject.Inject
 class FilmDetailViewModel @Inject constructor(
     private val ghibliRepository: GhibliRepository,
     private val favoriteRepository: FavoriteRepository,
+    savedStateHandle: SavedStateHandle,
 ) : ViewModel(),
     StateProvider<FilmDetailState> by StateDelegate(FilmDetailState()) {
 
-    private var getFilmJob: Job? = null
-    private var isFavoriteJob: Job? = null
+    companion object {
+        const val STATE_ID = "id"
+    }
 
-    // FIXME - no support for hilt view model assisted injection yet: see
-    //  https://github.com/google/dagger/issues/2287
-    var filmId: String? = null
-        set(value) {
-            if (field == value) return
+    private val filmId: String = savedStateHandle.get<String>(STATE_ID)!!
 
-            // load new film
-            cancelFilm()
-            field = value
-                ?.also { loadFilm(it) }
-        }
-
-    private fun cancelFilm() {
-        getFilmJob?.cancel()
-        getFilmJob = null
-        isFavoriteJob?.cancel()
-        isFavoriteJob = null
+    init {
+        loadFilm(filmId)
     }
 
     private fun loadFilm(filmId: String) {
-        getFilmJob = viewModelScope.launch {
+        viewModelScope.launch {
             try {
                 val film = ghibliRepository.getFilm(filmId)
                 updateState { copy(
@@ -60,7 +49,7 @@ class FilmDetailViewModel @Inject constructor(
             }
         }
 
-        isFavoriteJob = viewModelScope.launch {
+        viewModelScope.launch {
             favoriteRepository.isFavorite(filmId)
                 .collect { isFavorite ->
                     val (drawable, text, color) = if (isFavorite) {
@@ -78,7 +67,7 @@ class FilmDetailViewModel @Inject constructor(
     }
 
     fun toggleFavorite() = viewModelScope.launch {
-        filmId?.let { favoriteRepository.toggle(it) }
+        favoriteRepository.toggle(filmId)
     }
 
 }
