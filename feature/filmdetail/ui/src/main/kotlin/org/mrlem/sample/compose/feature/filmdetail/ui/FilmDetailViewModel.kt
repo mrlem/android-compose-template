@@ -27,9 +27,12 @@ class FilmDetailViewModel @Inject constructor(
     //  https://github.com/google/dagger/issues/2287
     var filmId: String? = null
         set(value) {
-            field = value
+            if (field == value) return
+
+            // load new film
             cancelFilm()
-            value?.let { loadFilm(it) }
+            field = value
+                ?.also { loadFilm(it) }
         }
 
     private fun cancelFilm() {
