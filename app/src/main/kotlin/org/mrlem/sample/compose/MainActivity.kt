@@ -8,15 +8,12 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.navigation.NavType
-import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailScreen
-import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailViewModel
 import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListScreen
 
 @AndroidEntryPoint
@@ -41,17 +38,12 @@ class MainActivity : ComponentActivity() {
                             route = Screens.Films.route,
                         ) {
                             FilmsListScreen(
-                                navigateToFilm = { id -> navController.navigate("film/$id") },
+                                navigateToFilm = { id -> navController.navigate(Screens.FilmDetail.with(id)) },
                             )
                         }
                         composable(
                             route = Screens.FilmDetail.route,
-                            arguments = listOf(
-                                navArgument(FilmDetailViewModel.STATE_ID) {
-                                    type = NavType.StringType
-                                    nullable = false
-                                }
-                            ),
+                            arguments = Screens.FilmDetail.args,
                             enterTransition = { slideIntoContainer(AnimatedContentScope.SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
                             exitTransition = { slideOutOfContainer(AnimatedContentScope.SlideDirection.Left, animationSpec = tween(TRANSITION_DURATION)) },
                             popEnterTransition = { slideIntoContainer(AnimatedContentScope.SlideDirection.Right, animationSpec = tween(TRANSITION_DURATION)) },
