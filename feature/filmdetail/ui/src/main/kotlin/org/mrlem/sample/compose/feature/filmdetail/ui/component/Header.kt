@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.feature.filmdetail.ui
+package org.mrlem.sample.compose.feature.filmdetail.ui.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,9 +15,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import org.mrlem.sample.compose.design.theme.Typography
+import org.mrlem.sample.compose.feature.filmdetail.ui.R
 
 @Composable
-fun FilmDetailHeader(
+internal fun Header(
     title: String,
     image: String?,
     onBackClick: () -> Unit = {},

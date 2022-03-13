@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.feature.filmslist.ui
+package org.mrlem.sample.compose.feature.filmslist.ui.component
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,10 +13,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListState
+import org.mrlem.sample.compose.feature.filmslist.ui.R
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
 @Composable
-fun FilmsListLayout(
+internal fun Layout(
     state: FilmsListState = FilmsListState(),
     onClick: (String) -> Unit = {},
 ) {
@@ -38,7 +40,7 @@ fun FilmsListLayout(
 
         LazyColumn {
             items(state.films) { film ->
-                FilmsListItem(
+                Item(
                     film = film,
                     onClick = onClick,
                 )
@@ -52,7 +54,7 @@ fun FilmsListLayout(
 @Composable
 private fun DefaultPreview() {
     ComposeSampleTheme {
-        FilmsListLayout(
+        Layout(
             state = FilmsListState(listOf(
                 Film(
                     id = "123",

@@ -83,8 +83,5 @@ private fun Project.androidLibrary(configure: Action<LibraryExtension>): Unit =
 private fun Project.androidApplication(configure: Action<ApplicationExtension>): Unit =
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("android", configure)
 
-private val Project.kapt: KaptExtension get() =
-    (this as org.gradle.api.plugins.ExtensionAware).extensions.getByName("kapt") as KaptExtension
-
 private fun Project.kapt(configure: Action<KaptExtension>): Unit =
     (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kapt", configure)

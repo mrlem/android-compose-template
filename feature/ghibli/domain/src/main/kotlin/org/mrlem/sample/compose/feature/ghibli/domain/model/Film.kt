@@ -10,4 +10,5 @@ data class Film(
     val description: String,
     val director: String,
     val releaseDate: String,
+    val isFavorite: Boolean = false,
 )

@@ -4,23 +4,34 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import org.mrlem.sample.compose.arch.domain.Loadable
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class FilmsListViewModel @Inject constructor(
-    ghibliRepository: GhibliRepository,
+internal class FilmsListViewModel @Inject constructor(
+    repository: GhibliRepository,
 ) : ViewModel(),
     StateProvider<FilmsListState> by StateDelegate(FilmsListState()) {
 
     init {
         viewModelScope.launch {
-            val films = ghibliRepository.listFilms()
-            updateState { copy(
-                films = films,
-            ) }
+            repository.listFilms()
+                .collect { filmsLoadable ->
+                    when (filmsLoadable) {
+                        is Loadable.Loading -> {
+                            Timber.i("films: loading")
+                        }
+                        is Loadable.Success -> {
+                            val films = filmsLoadable.data
+                            Timber.i("films: ${films.size}")
+                            updateState { copy(films = films) }
+                        }
+                    }
+                }
         }
     }
 

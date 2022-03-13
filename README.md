@@ -3,10 +3,12 @@
 A project template with the following objectives in mind:
 
 * encourage usage of **modern UI** tools
+* encourage creation of a design system
+* use a single source of truth
 * make it easy to write new features
 * optimize for incremental build
 * minimize external deps
-* encourage creation of a design system
+
 
 ## Sample features
 
@@ -14,8 +16,7 @@ The following [features](feature) are present as distinct modules:
 
 * filmslist: **UI** listing all films
 * filmdetail: **UI** showing the details of a film
-* ghibli: **web-service** access to [Studio Ghibli REST API](https://ghibliapi.herokuapp.com)
-* favorites: **local storage** access to store favorite films
+* ghibli: **web-service** access to [Studio Ghibli REST API](https://ghibliapi.herokuapp.com) & **local storage** for cache
 
 Aside from this, there is a feature creation [script](feature/create.sh). It creates data domain & ui gradle modules for a new feature.
 

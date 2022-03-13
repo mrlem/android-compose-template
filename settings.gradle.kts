@@ -19,8 +19,6 @@ include(
     // new features
     ":feature:filmslist:ui",
     ":feature:filmdetail:ui",
-    ":feature:favorites:data",
-    ":feature:favorites:domain",
     ":feature:ghibli:data",
     ":feature:ghibli:domain",
 )
