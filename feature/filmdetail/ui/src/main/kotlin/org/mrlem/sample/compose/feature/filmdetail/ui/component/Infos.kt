@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.feature.filmdetail.ui
+package org.mrlem.sample.compose.feature.filmdetail.ui.component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -11,9 +11,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.mrlem.sample.compose.design.theme.Typography
+import org.mrlem.sample.compose.feature.filmdetail.ui.R
 
 @Composable
-fun FilmDetailContent(
+internal fun Infos(
     originalTitle: String,
     originalTitleRomanised: String,
     summary: String,

@@ -52,7 +52,6 @@ dependencies {
     // new features
     implementation(project(":feature:filmslist:ui"))
     implementation(project(":feature:filmdetail:ui"))
-    implementation(project(":feature:favorites:data"))
     implementation(project(":feature:ghibli:data"))
 
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")

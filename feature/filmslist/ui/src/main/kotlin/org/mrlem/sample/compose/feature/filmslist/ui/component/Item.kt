@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.feature.filmslist.ui
+package org.mrlem.sample.compose.feature.filmslist.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import org.mrlem.sample.compose.design.theme.Typography
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
 @Composable
-fun FilmsListItem(
+internal fun Item(
     film: Film,
     onClick: (String) -> Unit = {},
 ) {
@@ -60,7 +60,7 @@ fun FilmsListItem(
 @Composable
 private fun DefaultPreview() {
     ComposeSampleTheme {
-        FilmsListItem(
+        Item(
             Film(
                 id = "123",
                 title = "Le Voyage de Chihiro",

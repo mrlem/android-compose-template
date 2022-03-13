@@ -1,19 +1,18 @@
-package org.mrlem.sample.compose.feature.filmdetail.ui
+package org.mrlem.sample.compose.feature.filmdetail.ui.component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailState
 
 @Composable
-fun FilmDetailLayout(
-    state: FilmDetailState = FilmDetailState(),
+internal fun Layout(
+    state: FilmDetailState,
     onFavoriteClick: () -> Unit = {},
     onBackClick: () -> Unit = {},
 ) {
@@ -28,7 +27,7 @@ fun FilmDetailLayout(
                 modifier = Modifier
                     .height(titleHeight),
             ) {
-                FilmDetailHeader(
+                Header(
                     title = state.title,
                     image = state.image,
                     onBackClick = onBackClick,
@@ -36,7 +35,7 @@ fun FilmDetailLayout(
             }
         },
     ) {
-        FilmDetailContent(
+        Infos(
             originalTitle = state.originalTitle,
             originalTitleRomanised = state.originalTitleRomanised,
             summary = state.summary,
@@ -50,18 +49,13 @@ fun FilmDetailLayout(
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
     ) {
-        FloatingActionButton(
-            onClick = { onFavoriteClick() },
+        Favorite(
+            state = state.favoriteState,
+            onFavoriteClick = onFavoriteClick,
             modifier = Modifier
                 .align(Alignment.CenterEnd)
                 .offset(y = titleHeight - 32.dp),
-        ) {
-            Icon(
-                painter = painterResource(state.favoriteDrawable),
-                tint = state.favoriteColor,
-                contentDescription = stringResource(state.favoriteText),
-            )
-        }
+        )
     }
 }
 
@@ -69,7 +63,7 @@ fun FilmDetailLayout(
 @Composable
 private fun DefaultPreview() {
     ComposeSampleTheme {
-        FilmDetailLayout(
+        Layout(
             state = FilmDetailState(
                 title = "Le Voyage de Chihiro",
                 originalTitle = "千と千尋の神隠し",

@@ -1,23 +1,22 @@
-package org.mrlem.sample.compose.feature.ghibli.data.remote
+package org.mrlem.sample.compose.feature.ghibli.data.local
 
-import com.squareup.moshi.Json
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
-data class FilmDto(
+@Entity(tableName = "film")
+data class FilmEntity(
+    @PrimaryKey
     val id: String,
     val title: String,
-    @field:Json(name="original_title")
     var originalTitle: String,
-    @field:Json(name="original_title_romanised")
     val originalTitleRomanised: String,
     val image: String,
-    @field:Json(name="movie_banner")
     val movieBanner: String,
     val description: String,
     val director: String,
-    val producer: String,
-    @field:Json(name="release_date")
     val releaseDate: String,
+    val isFavorite: Boolean,
 ) {
 
     fun toModel() = Film(
@@ -30,7 +29,20 @@ data class FilmDto(
         description = description,
         director = director,
         releaseDate = releaseDate,
-        isFavorite = false,
+        isFavorite = isFavorite,
     )
 
 }
+
+fun Film.toEntity(): FilmEntity = FilmEntity(
+    id = id,
+    title = title,
+    originalTitle = originalTitle,
+    originalTitleRomanised = originalTitleRomanised,
+    image = coverImage,
+    movieBanner = bannerImage,
+    description = description,
+    director = director,
+    releaseDate = releaseDate,
+    isFavorite = isFavorite,
+)

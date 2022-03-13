@@ -6,17 +6,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import org.mrlem.sample.compose.arch.domain.Loadable
 import org.mrlem.sample.compose.arch.ui.StateDelegate
 import org.mrlem.sample.compose.arch.ui.StateProvider
 import org.mrlem.sample.compose.design.theme.Palette.RedHeart
-import org.mrlem.sample.compose.feature.favorites.domain.repository.FavoriteRepository
+import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class FilmDetailViewModel @Inject constructor(
-    private val ghibliRepository: GhibliRepository,
-    private val favoriteRepository: FavoriteRepository,
+internal class FilmDetailViewModel @Inject constructor(
+    private val repository: GhibliRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel(),
     StateProvider<FilmDetailState> by StateDelegate(FilmDetailState()) {
@@ -26,6 +26,7 @@ class FilmDetailViewModel @Inject constructor(
     }
 
     private val filmId: String = savedStateHandle.get<String>(STATE_ID)!!
+    private var isFavorite = false
 
     init {
         loadFilm(filmId)
@@ -34,40 +35,56 @@ class FilmDetailViewModel @Inject constructor(
     private fun loadFilm(filmId: String) {
         viewModelScope.launch {
             try {
-                val film = ghibliRepository.getFilm(filmId)
-                updateState { copy(
-                    image = film.bannerImage,
-                    title = film.title,
-                    originalTitle = film.originalTitle,
-                    originalTitleRomanised = film.originalTitleRomanised,
-                    summary = film.description,
-                    director = film.director,
-                    releaseDate = film.releaseDate,
-                ) }
+                repository.getFilm(filmId)
+                    .collect { filmLoadable ->
+                        when (filmLoadable) {
+                            is Loadable.Loading ->
+                                Unit // TODO
+                            is Loadable.Success -> {
+                                val film = filmLoadable.data
+                                updateState { film.toFilmDetailState() }
+                                isFavorite = film.isFavorite
+                            }
+                    }
+
+                }
+
             } catch (e: Exception) {
                 println("film retrieval failed: ${e.localizedMessage}")
             }
         }
-
-        viewModelScope.launch {
-            favoriteRepository.isFavorite(filmId)
-                .collect { isFavorite ->
-                    val (drawable, text, color) = if (isFavorite) {
-                        Triple(R.drawable.ic_favorite_on, R.string.filmdetail_favorite_remove, RedHeart)
-                    } else {
-                        Triple(R.drawable.ic_favorite_off, R.string.filmdetail_favorite_add, Color.LightGray)
-                    }
-                    updateState { copy(
-                        favoriteDrawable = drawable,
-                        favoriteText = text,
-                        favoriteColor = color,
-                    ) }
-                }
-        }
     }
 
     fun toggleFavorite() = viewModelScope.launch {
-        favoriteRepository.toggle(filmId)
+        if (isFavorite) {
+            repository.unfavorite(filmId)
+        } else {
+            repository.favorite(filmId)
+        }
+    }
+
+    private fun Film.toFilmDetailState() = FilmDetailState(
+        image = bannerImage,
+        title = title,
+        originalTitle = originalTitle,
+        originalTitleRomanised = originalTitleRomanised,
+        summary = description,
+        director = director,
+        releaseDate = releaseDate,
+        favoriteState = isFavorite.toFavoriteState(),
+    )
+
+    private fun Boolean.toFavoriteState(): FavoriteState {
+        val (drawable, text, color) = if (this) {
+            Triple(R.drawable.ic_favorite_on, R.string.filmdetail_favorite_remove, RedHeart)
+        } else {
+            Triple(R.drawable.ic_favorite_off, R.string.filmdetail_favorite_add, Color.LightGray)
+        }
+        return FavoriteState(
+            drawable = drawable,
+            text = text,
+            color = color,
+        )
     }
 
 }

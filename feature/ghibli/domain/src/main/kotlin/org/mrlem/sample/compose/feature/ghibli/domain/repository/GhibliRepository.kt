@@ -1,10 +1,18 @@
 package org.mrlem.sample.compose.feature.ghibli.domain.repository
 
+import kotlinx.coroutines.flow.Flow
+import org.mrlem.sample.compose.arch.domain.Loadable
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
 interface GhibliRepository {
 
-    suspend fun getFilm(id: String): Film
-    suspend fun listFilms(): List<Film>
+    // data
+    fun getFilm(id: String): Flow<Loadable<Film>>
+    fun listFilms(): Flow<Loadable<List<Film>>>
+
+    // actions
+    suspend fun refresh()
+    suspend fun favorite(id: String)
+    suspend fun unfavorite(id: String)
 
 }
