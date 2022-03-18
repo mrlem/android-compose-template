@@ -9,6 +9,7 @@ A project template with the following objectives in mind:
 * optimize for incremental build
 * minimize external deps
 
+Plop
 
 ## Sample features
 
