@@ -12,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListState
 import org.mrlem.sample.compose.feature.filmslist.ui.R
@@ -21,6 +23,7 @@ import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 internal fun Layout(
     state: FilmsListState = FilmsListState(),
     onClick: (String) -> Unit = {},
+    onRefresh: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -38,12 +41,19 @@ internal fun Layout(
         }
     ) {
 
-        LazyColumn {
-            items(state.films) { film ->
-                Item(
-                    film = film,
-                    onClick = onClick,
-                )
+        SwipeRefresh(
+            state = rememberSwipeRefreshState(
+                isRefreshing = state.isRefreshing,
+            ),
+            onRefresh = onRefresh,
+        ) {
+            LazyColumn {
+                items(state.films) { film ->
+                    Item(
+                        film = film,
+                        onClick = onClick,
+                    )
+                }
             }
         }
 

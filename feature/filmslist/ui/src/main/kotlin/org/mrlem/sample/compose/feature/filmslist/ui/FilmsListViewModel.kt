@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class FilmsListViewModel @Inject constructor(
-    repository: GhibliRepository,
+    private val repository: GhibliRepository,
 ) : ViewModel(),
     StateProvider<FilmsListState> by StateDelegate(FilmsListState()) {
 
@@ -32,6 +32,14 @@ internal class FilmsListViewModel @Inject constructor(
                         }
                     }
                 }
+        }
+    }
+
+    fun refresh() {
+        updateState { copy(isRefreshing = true) }
+        viewModelScope.launch {
+            repository.refresh()
+            updateState { copy(isRefreshing = false) }
         }
     }
 

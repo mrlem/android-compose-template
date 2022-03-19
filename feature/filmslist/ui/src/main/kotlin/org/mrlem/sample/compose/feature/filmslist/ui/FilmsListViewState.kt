@@ -4,4 +4,5 @@ import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
 internal data class FilmsListState(
     val films: List<Film> = emptyList(),
+    val isRefreshing: Boolean = false,
 )

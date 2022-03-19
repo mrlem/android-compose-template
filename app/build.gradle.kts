@@ -66,5 +66,5 @@ dependencies {
     debugImplementation("com.github.chuckerteam.chucker:library:${Versions.chucker}")
     releaseImplementation("com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}")
 
-    implementation("com.google.accompanist:accompanist-navigation-animation:${Versions.Accompanist.navigationAnimation}")
+    implementation("com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}")
 }

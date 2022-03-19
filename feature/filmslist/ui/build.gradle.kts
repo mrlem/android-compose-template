@@ -14,6 +14,8 @@ dependencies {
     implementation(project(":design:theme"))
     implementation(project(":feature:ghibli:domain"))
 
+    implementation("com.google.accompanist:accompanist-swiperefresh:${Versions.accompanist}")
+
     implementation("io.coil-kt:coil:${Versions.coil}")
     implementation("io.coil-kt:coil-compose:${Versions.coil}")
 }

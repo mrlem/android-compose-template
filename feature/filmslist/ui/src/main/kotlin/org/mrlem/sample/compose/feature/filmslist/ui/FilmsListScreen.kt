@@ -13,5 +13,6 @@ fun FilmsListScreen(
     Layout(
         state = viewModel.state,
         onClick = { id -> navigateToFilm(id) },
+        onRefresh = { viewModel.refresh() },
     )
 }
