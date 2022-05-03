@@ -5,9 +5,9 @@ object Versions {
         const val activity = "1.4.0"
         const val appcompat = "1.4.1"
         const val core = "1.7.0"
-        const val navigation = "2.4.1"
-        const val room = "2.4.2"
         const val lifecycle = "2.4.1"
+        const val navigation = "2.4.2"
+        const val room = "2.4.2"
 
         object Test {
 
@@ -26,7 +26,7 @@ object Versions {
 
     object Kotlinx {
 
-        const val coroutines = "1.6.0"
+        const val coroutines = "1.6.1"
 
     }
 
@@ -38,9 +38,9 @@ object Versions {
 
     }
 
-    const val accompanist = "0.24.4-alpha"
+    const val accompanist = "0.24.7-alpha"
     const val chucker = "3.5.2"
-    const val coil = "2.0.0-rc01"
+    const val coil = "2.0.0-rc03"
     const val compose = "1.1.1"
     const val junit = "4.13.2"
     const val hilt = "2.41"
