@@ -20,8 +20,10 @@ fi
 
 # create dirs
 PACKAGE_PATH=$( echo $PACKAGE | sed "s/\./\//g" )
-mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/dao
-mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/entity
+mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/local/dao
+mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/local/entity
+mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/remote/api
+mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/remote/dto
 mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/repository
 mkdir -p $NAME/domain/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/domain/model
 mkdir -p $NAME/domain/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/domain/repository
