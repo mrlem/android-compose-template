@@ -27,7 +27,7 @@ mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/remote/dto
 mkdir -p $NAME/data/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/data/repository
 mkdir -p $NAME/domain/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/domain/model
 mkdir -p $NAME/domain/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/domain/repository
-mkdir -p $NAME/ui/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/ui
+mkdir -p $NAME/ui/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/ui/src/main/kotlin/$PACKAGE_PATH/feature/$NAME/ui
 
 # add modules in settings gradle file
 MODULES="\n    \":feature:$NAME:data\",\n    \":feature:$NAME:domain\",\n    \":feature:$NAME:ui\","
