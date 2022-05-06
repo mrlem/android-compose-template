@@ -15,13 +15,13 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
-import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListState
+import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListViewState
 import org.mrlem.sample.compose.feature.filmslist.ui.R
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 
 @Composable
 internal fun Layout(
-    state: FilmsListState = FilmsListState(),
+    state: FilmsListViewState = FilmsListViewState(),
     onClick: (String) -> Unit = {},
     onRefresh: () -> Unit = {},
 ) {
@@ -65,7 +65,7 @@ internal fun Layout(
 private fun DefaultPreview() {
     ComposeSampleTheme {
         Layout(
-            state = FilmsListState(listOf(
+            state = FilmsListViewState(listOf(
                 Film(
                     id = "123",
                     title = "Le Voyage de Chihiro",

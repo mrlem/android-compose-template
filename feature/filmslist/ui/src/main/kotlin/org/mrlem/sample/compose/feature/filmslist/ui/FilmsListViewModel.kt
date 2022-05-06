@@ -15,7 +15,7 @@ import javax.inject.Inject
 internal class FilmsListViewModel @Inject constructor(
     private val repository: GhibliRepository,
 ) : ViewModel(),
-    StateProvider<FilmsListState> by StateDelegate(FilmsListState()) {
+    StateProvider<FilmsListViewState> by StateDelegate(FilmsListViewState()) {
 
     init {
         viewModelScope.launch {

@@ -19,7 +19,7 @@ internal class FilmDetailViewModel @Inject constructor(
     private val repository: GhibliRepository,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel(),
-    StateProvider<FilmDetailState> by StateDelegate(FilmDetailState()) {
+    StateProvider<FilmDetailViewState> by StateDelegate(FilmDetailViewState()) {
 
     companion object {
         const val STATE_ID = "id"
@@ -63,7 +63,7 @@ internal class FilmDetailViewModel @Inject constructor(
         }
     }
 
-    private fun Film.toFilmDetailState() = FilmDetailState(
+    private fun Film.toFilmDetailState() = FilmDetailViewState(
         image = bannerImage,
         title = title,
         originalTitle = originalTitle,
@@ -74,13 +74,13 @@ internal class FilmDetailViewModel @Inject constructor(
         favoriteState = isFavorite.toFavoriteState(),
     )
 
-    private fun Boolean.toFavoriteState(): FavoriteState {
+    private fun Boolean.toFavoriteState(): FavoriteViewState {
         val (drawable, text, color) = if (this) {
             Triple(R.drawable.ic_favorite_on, R.string.filmdetail_favorite_remove, RedHeart)
         } else {
             Triple(R.drawable.ic_favorite_off, R.string.filmdetail_favorite_add, Color.LightGray)
         }
-        return FavoriteState(
+        return FavoriteViewState(
             drawable = drawable,
             text = text,
             color = color,

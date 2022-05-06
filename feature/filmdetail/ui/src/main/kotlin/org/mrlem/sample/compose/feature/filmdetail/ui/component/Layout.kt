@@ -8,11 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
-import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailState
+import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailViewState
 
 @Composable
 internal fun Layout(
-    state: FilmDetailState,
+    state: FilmDetailViewState,
     onFavoriteClick: () -> Unit = {},
     onBackClick: () -> Unit = {},
 ) {
@@ -64,7 +64,7 @@ internal fun Layout(
 private fun DefaultPreview() {
     ComposeSampleTheme {
         Layout(
-            state = FilmDetailState(
+            state = FilmDetailViewState(
                 title = "Le Voyage de Chihiro",
                 originalTitle = "千と千尋の神隠し",
                 originalTitleRomanised = "Sen to Chihiro no kamikakushi",

@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 
-internal data class FilmDetailState(
+internal data class FilmDetailViewState(
     val image: String? = null,
     val title: String = "",
     val originalTitle: String = "",
@@ -12,10 +12,10 @@ internal data class FilmDetailState(
     val summary: String = "",
     val director: String = "",
     val releaseDate: String = "",
-    val favoriteState: FavoriteState = FavoriteState(),
+    val favoriteState: FavoriteViewState = FavoriteViewState(),
 )
 
-data class FavoriteState(
+data class FavoriteViewState(
     @DrawableRes val drawable: Int = R.drawable.ic_favorite_off,
     @StringRes val text: Int = R.string.filmdetail_favorite_add,
     val color: Color = Color.LightGray,
