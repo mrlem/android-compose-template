@@ -13,10 +13,10 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.arch.ui.composable
 import org.mrlem.sample.compose.design.theme.ComposeSampleTheme
-import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailDestination
-import org.mrlem.sample.compose.feature.filmdetail.ui.FilmDetailScreen
-import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListDestination
-import org.mrlem.sample.compose.feature.filmslist.ui.FilmsListScreen
+import org.mrlem.sample.compose.feature.feature2.ui.FilmsListDestination
+import org.mrlem.sample.compose.feature.feature2.ui.FilmsListScreen
+import org.mrlem.sample.compose.feature.feature3.ui.FilmDetailDestination
+import org.mrlem.sample.compose.feature.feature3.ui.FilmDetailScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

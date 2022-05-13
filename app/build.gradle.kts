@@ -50,9 +50,11 @@ dependencies {
     implementation(project(":design:theme"))
     implementation(project(":arch:ui"))
     // new features
-    implementation(project(":feature:filmslist:ui"))
-    implementation(project(":feature:filmdetail:ui"))
-    implementation(project(":feature:ghibli:data"))
+    implementation(project(":feature:feature3:data"))
+    implementation(project(":feature:feature3:ui"))
+    implementation(project(":feature:feature2:data"))
+    implementation(project(":feature:feature2:ui"))
+    implementation(project(":feature:feature1:data"))
 
     implementation("androidx.activity:activity-compose:${Versions.AndroidX.activity}")
     implementation("androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}")

@@ -17,8 +17,12 @@ include(
     ":design:demo",
     ":design:theme",
     // new features
-    ":feature:filmslist:ui",
-    ":feature:filmdetail:ui",
-    ":feature:ghibli:data",
-    ":feature:ghibli:domain",
+    ":feature:feature3:data",
+    ":feature:feature3:domain",
+    ":feature:feature3:ui",
+    ":feature:feature2:data",
+    ":feature:feature2:domain",
+    ":feature:feature2:ui",
+    ":feature:feature1:data",
+    ":feature:feature1:domain",
 )
