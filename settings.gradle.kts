@@ -17,12 +17,7 @@ include(
     ":design:demo",
     ":design:theme",
     // new features
-    ":feature:feature3:data",
-    ":feature:feature3:domain",
-    ":feature:feature3:ui",
-    ":feature:feature2:data",
-    ":feature:feature2:domain",
-    ":feature:feature2:ui",
-    ":feature:feature1:data",
-    ":feature:feature1:domain",
+    ":feature:feature3:all",
+    ":feature:feature2:all",
+    ":feature:feature1:all",
 )
