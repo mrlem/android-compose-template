@@ -38,13 +38,20 @@ object Versions {
 
     }
 
+    object Compose {
+
+        const val compiler = "1.2.0"
+        const val compose = "1.2.0-rc03"
+        const val uiTooling = "1.1.1"
+
+    }
+
     const val accompanist = "0.24.13-rc"
     const val chucker = "3.5.2"
     const val coil = "2.1.0"
-    const val compose = "1.1.1"
     const val junit = "4.13.2"
     const val hilt = "2.42"
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.7.0"
     const val material = "1.5.0"
     const val retrofit = "2.9.0"
     const val timber = "5.0.1"

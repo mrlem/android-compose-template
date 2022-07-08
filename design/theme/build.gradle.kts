@@ -8,6 +8,6 @@ plugins {
 compose()
 
 dependencies {
-    implementation("androidx.compose.material:material:${Versions.compose}")
+    implementation("androidx.compose.material:material:${Versions.Compose.compose}")
     implementation("com.google.android.material:material:${Versions.material}")
 }

@@ -17,7 +17,7 @@ fun Project.compose() {
                 compose = true
             }
             composeOptions {
-                kotlinCompilerExtensionVersion = Versions.compose
+                kotlinCompilerExtensionVersion = Versions.Compose.compiler
             }
         }
     } else {
@@ -26,20 +26,20 @@ fun Project.compose() {
                 compose = true
             }
             composeOptions {
-                kotlinCompilerExtensionVersion = Versions.compose
+                kotlinCompilerExtensionVersion = Versions.Compose.compiler
             }
         }
     }
 
     dependencies {
-        add("implementation", "androidx.compose.material:material:${Versions.compose}")
-        add("implementation", "androidx.compose.ui:ui:${Versions.compose}")
-        add("implementation", "androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
+        add("implementation", "androidx.compose.material:material:${Versions.Compose.compose}")
+        add("implementation", "androidx.compose.ui:ui:${Versions.Compose.compose}")
+        add("implementation", "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.uiTooling}")
         add("implementation", "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.lifecycle}")
 
-        add("debugImplementation", "androidx.compose.ui:ui-tooling:${Versions.compose}")
+        add("debugImplementation", "androidx.compose.ui:ui-tooling:${Versions.Compose.uiTooling}")
 
-        add("androidTestImplementation", "androidx.compose.ui:ui-test-junit4:${Versions.compose}")
+        add("androidTestImplementation", "androidx.compose.ui:ui-test-junit4:${Versions.Compose.compose}")
     }
 }
 
