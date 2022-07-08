@@ -26,24 +26,24 @@ object Versions {
 
     object Kotlinx {
 
-        const val coroutines = "1.6.1"
+        const val coroutines = "1.6.3"
 
     }
 
     object Sdk {
 
-        const val compile = 31
+        const val compile = 32
         const val min = 21
-        const val target = 31
+        const val target = 32
 
     }
 
-    const val accompanist = "0.24.7-alpha"
+    const val accompanist = "0.24.13-rc"
     const val chucker = "3.5.2"
-    const val coil = "2.0.0-rc03"
+    const val coil = "2.1.0"
     const val compose = "1.1.1"
     const val junit = "4.13.2"
-    const val hilt = "2.41"
+    const val hilt = "2.42"
     const val kotlin = "1.6.10"
     const val material = "1.5.0"
     const val retrofit = "2.9.0"
