@@ -16,3 +16,6 @@ dependencies {
     api("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
     implementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
 }
+android {
+    namespace = "org.mrlem.sample.compose.feature.ghibli.data"
+}

@@ -7,3 +7,6 @@ dependencies {
     api("javax.inject:javax.inject:${Versions.Javax.inject}")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlinx.coroutines}")
 }
+android {
+    namespace = "org.mrlem.sample.compose.arch.domain"
+}

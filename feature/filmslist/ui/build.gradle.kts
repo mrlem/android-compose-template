@@ -19,3 +19,6 @@ dependencies {
     implementation("io.coil-kt:coil:${Versions.coil}")
     implementation("io.coil-kt:coil-compose:${Versions.coil}")
 }
+android {
+    namespace = "org.mrlem.sample.compose.feature.filmslist.ui"
+}

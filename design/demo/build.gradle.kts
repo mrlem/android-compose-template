@@ -37,6 +37,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    namespace = "org.mrlem.sample.compose.design.demo"
 }
 
 compose()

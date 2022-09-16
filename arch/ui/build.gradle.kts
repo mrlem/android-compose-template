@@ -13,3 +13,6 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}")
 }
+android {
+    namespace = "org.mrlem.sample.compose.arch.ui"
+}

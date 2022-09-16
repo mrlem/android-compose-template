@@ -6,3 +6,6 @@ plugins {
 dependencies {
     api(project(":arch:domain"))
 }
+android {
+    namespace = "org.mrlem.sample.compose.feature.ghibli.domain"
+}
