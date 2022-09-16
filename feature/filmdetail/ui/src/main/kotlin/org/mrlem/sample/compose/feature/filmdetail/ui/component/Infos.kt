@@ -20,11 +20,12 @@ internal fun Infos(
     summary: String,
     director: String,
     releaseDate: String,
+    modifier: Modifier = Modifier,
 ) {
     val scrollableState = rememberScrollState()
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .verticalScroll(scrollableState)
             .padding(16.dp)
             .fillMaxSize(),

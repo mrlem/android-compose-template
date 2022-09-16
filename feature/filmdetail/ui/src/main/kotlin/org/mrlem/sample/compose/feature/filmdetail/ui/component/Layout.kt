@@ -34,13 +34,15 @@ internal fun Layout(
                 )
             }
         },
-    ) {
+    ) { padding ->
         Infos(
             originalTitle = state.originalTitle,
             originalTitleRomanised = state.originalTitleRomanised,
             summary = state.summary,
             director = state.director,
             releaseDate = state.releaseDate,
+            modifier = Modifier
+                .padding(padding),
         )
     }
 

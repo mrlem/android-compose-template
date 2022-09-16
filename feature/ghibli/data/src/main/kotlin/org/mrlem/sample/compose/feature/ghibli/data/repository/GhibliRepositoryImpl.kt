@@ -1,6 +1,5 @@
 package org.mrlem.sample.compose.feature.ghibli.data.repository
 
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import org.mrlem.sample.compose.arch.domain.Loadable
 import org.mrlem.sample.compose.arch.domain.Loadable.Loading
@@ -24,7 +23,6 @@ class GhibliRepositoryImpl @Inject constructor(
     override fun getFilm(id: String) = dao.getById(id)
         .map { Success(it.toModel()) }
 
-    @OptIn(FlowPreview::class)
     override fun listFilms() = flow<Loadable<List<Film>>> {
         if (needsRefresh) {
             updateFilms()

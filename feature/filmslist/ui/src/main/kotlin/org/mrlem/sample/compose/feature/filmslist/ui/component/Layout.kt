@@ -39,13 +39,15 @@ internal fun Layout(
                     .height(84.dp),
             )
         }
-    ) {
+    ) { padding ->
 
         SwipeRefresh(
             state = rememberSwipeRefreshState(
                 isRefreshing = state.isRefreshing,
             ),
             onRefresh = onRefresh,
+            modifier = Modifier
+                .padding(padding),
         ) {
             LazyColumn {
                 items(state.films) { film ->
