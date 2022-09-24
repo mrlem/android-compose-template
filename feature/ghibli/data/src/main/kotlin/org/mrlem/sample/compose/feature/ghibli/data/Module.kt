@@ -1,15 +1,12 @@
 package org.mrlem.sample.compose.feature.ghibli.data
 
 import android.content.Context
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dagger.hilt.migration.DisableInstallInCheck
 import okhttp3.OkHttpClient
-import org.mrlem.sample.compose.feature.ghibli.data.Module.Bindings
 import org.mrlem.sample.compose.feature.ghibli.data.local.GhibliDatabase
 import org.mrlem.sample.compose.feature.ghibli.data.remote.GhibliApi
 import org.mrlem.sample.compose.feature.ghibli.data.repository.GhibliRepositoryImpl
@@ -21,23 +18,19 @@ import javax.inject.Singleton
 /**
  * Provides the DI a way to build all non-annotated objects for the feature.
  */
-@Module(includes = [ Bindings::class ])
+@Module
 @InstallIn(SingletonComponent::class)
 @Suppress("unused")
 class Module {
 
-    @Module
-    @DisableInstallInCheck
-    interface Bindings {
-
-        @Binds
-        fun ghibliRepository(impl: GhibliRepositoryImpl): GhibliRepository
-
-    }
+    @Provides
+    fun ghibliRepository(impl: GhibliRepositoryImpl): GhibliRepository =
+        impl
 
     @Provides
     @Singleton
-    fun filmDao(database: GhibliDatabase) = database.filmDao()
+    fun filmDao(database: GhibliDatabase) =
+        database.filmDao()
 
     @Provides
     @Singleton
