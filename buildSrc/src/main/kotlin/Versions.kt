@@ -11,7 +11,7 @@ object Versions {
 
         object Test {
 
-            const val espresso = "3.4.0"
+            const val espresso = "3.5.0"
             const val junit = "1.1.3"
 
         }
@@ -46,15 +46,15 @@ object Versions {
 
     }
 
-    const val accompanist = "0.25.1"
+    const val accompanist = "0.28.0"
     const val chucker = "3.5.2"
-    const val coil = "2.2.1"
+    const val coil = "2.2.2"
     const val junit = "4.13.2"
-    const val hilt = "2.43.2"
+    const val hilt = "2.44.2"
     const val kotlin = "1.7.10"
     const val material = "1.6.1"
     const val retrofit = "2.9.0"
     const val timber = "5.0.1"
-    const val versions = "0.42.0"
+    const val versions = "0.44.0"
 
 }
