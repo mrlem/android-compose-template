@@ -9,6 +9,7 @@ import org.mrlem.sample.compose.feature.ghibli.data.local.toEntity
 import org.mrlem.sample.compose.feature.ghibli.data.remote.GhibliApi
 import org.mrlem.sample.compose.feature.ghibli.domain.model.Film
 import org.mrlem.sample.compose.feature.ghibli.domain.repository.GhibliRepository
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -42,11 +43,15 @@ class GhibliRepositoryImpl @Inject constructor(
     override suspend fun unfavorite(id: String) = dao.unfavorite(id)
 
     private suspend fun updateFilms() {
-        val films = api.listFilms()
-            .map { it.toModel() }
-            .map { it.toEntity() }
+        try {
+            val films = api.listFilms()
+                .map { it.toModel() }
+                .map { it.toEntity() }
 
-        dao.insertAll(films)
+            dao.insertAll(films)
+        } catch (e: Exception) {
+            Timber.e("failed to retrieve movies: ${e.message}")
+        }
     }
 
     private fun listFilmsInCache() =

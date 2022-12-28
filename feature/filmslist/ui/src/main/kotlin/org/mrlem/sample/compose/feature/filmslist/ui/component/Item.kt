@@ -56,7 +56,10 @@ internal fun Item(
     Divider(color = Color.LightGray)
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    heightDp = 96,
+)
 @Composable
 private fun DefaultPreview() {
     ComposeSampleTheme {
