@@ -4,7 +4,7 @@ import retrofit2.http.GET
 
 interface GhibliApi {
 
-    @GET("/films")
-    suspend fun listFilms(): List<FilmDto>
+    @GET("films")
+    suspend fun listFilms(): FilmsDataDto
 
 }

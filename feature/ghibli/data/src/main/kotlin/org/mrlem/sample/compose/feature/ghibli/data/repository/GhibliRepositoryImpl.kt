@@ -45,6 +45,7 @@ class GhibliRepositoryImpl @Inject constructor(
     private suspend fun updateFilms() {
         try {
             val films = api.listFilms()
+                .data
                 .map { it.toModel() }
                 .map { it.toEntity() }
 
