@@ -16,7 +16,7 @@ The following [features](feature) are present as distinct modules:
 
 * filmslist: **UI** listing all films
 * filmdetail: **UI** showing the details of a film
-* ghibli: **web-service** access to [Studio Ghibli REST API](https://ghibliapi.herokuapp.com) & **local storage** for cache
+* ghibli: **web-service** access to [Studio Ghibli REST API](https://ghibli-api.vercel.app/) & **local storage** for cache
 
 Aside from this, there is a feature creation [script](feature/create.sh). It creates data domain & ui gradle modules for a new feature.
 
