@@ -1,6 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
 pluginManagement {
+    includeBuild("gradle-plugins")
+
     repositories {
         google()
         mavenCentral()
@@ -16,5 +18,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Composa Sample"
+rootProject.name = "app"
 include(":app")
