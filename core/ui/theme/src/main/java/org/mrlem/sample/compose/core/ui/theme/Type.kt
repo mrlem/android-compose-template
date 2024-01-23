@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.ui.theme
+package org.mrlem.sample.compose.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
