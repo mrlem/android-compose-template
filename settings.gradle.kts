@@ -19,5 +19,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "app"
-include(":app")
-include(":core:ui:theme")
+include(
+    ":app",
+    ":core:ui:theme",
+    ":features:home:ui",
+)
