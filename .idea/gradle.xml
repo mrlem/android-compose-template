@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/core/ui/theme" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/home" />
+            <option value="$PROJECT_DIR$/features/home/domain" />
             <option value="$PROJECT_DIR$/features/home/ui" />
             <option value="$PROJECT_DIR$/gradle-plugins" />
             <option value="$PROJECT_DIR$/gradle-plugins/convention" />
