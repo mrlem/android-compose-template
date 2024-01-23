@@ -23,4 +23,5 @@ include(
     ":app",
     ":core:ui:theme",
     ":features:home:ui",
+    ":features:home:domain",
 )

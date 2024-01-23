@@ -5,6 +5,7 @@
 * features modularization
 * toml version catalog
 * viewmodel
+* domain layer
 
 # TODO
 
