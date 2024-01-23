@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation(project(":core:ui:theme"))
+    implementation(project(":features:home:ui"))
     implementation(libs.activity.compose)
     implementation(libs.lifecycle.runtime.ktx)
     testImplementation(libs.junit)
