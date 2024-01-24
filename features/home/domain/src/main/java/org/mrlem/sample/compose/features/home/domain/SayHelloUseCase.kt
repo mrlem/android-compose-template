@@ -1,6 +1,8 @@
 package org.mrlem.sample.compose.features.home.domain
 
-class SayHelloUseCase {
+import javax.inject.Inject
+
+class SayHelloUseCase @Inject constructor() {
 
     operator fun invoke(): String = "Hello world!"
 
