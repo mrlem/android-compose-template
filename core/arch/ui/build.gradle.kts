@@ -3,10 +3,10 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.features.home.domain"
+    namespace = "org.mrlem.sample.compose.core.ui.base"
 }
 
 dependencies {
-    implementation(libs.inject)
+    implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.kotlin.coroutines)
 }

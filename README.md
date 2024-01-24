@@ -7,11 +7,11 @@
 * viewmodel
 * domain layer
 * di: hilt
+* reactive: rx or kotlin flow
 
 # TODO
 
 * navigation
-* reactive: rx or kotlin flow
 * data layer:
   - room for persistence
   - retrofit for api access
