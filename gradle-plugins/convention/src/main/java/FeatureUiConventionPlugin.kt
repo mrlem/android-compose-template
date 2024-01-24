@@ -1,0 +1,25 @@
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.project
+import org.mrlem.sample.compose.gradleplugins.libs
+
+class FeatureUiConventionPlugin : Plugin<Project> {
+
+    override fun apply(target: Project) {
+        with(target) {
+            pluginManager.apply {
+                apply("app.android.library")
+                apply("app.android.compose")
+                apply("app.android.hilt")
+            }
+
+            dependencies {
+                add("implementation", project(":core:feature:ui"))
+                add("implementation", project(":core:ui:theme"))
+                add("implementation", libs.findLibrary("lifecycle-viewmodel-compose").get())
+            }
+        }
+    }
+
+}

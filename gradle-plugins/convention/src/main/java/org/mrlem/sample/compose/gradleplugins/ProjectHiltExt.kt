@@ -8,15 +8,14 @@ import org.gradle.kotlin.dsl.dependencies
 internal fun Project.configureAndroidHilt(
     commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
-    commonExtension.apply {
-        if (commonExtension is ApplicationExtension) {
-            pluginManager.apply(libs.findPlugin("hilt-android").get().get().pluginId)
-        }
-        pluginManager.apply("com.google.devtools.ksp")
+    if (commonExtension is ApplicationExtension) {
+        pluginManager.apply(libs.findPlugin("hilt-android").get().get().pluginId)
+    }
 
-        dependencies {
-            add("implementation", libs.findLibrary("hilt-android").get())
-            add("ksp", libs.findLibrary("hilt-android-compiler").get())
-        }
+    pluginManager.apply("com.google.devtools.ksp")
+
+    dependencies {
+        add("implementation", libs.findLibrary("hilt-android").get())
+        add("ksp", libs.findLibrary("hilt-android-compiler").get())
     }
 }
