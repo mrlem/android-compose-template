@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "org.mrlem.sample.compose.features.home.domain"
 }
+
+dependencies {
+    implementation(libs.inject)
+}

@@ -36,9 +36,13 @@ gradlePlugin {
             id = "app.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
-        register("androidApplicationCompose") {
+        register("androidCompose") {
             id = "app.android.compose"
             implementationClass = "AndroidComposeConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "app.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
         }
     }
 }
