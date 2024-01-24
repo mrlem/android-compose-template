@@ -44,5 +44,13 @@ gradlePlugin {
             id = "app.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("featureUi") {
+            id = "app.feature.ui"
+            implementationClass = "FeatureUiConventionPlugin"
+        }
+        register("featureDomain") {
+            id = "app.feature.domain"
+            implementationClass = "FeatureDomainConventionPlugin"
+        }
     }
 }

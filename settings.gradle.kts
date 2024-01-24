@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 rootProject.name = "app"
 include(
     ":app",
-    ":core:arch:ui",
+    ":core:feature:ui",
     ":core:ui:theme",
     ":features:home:ui",
     ":features:home:domain",

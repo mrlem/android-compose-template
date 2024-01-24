@@ -1,7 +1,5 @@
 plugins {
-    alias(libs.plugins.app.android.library)
-    alias(libs.plugins.app.android.compose)
-    alias(libs.plugins.app.android.hilt)
+    alias(libs.plugins.app.feature.ui)
 }
 
 android {
@@ -9,8 +7,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:arch:ui"))
-    implementation(project(":core:ui:theme"))
     implementation(project(":features:home:domain"))
-    implementation(libs.lifecycle.viewmodel.compose)
 }

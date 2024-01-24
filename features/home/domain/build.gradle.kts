@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.app.android.library)
+    alias(libs.plugins.app.feature.domain)
 }
 
 android {
@@ -7,6 +7,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.inject)
     implementation(libs.kotlin.coroutines)
 }
