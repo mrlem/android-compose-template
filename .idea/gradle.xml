@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/arch" />
+            <option value="$PROJECT_DIR$/core/arch/ui" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/core/ui/theme" />
             <option value="$PROJECT_DIR$/features" />

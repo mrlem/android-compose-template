@@ -4,6 +4,7 @@ import javax.inject.Inject
 
 class SayHelloUseCase @Inject constructor() {
 
-    operator fun invoke(): String = "Hello world!"
+    suspend operator fun invoke(): String =
+        "Hello world!"
 
 }

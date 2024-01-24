@@ -9,6 +9,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:arch:ui"))
     implementation(project(":core:ui:theme"))
     implementation(project(":features:home:domain"))
     implementation(libs.lifecycle.viewmodel.compose)
