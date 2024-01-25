@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.core.ui.base.BaseViewModel
-import org.mrlem.sample.compose.features.home.domain.SayHelloUseCase
+import org.mrlem.sample.compose.features.home.domain.usecases.SayHelloUseCase
 import javax.inject.Inject
 
 @HiltViewModel
