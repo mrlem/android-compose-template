@@ -12,7 +12,7 @@ class FeatureDomainConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                add("implementation", libs.findLibrary("inject").get())
+                add("implementation", libs.findLibrary("javax-inject").get())
             }
         }
     }
