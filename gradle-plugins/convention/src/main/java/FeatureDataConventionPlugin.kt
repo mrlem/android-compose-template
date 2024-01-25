@@ -13,7 +13,7 @@ class FeatureDataConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                add("implementation", libs.findLibrary("inject").get())
+                add("implementation", libs.findLibrary("javax-inject").get())
                 add("implementation", libs.findLibrary("autodagger-android").get())
                 add("ksp", libs.findLibrary("autodagger-compiler").get())
             }
