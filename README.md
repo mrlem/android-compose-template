@@ -9,9 +9,10 @@
 * data layer
 * di: hilt
 * reactive: rx or kotlin flow
+* compose navigation
 
 # TODO
 
-* navigation
+* navigation: contribute per module
 * data layer: room for persistence
 * data layer: retrofit for api access
