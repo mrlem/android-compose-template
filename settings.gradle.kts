@@ -25,4 +25,5 @@ include(
     ":core:ui:theme",
     ":features:home:ui",
     ":features:home:domain",
+    ":features:home:data",
 )

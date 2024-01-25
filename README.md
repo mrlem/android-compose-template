@@ -6,12 +6,12 @@
 * toml version catalog
 * viewmodel
 * domain layer
+* data layer
 * di: hilt
 * reactive: rx or kotlin flow
 
 # TODO
 
 * navigation
-* data layer:
-  - room for persistence
-  - retrofit for api access
+* data layer: room for persistence
+* data layer: retrofit for api access

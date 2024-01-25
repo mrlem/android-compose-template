@@ -52,5 +52,9 @@ gradlePlugin {
             id = "app.feature.domain"
             implementationClass = "FeatureDomainConventionPlugin"
         }
+        register("featureData") {
+            id = "app.feature.data"
+            implementationClass = "FeatureDataConventionPlugin"
+        }
     }
 }
