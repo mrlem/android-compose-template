@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
@@ -25,7 +25,7 @@ private fun Home(state: HomeViewState) {
         text = state.label,
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(Theme.size.medium),
     )
 }
 
