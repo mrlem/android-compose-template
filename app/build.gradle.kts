@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation(project(":core:ui:theme"))
+    implementation(project(":features:about:ui"))
     implementation(project(":features:home:ui"))
     implementation(project(":features:home:data"))
     implementation(libs.androidx.activity.compose)
