@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.features.about.ui.AboutScreen
 import org.mrlem.sample.compose.features.home.ui.HomeScreen
 
 @AndroidEntryPoint
@@ -31,7 +32,14 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = "home",
                     ) {
-                        composable("home") { HomeScreen() }
+                        composable("home") {
+                            HomeScreen(
+                                onAboutClicked = { navController.navigate("about") },
+                            )
+                        }
+                        composable("about") {
+                            AboutScreen()
+                        }
                     }
                 }
             }
