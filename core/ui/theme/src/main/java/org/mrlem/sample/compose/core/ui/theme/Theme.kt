@@ -74,3 +74,11 @@ fun ComposeSampleTheme(
         content = content,
     )
 }
+
+object Theme {
+
+    val size: Size
+        @Composable
+        get() = Size()
+
+}
