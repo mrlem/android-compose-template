@@ -13,6 +13,10 @@
 
 # TODO
 
+* content: add bottom sheet navigation:
+  - artists -> albums -> songs
+  - playlists -> songs
+  - about
 * navigation: contribute per module
 * data layer: room for persistence
 * data layer: retrofit for api access
