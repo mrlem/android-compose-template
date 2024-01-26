@@ -9,5 +9,6 @@ android {
 
 dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation)
     implementation(libs.kotlin.coroutines)
 }

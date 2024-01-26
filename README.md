@@ -10,13 +10,11 @@
 * di: hilt
 * reactive: rx or kotlin flow
 * compose navigation
+* navigation: several screens
+* navigation: contribute per module
 
 # TODO
 
-* content: add bottom sheet navigation:
-  - artists -> albums -> songs
-  - playlists -> songs
-  - about
-* navigation: contribute per module
+* navigation: add type safe destinations
 * data layer: room for persistence
 * data layer: retrofit for api access

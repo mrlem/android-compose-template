@@ -19,6 +19,9 @@ class FeatureUiConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:ui:theme"))
                 add("implementation", libs.findLibrary("androidx-lifecycle-viewmodel-compose").get())
                 add("implementation", libs.findLibrary("androidx.hilt.navigation").get())
+                add("implementation", libs.findLibrary("autodagger-android").get())
+                add("ksp", libs.findLibrary("autodagger-compiler").get())
+
             }
         }
     }

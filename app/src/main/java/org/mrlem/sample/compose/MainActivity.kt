@@ -8,15 +8,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.mrlem.sample.compose.core.ui.base.NavGraphProvider
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
-import org.mrlem.sample.compose.features.about.ui.AboutScreen
-import org.mrlem.sample.compose.features.home.ui.HomeScreen
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var navGraphProviders: Set<@JvmSuppressWildcards NavGraphProvider>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +34,8 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = "home",
                     ) {
-                        composable("home") {
-                            HomeScreen(
-                                onAboutClicked = { navController.navigate("about") },
-                            )
-                        }
-                        composable("about") {
-                            AboutScreen()
+                        navGraphProviders.forEach { subGraph ->
+                            subGraph.merge(this, navController)
                         }
                     }
                 }
