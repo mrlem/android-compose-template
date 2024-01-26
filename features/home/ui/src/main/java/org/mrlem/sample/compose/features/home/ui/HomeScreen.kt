@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
 
 @Composable
@@ -25,7 +25,7 @@ private fun Home(state: HomeViewState) {
     )
 }
 
-@Preview(showBackground = true)
+@UiModePreviews
 @Composable
 private fun Preview() {
     ComposeSampleTheme {
