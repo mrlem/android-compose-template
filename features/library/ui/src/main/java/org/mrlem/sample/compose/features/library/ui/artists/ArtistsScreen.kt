@@ -11,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.mrlem.sample.compose.core.ui.base.UiModePreviews
-import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.core.ui.theme.Theme
 import org.mrlem.sample.compose.features.library.ui.Item
 import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
@@ -65,7 +65,7 @@ private fun Artists(
 @UiModePreviews
 @Composable
 private fun Preview() {
-    ComposeSampleTheme {
+    Theme {
         Surface {
             Artists(
                 state = ArtistsViewState(

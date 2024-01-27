@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.core.ui.base.NavProvider
-import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
+import org.mrlem.sample.compose.core.ui.theme.Theme
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeSampleTheme {
+            Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
