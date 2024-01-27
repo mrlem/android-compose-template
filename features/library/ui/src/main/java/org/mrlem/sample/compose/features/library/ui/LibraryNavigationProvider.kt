@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import org.mrlem.sample.compose.core.ui.base.NavBarItem
 import org.mrlem.sample.compose.core.ui.base.NavProvider
+import org.mrlem.sample.compose.features.library.ui.artists.ArtistsScreen
 import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 
@@ -25,7 +26,7 @@ class LibraryNavigationProvider @Inject constructor() : NavProvider {
         builder.run {
             navigation(startDestination = "artists", route = "library") {
                 composable("artists") {
-                    LibraryScreen()
+                    ArtistsScreen()
                 }
             }
         }
