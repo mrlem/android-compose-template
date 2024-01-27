@@ -24,17 +24,7 @@ class LibraryNavigationProvider @Inject constructor() : NavProvider {
     override fun graph(builder: NavGraphBuilder, navController: NavController) =
         builder.run {
             composable("library") {
-                LibraryScreen(
-                    onSpotlightClicked = {
-                        navController.navigate("spotlight") {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
+                LibraryScreen()
             }
         }
 
