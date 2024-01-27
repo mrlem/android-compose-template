@@ -15,6 +15,9 @@
 
 # TODO
 
-* navigation: add type safe destinations
+* content:
+  * spotlight should link to library / detail
+  * library should have a list leading to library / detail
+* navigation: add type safe destinations from nav to vm
 * data layer: room for persistence
 * data layer: retrofit for api access
