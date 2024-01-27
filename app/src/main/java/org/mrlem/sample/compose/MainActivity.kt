@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = "home",
+                        startDestination = "library",
                     ) {
                         navGraphProviders.forEach { subGraph ->
                             subGraph.merge(this, navController)

@@ -23,8 +23,8 @@ include(
     ":app",
     ":core:feature:ui",
     ":core:ui:theme",
-    ":features:about:ui",
-    ":features:home:ui",
-    ":features:home:domain",
-    ":features:home:data",
+    ":features:spotlight:ui",
+    ":features:library:ui",
+    ":features:library:domain",
+    ":features:library:data",
 )
