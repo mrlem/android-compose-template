@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import org.mrlem.sample.compose.core.ui.base.NavGraphProvider
+import org.mrlem.sample.compose.core.ui.base.NavProvider
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
 
     @Inject
-    lateinit var navGraphProviders: Set<@JvmSuppressWildcards NavGraphProvider>
+    lateinit var navProviders: Set<@JvmSuppressWildcards NavProvider>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    MainWindow(navGraphProviders)
+                    MainWindow(navProviders)
                 }
             }
         }
