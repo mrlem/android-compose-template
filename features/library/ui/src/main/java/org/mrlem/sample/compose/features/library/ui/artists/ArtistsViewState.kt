@@ -1,13 +1,9 @@
 package org.mrlem.sample.compose.features.library.ui.artists
 
 import androidx.compose.runtime.Immutable
-
-data class ArtistsViewState(
-    val items: List<ItemViewState> = emptyList(),
-)
+import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
 @Immutable
-data class ItemViewState(
-    val label: String,
-    val description: String,
+data class ArtistsViewState(
+    val items: List<ItemViewState<ArtistsViewAction>> = emptyList(),
 )
