@@ -28,20 +28,20 @@ fun MainWindow(navProviders: Set<NavProvider>) {
             NavigationBar {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
-                items
-                    .forEach { item ->
-                        NavigationBarItem(
-                            icon = { Icon(item.icon, contentDescription = null) },
-                            label = { Text(item.label) },
-                            selected = currentDestination?.hierarchy?.any { it.route?.split('?')?.firstOrNull() == item.route } == true,
-                            onClick = {
-                                navController.navigate(item.route) {
-                                    popUpTo(0)
-                                    launchSingleTop = true
-                                }
+
+                items.forEach { item ->
+                    NavigationBarItem(
+                        icon = { Icon(item.icon, contentDescription = null) },
+                        label = { Text(item.label) },
+                        selected = currentDestination?.hierarchy?.any { it.route?.split('?')?.firstOrNull() == item.route } == true,
+                        onClick = {
+                            navController.navigate(item.route) {
+                                popUpTo(0)
+                                launchSingleTop = true
                             }
-                        )
-                    }
+                        }
+                    )
+                }
             }
         }
     ) { innerPadding ->

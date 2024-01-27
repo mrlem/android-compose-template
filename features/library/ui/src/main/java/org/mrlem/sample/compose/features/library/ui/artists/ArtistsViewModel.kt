@@ -1,10 +1,14 @@
 package org.mrlem.sample.compose.features.library.ui.artists
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.mrlem.sample.compose.core.ui.base.BaseViewModel
+import org.mrlem.sample.compose.core.ui.base.EffectsDelegate
+import org.mrlem.sample.compose.core.ui.base.EffectsProvider
+import org.mrlem.sample.compose.core.ui.base.StateDelegate
+import org.mrlem.sample.compose.core.ui.base.StateProvider
 import org.mrlem.sample.compose.features.library.domain.usecases.GetArtistsUseCase
 import org.mrlem.sample.compose.features.library.ui.artists.ArtistsViewStateConverter.toViewState
 import javax.inject.Inject
@@ -13,9 +17,10 @@ import javax.inject.Inject
 internal class ArtistsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     getArtistsUseCase: GetArtistsUseCase,
-) : BaseViewModel<ArtistsViewState, ArtistsViewEffect>(
-    initial = ArtistsViewState(),
-) {
+) : ViewModel(),
+    StateProvider<ArtistsViewState> by StateDelegate(ArtistsViewState()),
+    EffectsProvider<ArtistsViewEffect> by EffectsDelegate()
+{
 
     private var artistId: String? = savedStateHandle["artistId"]
 
@@ -29,14 +34,14 @@ internal class ArtistsViewModel @Inject constructor(
     fun handleRedirections() {
         artistId
             ?.toIntOrNull()
-            ?.let { sendEffect(ArtistsViewEffect.GoToArtist(it)) }
+            ?.let { viewModelScope.sendEffect(ArtistsViewEffect.GoToArtist(it)) }
         artistId = null
     }
 
     fun onAction(action: ArtistsViewAction) {
         when (action) {
             is ArtistsViewAction.SelectArtist ->
-                sendEffect(ArtistsViewEffect.GoToArtist(action.artistId))
+                viewModelScope.sendEffect(ArtistsViewEffect.GoToArtist(action.artistId))
         }
     }
 
