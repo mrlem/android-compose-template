@@ -19,7 +19,7 @@ import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
-fun ArtistScreen(
+internal fun ArtistScreen(
     viewModel: ArtistViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()

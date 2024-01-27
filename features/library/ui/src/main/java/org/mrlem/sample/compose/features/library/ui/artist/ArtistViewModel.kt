@@ -10,7 +10,7 @@ import org.mrlem.sample.compose.features.library.ui.artist.ArtistViewStateConver
 import javax.inject.Inject
 
 @HiltViewModel
-class ArtistViewModel @Inject constructor(
+internal class ArtistViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     getArtistUseCase: GetArtistUseCase,
 ): BaseViewModel<ArtistViewState, Unit>(

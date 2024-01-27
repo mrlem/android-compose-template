@@ -11,7 +11,7 @@ import androidx.compose.ui.draw.alpha
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
-fun <Action> Item(
+internal fun <Action> Item(
     viewState: ItemViewState<Action>,
     onAction: (Action) -> Unit,
 ) {
