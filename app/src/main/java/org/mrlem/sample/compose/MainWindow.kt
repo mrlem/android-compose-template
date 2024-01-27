@@ -36,11 +36,8 @@ fun MainWindow(navProviders: Set<NavProvider>) {
                             selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
                             onClick = {
                                 navController.navigate(item.route) {
-                                    popUpTo(navController.graph.findStartDestination().id) {
-                                        saveState = true
-                                    }
+                                    popUpTo(navController.graph.findStartDestination().id)
                                     launchSingleTop = true
-                                    restoreState = true
                                 }
                             }
                         )
