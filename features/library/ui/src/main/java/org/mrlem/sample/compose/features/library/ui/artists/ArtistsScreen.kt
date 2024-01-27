@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.features.library.ui
+package org.mrlem.sample.compose.features.library.ui.artists
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -20,11 +20,11 @@ import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
-fun LibraryScreen(
-    viewModel: LibraryViewModel = hiltViewModel(),
+fun ArtistsScreen(
+    viewModel: ArtistsViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
-    Library(
+    Artists(
         state = state,
         modifier = Modifier
             .fillMaxSize(),
@@ -32,8 +32,8 @@ fun LibraryScreen(
 }
 
 @Composable
-private fun Library(
-    state: LibraryViewState,
+private fun Artists(
+    state: ArtistsViewState,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -69,8 +69,8 @@ private fun Item(viewState: ItemViewState) {
 private fun Preview() {
     ComposeSampleTheme {
         Surface {
-            Library(
-                state = LibraryViewState(
+            Artists(
+                state = ArtistsViewState(
                     items = listOf(
                         ItemViewState(
                             label = "Georges Brassens",
