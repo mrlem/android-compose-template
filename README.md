@@ -4,7 +4,7 @@
 * gradle convention plugin for shorter build files
 * features modularization
 * toml version catalog
-* viewmodel
+* vm
 * domain layer
 * data layer
 * di: hilt
@@ -14,12 +14,14 @@
 * navigation: contribute per module
 * library: list of artists
 * library: add artist page
+* spotlight: link to an artist
+* navigation: should originate from vm
 
 # TODO
 
-* spotlight: link to an artist
-* library: add breadcrumb (e.g. "Library > Muse >")
+* artist: populate screen
 * navigation: add type safe destinations from nav to vm
-* navigation: should originate from vm
+* library: add breadcrumb (e.g. "Library > Muse >")
 * data layer: room for persistence
 * data layer: retrofit for api access
+* vm: allow shared vms in a given navigationGraph

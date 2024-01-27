@@ -6,8 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.navArgument
-import androidx.navigation.navigation
 import org.mrlem.sample.compose.core.ui.base.NavBarItem
 import org.mrlem.sample.compose.core.ui.base.NavProvider
 import org.mrlem.sample.compose.features.library.ui.artist.ArtistScreen
@@ -27,15 +27,29 @@ class LibraryNavigationProvider @Inject constructor() : NavProvider {
 
     override fun graph(builder: NavGraphBuilder, navController: NavController) =
         builder.run {
-            navigation(startDestination = "artists", route = "library") {
-                composable("artists") {
+            navigation(
+                startDestination = "artists",
+                route = "library?artistId={artistId}",
+                arguments = listOf(
+                    navArgument("artistId") {
+                        nullable = true
+                    }
+                ),
+            ) {
+                composable(
+                    route = "artists",
+                ) {
                     ArtistsScreen(
                         onArtistSelect = { id -> navController.navigate("artist/$id") },
                     )
                 }
                 composable(
                     route = "artist/{id}",
-                    arguments = listOf(navArgument("id") { type = NavType.IntType }),
+                    arguments = listOf(
+                        navArgument("id") {
+                            type = NavType.IntType
+                        }
+                    ),
                 ) {
                     ArtistScreen()
                 }
