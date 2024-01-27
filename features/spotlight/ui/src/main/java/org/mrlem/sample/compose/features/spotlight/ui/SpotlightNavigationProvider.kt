@@ -3,7 +3,6 @@ package org.mrlem.sample.compose.features.spotlight.ui
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import org.mrlem.sample.compose.core.ui.base.NavBarItem
@@ -26,8 +25,8 @@ class SpotlightNavigationProvider @Inject constructor() : NavProvider {
             composable("spotlight") {
                 SpotlightScreen(
                     onSuggestionClick = {
-                        navController.navigate("library/artist/3") {
-                            popUpTo(navController.graph.findStartDestination().id)
+                        navController.navigate("library?artistId=2") {
+                            popUpTo(0)
                             launchSingleTop = true
                         }
                     },

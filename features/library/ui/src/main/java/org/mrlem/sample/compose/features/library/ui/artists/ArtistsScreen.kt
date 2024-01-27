@@ -21,6 +21,7 @@ fun ArtistsScreen(
     onArtistSelect: (id: Int) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
+
     LaunchedEffect(Unit) {
         viewModel.effects
             .collect { effect ->
@@ -29,6 +30,10 @@ fun ArtistsScreen(
                         onArtistSelect(effect.id)
                 }
             }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.handleRedirections()
     }
 
     Artists(

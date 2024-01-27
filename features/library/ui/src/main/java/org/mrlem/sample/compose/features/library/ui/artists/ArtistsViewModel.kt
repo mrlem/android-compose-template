@@ -1,5 +1,6 @@
 package org.mrlem.sample.compose.features.library.ui.artists
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -10,16 +11,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ArtistsViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     getArtistsUseCase: GetArtistsUseCase,
 ) : BaseViewModel<ArtistsViewState, ArtistsViewEffect>(
     initial = ArtistsViewState(),
 ) {
+
+    private var artistId: String? = savedStateHandle["artistId"]
 
     init {
         viewModelScope.launch {
             val artists = getArtistsUseCase()
             updateState { copy(items = artists.toViewState()) }
         }
+    }
+
+    fun handleRedirections() {
+        artistId
+            ?.toIntOrNull()
+            ?.let { sendEffect(ArtistsViewEffect.GoToArtist(it)) }
+        artistId = null
     }
 
     fun onAction(action: ArtistsViewAction) {

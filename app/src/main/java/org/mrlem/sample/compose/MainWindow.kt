@@ -33,10 +33,10 @@ fun MainWindow(navProviders: Set<NavProvider>) {
                         NavigationBarItem(
                             icon = { Icon(item.icon, contentDescription = null) },
                             label = { Text(item.label) },
-                            selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                            selected = currentDestination?.hierarchy?.any { it.route?.split('?')?.firstOrNull() == item.route } == true,
                             onClick = {
                                 navController.navigate(item.route) {
-                                    popUpTo(navController.graph.findStartDestination().id)
+                                    popUpTo(0)
                                     launchSingleTop = true
                                 }
                             }
