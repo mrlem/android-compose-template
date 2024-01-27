@@ -11,7 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ArtistsViewModel @Inject constructor(
     getArtistsUseCase: GetArtistsUseCase,
-) : BaseViewModel<ArtistsViewState>(
+) : BaseViewModel<ArtistsViewState, ArtistsViewEffect>(
     initial = ArtistsViewState(),
 ) {
 
@@ -19,6 +19,13 @@ class ArtistsViewModel @Inject constructor(
         viewModelScope.launch {
             val artists = getArtistsUseCase()
             updateState { copy(items = artists.toViewState()) }
+        }
+    }
+
+    fun onAction(action: ArtistsViewAction) {
+        when (action) {
+            is ArtistsViewAction.SelectArtist ->
+                sendEffect(ArtistsViewEffect.GoToArtist(action.artistId))
         }
     }
 

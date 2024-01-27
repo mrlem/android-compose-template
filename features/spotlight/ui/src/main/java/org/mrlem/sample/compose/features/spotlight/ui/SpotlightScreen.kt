@@ -17,7 +17,7 @@ import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
 fun SpotlightScreen(
-    onLibraryItemClicked: () -> Unit = {},
+    onSuggestionClick: () -> Unit = {},
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Theme.size.medium),
@@ -35,7 +35,7 @@ fun SpotlightScreen(
                 .weight(1f),
         )
         Button(
-            onClick = { onLibraryItemClicked() },
+            onClick = { onSuggestionClick() },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         ) {

@@ -13,11 +13,11 @@
 * navigation: several screens
 * navigation: contribute per module
 * library: list of artists
+* library: add artist page
 
 # TODO
 
 * spotlight: link to an artist
-* library: add artist page
 * library: add breadcrumb (e.g. "Library > Muse >")
 * navigation: add type safe destinations from nav to vm
 * navigation: should originate from vm

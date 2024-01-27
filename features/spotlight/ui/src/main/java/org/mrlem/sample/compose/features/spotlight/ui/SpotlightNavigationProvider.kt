@@ -25,7 +25,7 @@ class SpotlightNavigationProvider @Inject constructor() : NavProvider {
         builder.run {
             composable("spotlight") {
                 SpotlightScreen(
-                    onLibraryItemClicked = {
+                    onSuggestionClick = {
                         navController.navigate("library") {
                             popUpTo(navController.graph.findStartDestination().id) {
                                 saveState = true

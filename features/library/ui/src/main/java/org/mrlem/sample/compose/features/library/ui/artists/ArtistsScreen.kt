@@ -1,33 +1,41 @@
 package org.mrlem.sample.compose.features.library.ui.artists
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
-import org.mrlem.sample.compose.core.ui.theme.Theme
+import org.mrlem.sample.compose.features.library.ui.Item
+import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
 @Composable
 fun ArtistsScreen(
     viewModel: ArtistsViewModel = hiltViewModel(),
+    onArtistSelect: (id: Int) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
+    LaunchedEffect(Unit) {
+        viewModel.effects
+            .collect { effect ->
+                when (effect) {
+                    is ArtistsViewEffect.GoToArtist ->
+                        onArtistSelect(effect.id)
+                }
+            }
+    }
+
     Artists(
         state = state,
         modifier = Modifier
             .fillMaxSize(),
+        onAction = viewModel::onAction,
     )
 }
 
@@ -35,32 +43,17 @@ fun ArtistsScreen(
 private fun Artists(
     state: ArtistsViewState,
     modifier: Modifier = Modifier,
+    onAction: (ArtistsViewAction) -> Unit = {},
 ) {
     LazyColumn(
         modifier = modifier,
     ) {
         items(state.items) {
-            Item(it)
+            Item(
+                viewState = it,
+                onAction = onAction,
+            )
         }
-    }
-}
-
-@Composable
-private fun Item(viewState: ItemViewState) {
-    Column(
-        modifier = Modifier
-            .clickable { /* TODO*/ }
-            .fillMaxWidth()
-            .padding(Theme.size.small),
-    ){
-        Text(
-            text = viewState.label,
-        )
-        Text(
-            text = viewState.description,
-            modifier = Modifier
-                .alpha(0.4f),
-        )
     }
 }
 
