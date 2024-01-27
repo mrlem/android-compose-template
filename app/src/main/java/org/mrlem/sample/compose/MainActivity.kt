@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.mrlem.sample.compose.core.ui.base.NavGraphProvider
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
@@ -28,16 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    val navController = rememberNavController()
-
-                    NavHost(
-                        navController = navController,
-                        startDestination = "library",
-                    ) {
-                        navGraphProviders.forEach { subGraph ->
-                            subGraph.merge(this, navController)
-                        }
-                    }
+                    MainWindow(navGraphProviders)
                 }
             }
         }
