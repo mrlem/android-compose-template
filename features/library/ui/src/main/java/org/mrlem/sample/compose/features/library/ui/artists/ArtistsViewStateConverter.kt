@@ -8,7 +8,7 @@ object ArtistsViewStateConverter {
     fun List<Artist>.toViewState() =
         map { it.toViewState() }
 
-    fun Artist.toViewState() =
+    private fun Artist.toViewState() =
         ItemViewState<ArtistsViewAction>(
             label = name,
             description = "$songCount songs", // TODO - use plural string

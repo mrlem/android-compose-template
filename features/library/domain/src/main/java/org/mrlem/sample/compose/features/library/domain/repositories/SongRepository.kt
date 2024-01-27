@@ -6,4 +6,6 @@ interface SongRepository {
 
     suspend fun getArtists(): List<Artist>
 
+    suspend fun getArtist(id: Int): Artist?
+
 }

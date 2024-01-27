@@ -19,7 +19,6 @@
 
 # TODO
 
-* artist: populate screen
 * navigation: add type safe destinations from nav to vm
 * library: add breadcrumb (e.g. "Library > Muse >")
 * data layer: room for persistence

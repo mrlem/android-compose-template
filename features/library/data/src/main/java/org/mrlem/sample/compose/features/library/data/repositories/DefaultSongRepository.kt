@@ -61,4 +61,8 @@ class DefaultSongRepository @Inject constructor() : SongRepository {
             .distinct()
             .sortedBy { it.id }
 
+    override suspend fun getArtist(id: Int): Artist? =
+        artists
+            .firstOrNull { it.id == id }
+
 }
