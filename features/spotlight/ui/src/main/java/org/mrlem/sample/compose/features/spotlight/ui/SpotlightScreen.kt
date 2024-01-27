@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.ComposeSampleTheme
 import org.mrlem.sample.compose.core.ui.theme.Theme
@@ -26,7 +27,11 @@ fun SpotlightScreen(
     ) {
         Text(
             text = "Spotlight",
+        )
+        Text(
+            text = "New songs by Muse have been added",
             modifier = Modifier
+                .alpha(0.4f)
                 .weight(1f),
         )
         Button(
@@ -34,7 +39,7 @@ fun SpotlightScreen(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         ) {
-            Text(text = "Go to library item")
+            Text(text = "Go to Muse")
         }
     }
 }
