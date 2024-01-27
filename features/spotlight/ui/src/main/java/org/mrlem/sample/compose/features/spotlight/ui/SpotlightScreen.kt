@@ -15,7 +15,7 @@ import org.mrlem.sample.compose.core.ui.base.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable
-fun SpotlightScreen(
+internal fun SpotlightScreen(
     onSuggestionClick: () -> Unit = {},
 ) {
     Column(

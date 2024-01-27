@@ -16,7 +16,7 @@ import org.mrlem.sample.compose.features.library.ui.Item
 import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
 @Composable
-fun ArtistsScreen(
+internal fun ArtistsScreen(
     viewModel: ArtistsViewModel = hiltViewModel(),
     onArtistSelect: (id: Int) -> Unit,
 ) {

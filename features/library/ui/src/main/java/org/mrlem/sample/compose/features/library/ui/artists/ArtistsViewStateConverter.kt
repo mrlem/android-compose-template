@@ -3,7 +3,7 @@ package org.mrlem.sample.compose.features.library.ui.artists
 import org.mrlem.sample.compose.features.library.domain.model.Artist
 import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
-object ArtistsViewStateConverter {
+internal object ArtistsViewStateConverter {
 
     fun List<Artist>.toViewState() =
         map { it.toViewState() }
