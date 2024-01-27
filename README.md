@@ -12,12 +12,13 @@
 * compose navigation
 * navigation: several screens
 * navigation: contribute per module
+* library: list of artists
 
 # TODO
 
-* content:
-  * spotlight should link to library / detail
-  * library should have a list leading to library / detail
+* spotlight: link to an artist
+* library: add artist page
+* library: add breadcrumb (e.g. "Library > Muse >")
 * navigation: add type safe destinations from nav to vm
 * navigation: should originate from vm
 * data layer: room for persistence
