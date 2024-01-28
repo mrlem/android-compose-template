@@ -1,68 +1,86 @@
 package org.mrlem.sample.compose.features.library.data.repositories
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.mrlem.sample.compose.features.library.data.local.daos.ArtistDao
+import org.mrlem.sample.compose.features.library.data.local.daos.SongDao
+import org.mrlem.sample.compose.features.library.data.local.entities.Artist as ArtistEntity
+import org.mrlem.sample.compose.features.library.data.local.entities.Song as SongEntity
+import org.mrlem.sample.compose.features.library.data.local.mappers.ArtistMapper.toDomain
 import org.mrlem.sample.compose.features.library.domain.model.Artist
-import org.mrlem.sample.compose.features.library.domain.model.Song
 import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import se.ansman.dagger.auto.AutoBind
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.time.Duration.Companion.seconds
 
 @AutoBind
 @Singleton
-class DefaultSongRepository @Inject constructor() : SongRepository {
+class DefaultSongRepository @Inject constructor(
+    private val artistDao: ArtistDao,
+    private val songDao: SongDao,
+) : SongRepository {
 
     private val artists = listOf(
-        Artist(
+        ArtistEntity(
             id = 0,
             name = "Cocoon",
-            songCount = 21,
         ),
-        Artist(
+        ArtistEntity(
             id = 1,
             name = "Elvis Presley",
-            songCount = 13,
         ),
-        Artist(
+        ArtistEntity(
             id = 2,
             name = "Muse",
-            songCount = 34,
         ),
     )
+
     private val songs = listOf(
-        Song(
+        SongEntity(
             id = 0,
             title = "Let me!",
-            artist = artists[0],
-            duration = 127.seconds,
+            duration = 127,
+            artistId = 0,
         ),
-        Song(
+        SongEntity(
             id = 1,
             title = "The final countdown",
-            artist = artists[0],
-            duration = 148.seconds,
+            duration = 148,
+            artistId = 0,
         ),
-        Song(
+        SongEntity(
             id = 2,
             title = "Fireworks",
-            artist = artists[1],
-            duration = 112.seconds,
+            duration = 112,
+            artistId = 1,
         ),
-        Song(
+        SongEntity(
             id = 3,
             title = "Words are words",
-            artist = artists[2],
-            duration = 136.seconds,
+            duration = 136,
+            artistId = 2,
         ),
     )
+
+    init {
+        GlobalScope.launch(Dispatchers.IO) {
+            songDao.clear()
+            artistDao.clear()
+
+            artistDao.add(*artists.toTypedArray())
+            delay(1000)
+            songDao.add(*songs.toTypedArray())
+        }
+    }
+
     override suspend fun getArtists(): List<Artist> =
-        songs
-            .map { it.artist }
-            .distinct()
-            .sortedBy { it.id }
+        artistDao.listArtistWithSongCount()
+            .map { it.toDomain() }
 
     override suspend fun getArtist(id: Int): Artist? =
-        artists
-            .firstOrNull { it.id == id }
+        artistDao.findArtistWithSongCount(id)
+            ?.toDomain()
 
 }
