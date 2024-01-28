@@ -1,10 +1,8 @@
 package org.mrlem.sample.compose.features.library.data
 
-import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import org.mrlem.sample.compose.features.library.data.remote.api.SongsApi
 import retrofit2.Retrofit
@@ -17,7 +15,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun retrofit(@ApplicationContext context: Context): Retrofit =
+    fun retrofit(): Retrofit =
         Retrofit.Builder()
             .baseUrl("https://mrlem.org/api/")
             .addConverterFactory(MoshiConverterFactory.create())

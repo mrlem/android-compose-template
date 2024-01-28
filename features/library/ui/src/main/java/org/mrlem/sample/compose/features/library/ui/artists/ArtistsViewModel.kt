@@ -15,6 +15,7 @@ import org.mrlem.sample.compose.features.library.domain.usecases.GetArtistsUseCa
 import org.mrlem.sample.compose.features.library.domain.usecases.RefreshArtistsUseCase
 import org.mrlem.sample.compose.features.library.nav.LibraryDestination
 import org.mrlem.sample.compose.features.library.ui.artists.ArtistsViewStateConverter.toViewState
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -44,6 +45,7 @@ internal class ArtistsViewModel @Inject constructor(
                     try {
                         refreshArtistsUseCase()
                     } catch (e: Exception) {
+                        Timber.e(e, "failed to download new songs")
                         sendEffect(ArtistsViewEffect.ShowError)
                     }
                 }
