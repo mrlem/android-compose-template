@@ -20,7 +20,7 @@ A project template with the following objectives in mind:
 * rest: **retrofit**
 * annotation processing: ksp only, no kapt
 
-## Sample app structure
+## App structure
 
 Modules hierarchy:
 
@@ -52,7 +52,7 @@ Each adds all requirements for the module of a given layer, save the android nam
 
 Navigation is using dedicated modules for stronger feature isolation.
 
-# TODO
+## TODO
 
 * ui: coil
 * room: database in the library module makes sense for this sample app, for not for a real app. If
