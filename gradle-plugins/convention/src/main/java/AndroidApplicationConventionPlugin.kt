@@ -1,8 +1,6 @@
-import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.project
 import org.mrlem.sample.compose.gradleplugins.commonExtension
 import org.mrlem.sample.compose.gradleplugins.configureKotlin
