@@ -7,7 +7,7 @@ class FeatureDomainConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply {
+            pluginManager.run {
                 apply("app.android.library")
             }
 
