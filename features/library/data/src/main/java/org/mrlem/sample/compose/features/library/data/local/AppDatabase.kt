@@ -7,7 +7,7 @@ import org.mrlem.sample.compose.features.library.data.local.daos.SongDao
 import org.mrlem.sample.compose.features.library.data.local.entities.Artist
 import org.mrlem.sample.compose.features.library.data.local.entities.Song
 
-@Database(entities = [Song::class, Artist::class], version = 1)
+@Database(entities = [Song::class, Artist::class], version = 4)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun songDao(): SongDao

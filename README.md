@@ -18,6 +18,7 @@
 * navigation: should originate from vm
 * navigation: add type safe destinations from nav to vm
 * data layer: room for persistence
+* data layer: retrofit for api access
 
 # TODO
 
@@ -26,5 +27,4 @@
 * room: migration handling
 * data: inject coroutine scope
 * library: add breadcrumb (e.g. "Library > Muse >")
-* data layer: retrofit for api access
 * vm: allow shared vms in a given navigationGraph

@@ -1,5 +1,6 @@
 package org.mrlem.sample.compose.features.library.ui
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -17,7 +18,7 @@ import javax.inject.Inject
 @AutoBindIntoSet
 class LibraryNavigationProvider @Inject constructor() : NavProvider {
 
-    override fun graph(builder: NavGraphBuilder, navController: NavController) =
+    override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) =
         builder.run {
             navigation(
                 startDestination = ArtistsDestination.route,
@@ -28,6 +29,7 @@ class LibraryNavigationProvider @Inject constructor() : NavProvider {
                     route = ArtistsDestination.route,
                 ) {
                     ArtistsScreen(
+                        snackbarHostState = snackbarHostState,
                         onArtistSelect = { id -> navController.navigate(ArtistDestination(id)) },
                     )
                 }

@@ -8,5 +8,6 @@ android {
 
 dependencies {
     implementation(project(":features:spotlight:nav"))
+    implementation(project(":features:library:domain"))
     implementation(project(":features:library:nav"))
 }

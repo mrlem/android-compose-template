@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class Module {
+class DatabaseModule {
 
     @Singleton
     @Provides
@@ -24,6 +24,7 @@ class Module {
                 context,
                 AppDatabase::class.java, "database-name"
             )
+            .fallbackToDestructiveMigration()
             .build()
 
     @Provides
