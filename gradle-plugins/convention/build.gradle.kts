@@ -56,5 +56,9 @@ gradlePlugin {
             id = "app.feature.data"
             implementationClass = "FeatureDataConventionPlugin"
         }
+        register("featureNav") {
+            id = "app.feature.nav"
+            implementationClass = "FeatureNavConventionPlugin"
+        }
     }
 }

@@ -69,3 +69,4 @@ app-android-hilt = { id = "app.android.hilt", version = "unspecified" }
 app-feature-ui = { id = "app.feature.ui", version = "unspecified" }
 app-feature-domain = { id = "app.feature.domain", version = "unspecified" }
 app-feature-data = { id = "app.feature.data", version = "unspecified" }
+app-feature-nav = { id = "app.feature.nav", version = "unspecified" }

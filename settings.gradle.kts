@@ -21,10 +21,13 @@ dependencyResolutionManagement {
 rootProject.name = "app"
 include(
     ":app",
+    ":core:feature:nav",
     ":core:feature:ui",
     ":core:ui:theme",
+    ":features:spotlight:nav",
     ":features:spotlight:ui",
-    ":features:library:ui",
-    ":features:library:domain",
     ":features:library:data",
+    ":features:library:domain",
+    ":features:library:nav",
+    ":features:library:ui",
 )

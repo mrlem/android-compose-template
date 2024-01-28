@@ -5,3 +5,8 @@ plugins {
 android {
     namespace = "org.mrlem.sample.compose.features.spotlight.ui"
 }
+
+dependencies {
+    implementation(project(":features:spotlight:nav"))
+    implementation(project(":features:library:nav"))
+}
