@@ -9,7 +9,7 @@ import org.mrlem.sample.compose.core.feature.nav.DestinationDefinition
 private const val libraryRoute = "library"
 private const val artistIdArg = "artistId"
 
-data class LibraryDestination(val artistId: Int) : Destination {
+data class LibraryDestination(val artistId: Long) : Destination {
 
     companion object : DestinationDefinition(
         route = "$libraryRoute?$artistIdArg={$artistIdArg}",
@@ -22,11 +22,11 @@ data class LibraryDestination(val artistId: Int) : Destination {
     )
 
     data class Args(
-        val artistId: Int?,
+        val artistId: Long?,
     ) {
 
         constructor(savedStateHandle: SavedStateHandle) : this(
-            artistId = savedStateHandle.get<String>(artistIdArg)?.toIntOrNull(),
+            artistId = savedStateHandle.get<String>(artistIdArg)?.toLongOrNull(),
         )
 
     }

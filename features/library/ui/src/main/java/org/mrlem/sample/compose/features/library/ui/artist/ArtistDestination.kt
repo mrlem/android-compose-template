@@ -10,24 +10,24 @@ private const val artistRoute = "artist"
 private const val artistIdArg = "id"
 
 data class ArtistDestination(
-    val artistId: Int,
+    val artistId: Long,
 ) : Destination {
 
     companion object : DestinationDefinition(
         route = "$artistRoute/{$artistIdArg}",
         args = listOf(
             navArgument(artistIdArg) {
-                type = NavType.IntType
+                type = NavType.LongType
             }
         ),
     )
 
     data class Args(
-        val id: Int,
+        val id: Long,
     ) {
 
         constructor(savedStateHandle: SavedStateHandle) : this(
-            id = checkNotNull(savedStateHandle.get<Int>(artistIdArg)),
+            id = checkNotNull(savedStateHandle.get<Long>(artistIdArg)),
         )
 
     }

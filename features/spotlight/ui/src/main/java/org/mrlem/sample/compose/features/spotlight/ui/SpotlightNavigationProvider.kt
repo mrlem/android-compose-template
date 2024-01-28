@@ -1,5 +1,6 @@
 package org.mrlem.sample.compose.features.spotlight.ui
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -12,11 +13,11 @@ import javax.inject.Inject
 @AutoBindIntoSet
 class SpotlightNavigationProvider @Inject constructor() : NavProvider {
 
-    override fun graph(builder: NavGraphBuilder, navController: NavController) = builder.run {
+    override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) = builder.run {
         composable("spotlight") {
             SpotlightScreen(
-                onSuggestionClick = {
-                    navController.navigate(LibraryDestination(artistId = 2)) {
+                onSuggestionClick = { artistId ->
+                    navController.navigate(LibraryDestination(artistId = artistId)) {
                         popUpTo(0)
                         launchSingleTop = true
                     }

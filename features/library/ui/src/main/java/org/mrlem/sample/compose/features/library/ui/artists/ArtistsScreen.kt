@@ -1,13 +1,22 @@
 package org.mrlem.sample.compose.features.library.ui.artists
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.mrlem.sample.compose.core.feature.ui.UiModePreviews
@@ -17,8 +26,9 @@ import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
 @Composable
 internal fun ArtistsScreen(
+    snackbarHostState: SnackbarHostState,
     viewModel: ArtistsViewModel = hiltViewModel(),
-    onArtistSelect: (id: Int) -> Unit,
+    onArtistSelect: (id: Long) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -28,6 +38,8 @@ internal fun ArtistsScreen(
                 when (effect) {
                     is ArtistsViewEffect.GoToArtist ->
                         onArtistSelect(effect.id)
+                    is ArtistsViewEffect.ShowError ->
+                        snackbarHostState.showSnackbar("Failed to retrieve data")
                 }
             }
     }
@@ -50,14 +62,29 @@ private fun Artists(
     modifier: Modifier = Modifier,
     onAction: (ArtistsViewAction) -> Unit = {},
 ) {
-    LazyColumn(
+    Box(
         modifier = modifier,
     ) {
-        items(state.items) {
-            Item(
-                viewState = it,
-                onAction = onAction,
-            )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize(),
+        ) {
+            items(state.items) {
+                Item(
+                    viewState = it,
+                    onAction = onAction,
+                )
+            }
+        }
+
+        FloatingActionButton(
+            onClick = { onAction(ArtistsViewAction.RefreshClick) },
+            shape = CircleShape,
+            modifier = Modifier
+                .padding(Theme.size.medium)
+                .align(Alignment.TopEnd),
+        ) {
+            Icon(imageVector = Icons.Filled.Refresh, contentDescription = "Download new songs")
         }
     }
 }

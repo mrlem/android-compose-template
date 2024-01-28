@@ -12,7 +12,7 @@ internal object ArtistsViewStateConverter {
         ItemViewState<ArtistsViewAction>(
             label = name,
             description = "$songCount songs", // TODO - use plural string
-            onClickAction = ArtistsViewAction.SelectArtist(id),
+            onClickAction = ArtistsViewAction.ArtistClick(id),
         )
 
 }

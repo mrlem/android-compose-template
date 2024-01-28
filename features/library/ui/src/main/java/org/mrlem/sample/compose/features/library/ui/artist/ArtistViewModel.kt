@@ -19,7 +19,7 @@ internal class ArtistViewModel @Inject constructor(
     StateProvider<ArtistViewState> by StateDelegate(ArtistViewState()
 ) {
 
-    private val artistId: Int = ArtistDestination.Args(savedStateHandle).id
+    private val artistId = ArtistDestination.Args(savedStateHandle).id
 
     init {
         viewModelScope.launch {

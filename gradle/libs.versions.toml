@@ -15,6 +15,7 @@ junit = "4.13.2"
 kotlin = "1.9.0"
 kotlin-coroutines = "1.7.3"
 ksp = "1.9.0-1.0.12"
+retrofit = "2.9.0"
 
 # used directly in gradle plugins
 androidx-compose-compiler = "1.5.1"
@@ -35,6 +36,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref="kotlin-coroutines" }
 androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidx-navigation" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-moshi = { group = "com.squareup.retrofit2", name="converter-moshi", version.ref = "retrofit" }
 
 # used directly in gradle plugins
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }

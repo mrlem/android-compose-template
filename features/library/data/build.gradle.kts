@@ -10,4 +10,6 @@ android {
 dependencies {
     implementation(project(":features:library:domain"))
     implementation(libs.kotlin.coroutines)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
 }
