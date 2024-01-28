@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface SongsApi {
 
-    @GET("songs/v1/artists")
+    @GET("songs/v1/")
     suspend fun list(): List<Artist>
 
 }
