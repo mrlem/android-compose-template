@@ -8,7 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import org.mrlem.sample.compose.core.ui.base.NavProvider
+import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
+import org.mrlem.sample.compose.core.feature.ui.NavProvider
 import org.mrlem.sample.compose.core.ui.theme.Theme
 import javax.inject.Inject
 
@@ -18,6 +19,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var navProviders: Set<@JvmSuppressWildcards NavProvider>
 
+    @Inject
+    lateinit var bottomNavProviders: Set<@JvmSuppressWildcards BottomNavProvider>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,7 +30,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    MainWindow(navProviders)
+                    MainWindow(
+                        navProviders = navProviders,
+                        bottomNavProviders = bottomNavProviders,
+                    )
                 }
             }
         }

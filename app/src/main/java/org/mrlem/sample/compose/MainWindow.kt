@@ -10,16 +10,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import org.mrlem.sample.compose.core.ui.base.NavProvider
+import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
+import org.mrlem.sample.compose.core.feature.ui.NavProvider
 
 @Composable
-fun MainWindow(navProviders: Set<NavProvider>) {
+fun MainWindow(
+    navProviders: Set<NavProvider>,
+    bottomNavProviders: Set<BottomNavProvider>,
+) {
     val navController = rememberNavController()
-    val items = navProviders
+    val items = bottomNavProviders
         .mapNotNull { it.navBarItem }
         .sortedBy { it.index }
 

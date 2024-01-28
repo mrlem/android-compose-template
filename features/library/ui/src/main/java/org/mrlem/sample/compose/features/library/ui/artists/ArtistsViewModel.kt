@@ -5,11 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.mrlem.sample.compose.core.ui.base.EffectsDelegate
-import org.mrlem.sample.compose.core.ui.base.EffectsProvider
-import org.mrlem.sample.compose.core.ui.base.StateDelegate
-import org.mrlem.sample.compose.core.ui.base.StateProvider
+import org.mrlem.sample.compose.core.feature.ui.EffectsDelegate
+import org.mrlem.sample.compose.core.feature.ui.EffectsProvider
+import org.mrlem.sample.compose.core.feature.ui.StateDelegate
+import org.mrlem.sample.compose.core.feature.ui.StateProvider
 import org.mrlem.sample.compose.features.library.domain.usecases.GetArtistsUseCase
+import org.mrlem.sample.compose.features.library.nav.LibraryDestination
 import org.mrlem.sample.compose.features.library.ui.artists.ArtistsViewStateConverter.toViewState
 import javax.inject.Inject
 
@@ -22,7 +23,7 @@ internal class ArtistsViewModel @Inject constructor(
     EffectsProvider<ArtistsViewEffect> by EffectsDelegate()
 {
 
-    private var artistId: String? = savedStateHandle["artistId"]
+    private var artistId = LibraryDestination.Args(savedStateHandle).artistId
 
     init {
         viewModelScope.launch {
@@ -33,7 +34,6 @@ internal class ArtistsViewModel @Inject constructor(
 
     fun handleRedirections() {
         artistId
-            ?.toIntOrNull()
             ?.let { viewModelScope.sendEffect(ArtistsViewEffect.GoToArtist(it)) }
         artistId = null
     }

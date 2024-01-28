@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.ui.base
+package org.mrlem.sample.compose.core.feature.ui
 
 import kotlinx.coroutines.flow.StateFlow
 

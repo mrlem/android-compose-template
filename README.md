@@ -16,10 +16,10 @@
 * library: add artist page
 * spotlight: link to an artist
 * navigation: should originate from vm
+* navigation: add type safe destinations from nav to vm
 
 # TODO
 
-* navigation: add type safe destinations from nav to vm
 * library: add breadcrumb (e.g. "Library > Muse >")
 * data layer: room for persistence
 * data layer: retrofit for api access

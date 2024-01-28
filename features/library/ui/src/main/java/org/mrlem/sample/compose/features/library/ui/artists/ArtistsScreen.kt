@@ -10,7 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import org.mrlem.sample.compose.core.ui.base.UiModePreviews
+import org.mrlem.sample.compose.core.feature.ui.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.Theme
 import org.mrlem.sample.compose.features.library.ui.Item
 import org.mrlem.sample.compose.features.library.ui.ItemViewState
