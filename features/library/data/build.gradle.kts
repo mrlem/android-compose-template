@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.app.feature.data)
+    alias(libs.plugins.app.android.room)
 }
 
 android {
