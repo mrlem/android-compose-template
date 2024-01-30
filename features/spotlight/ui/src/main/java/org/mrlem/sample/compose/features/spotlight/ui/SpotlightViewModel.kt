@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.mrlem.sample.compose.core.feature.ui.EffectsDelegate
-import org.mrlem.sample.compose.core.feature.ui.EffectsProvider
+import org.mrlem.sample.compose.core.feature.ui.StateDelegate
+import org.mrlem.sample.compose.core.feature.ui.StateProvider
 import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import javax.inject.Inject
 
@@ -13,16 +13,14 @@ import javax.inject.Inject
 class SpotlightViewModel @Inject constructor(
     private val songRepository: SongRepository,
 ) : ViewModel(),
-    EffectsProvider<SpotlightViewEffect> by EffectsDelegate()
+    StateProvider<SpotlightViewState> by StateDelegate(SpotlightViewState())
 {
 
-    fun onAction(action: SpotlightViewAction) =
-        when (action) {
-            is SpotlightViewAction.ButtonClick -> {
-                viewModelScope.launch {
-                    songRepository.findArtistIdByName("Muse")
-                        ?.let { sendEffect(SpotlightViewEffect.GoToArtist(it)) }
-                }
-            }
+    init {
+        viewModelScope.launch {
+            songRepository.findArtistIdByName("Muse")
+                ?.let { updateState { copy(buttonArtistId = it) } }
         }
+    }
+
 }

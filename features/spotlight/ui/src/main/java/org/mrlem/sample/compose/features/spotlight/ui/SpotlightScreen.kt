@@ -8,7 +8,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -21,24 +22,16 @@ internal fun SpotlightScreen(
     viewModel: SpotlightViewModel = hiltViewModel(),
     onSuggestionClick: (artistId: Long) -> Unit = {},
 ) {
-    LaunchedEffect(Unit) {
-        viewModel.effects
-            .collect { effect ->
-                when (effect) {
-                    is SpotlightViewEffect.GoToArtist ->
-                        onSuggestionClick(effect.id)
-                }
-            }
-    }
+    val state by viewModel.state.collectAsState()
 
     Spotlight(
-        onAction = viewModel::onAction,
+        onSuggestionClick = { state.buttonArtistId?.let { onSuggestionClick(it) } },
     )
 }
 
 @Composable
 private fun Spotlight(
-    onAction: (SpotlightViewAction) -> Unit = {},
+    onSuggestionClick: () -> Unit = {},
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Theme.size.medium),
@@ -56,7 +49,7 @@ private fun Spotlight(
                 .weight(1f),
         )
         Button(
-            onClick = { onAction(SpotlightViewAction.ButtonClick) },
+            onClick = { onSuggestionClick() },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         ) {

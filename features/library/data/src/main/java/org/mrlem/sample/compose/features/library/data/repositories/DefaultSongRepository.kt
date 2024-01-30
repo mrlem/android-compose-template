@@ -1,11 +1,9 @@
 package org.mrlem.sample.compose.features.library.data.repositories
 
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.mrlem.sample.compose.features.library.data.local.daos.ArtistDao
 import org.mrlem.sample.compose.features.library.data.local.daos.SongDao
@@ -99,9 +97,9 @@ class DefaultSongRepository @Inject constructor(
     override suspend fun findArtistIdByName(name: String): Long? =
         artistDao.findArtistIdByName("Muse")
 
-    @OptIn(DelicateCoroutinesApi::class)
     private fun initDatabase() {
-        GlobalScope.launch(Dispatchers.IO) {
+        // wait until our test data to be populated before to consider repo ready to use
+        runBlocking {
             songDao.clear()
             artistDao.clear()
             artists
