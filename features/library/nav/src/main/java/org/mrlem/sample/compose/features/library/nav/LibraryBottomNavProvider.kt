@@ -13,7 +13,7 @@ class LibraryBottomNavProvider @Inject constructor() : BottomNavProvider {
         index = 1,
         label = "Library",
         icon = Icons.Filled.List,
-        route = "library",
+        route = LibraryDestination.route,
     )
 
 }

@@ -13,7 +13,7 @@ class SpotlightBottomNavProvider @Inject constructor() : BottomNavProvider {
         index = 0,
         label = "Spotlight",
         icon = Icons.Filled.Info,
-        route = "spotlight",
+        route = SpotlightDestination.route,
     )
 
 }
