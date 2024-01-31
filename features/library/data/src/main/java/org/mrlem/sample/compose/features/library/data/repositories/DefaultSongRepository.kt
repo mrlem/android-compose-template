@@ -59,7 +59,8 @@ class DefaultSongRepository @Inject constructor(
         artistDao.findArtistIdByName("Muse")
 
     private fun initDatabase() {
-        // wait until our test data to be populated before to consider repo ready to use
+        // In this sample, wait until our test data gets populated before we consider the repo ready.
+        // In a real-life app we wouldn't do this, but the spotlight screen has a hardcoded link.
         runBlocking {
             songDao.clear()
             artistDao.clear()
