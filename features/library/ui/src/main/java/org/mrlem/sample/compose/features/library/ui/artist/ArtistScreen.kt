@@ -2,10 +2,12 @@ package org.mrlem.sample.compose.features.library.ui.artist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,13 +26,13 @@ internal fun ArtistScreen(
 ) {
     val state by viewModel.state.collectAsState()
 
-    Artist(
+    ArtistAndSongs(
         state = state,
     )
 }
 
 @Composable
-private fun Artist(state: ArtistViewState) {
+private fun ArtistAndSongs(state: ArtistViewState) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -52,8 +54,29 @@ private fun Artist(state: ArtistViewState) {
                 .fillMaxSize()
                 .weight(1f),
         ) {
-            // TODO
+            items(state.songs) { song ->
+                Song(song)
+            }
         }
+    }
+}
+
+@Composable
+private fun Song(song: ArtistViewState.Song) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(Theme.size.medium),
+    ) {
+        Text(
+            text = song.name,
+            modifier = Modifier
+                .weight(1f)
+        )
+
+        Text(
+            text = song.duration,
+        )
     }
 }
 
@@ -62,7 +85,7 @@ private fun Artist(state: ArtistViewState) {
 private fun Preview() {
     Theme {
         Surface {
-            Artist(
+            ArtistAndSongs(
                 state = ArtistViewState(
                     name = "Muse",
                 ),

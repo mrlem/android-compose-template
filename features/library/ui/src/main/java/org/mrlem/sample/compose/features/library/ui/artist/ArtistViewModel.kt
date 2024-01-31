@@ -7,14 +7,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.mrlem.sample.compose.core.feature.ui.StateDelegate
 import org.mrlem.sample.compose.core.feature.ui.StateProvider
-import org.mrlem.sample.compose.features.library.domain.usecases.GetArtistUseCase
-import org.mrlem.sample.compose.features.library.ui.artist.ArtistViewStateConverter.toViewState
+import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import javax.inject.Inject
 
 @HiltViewModel
 internal class ArtistViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    getArtistUseCase: GetArtistUseCase,
+    songRepository: SongRepository,
+    artistViewStateConverter: ArtistViewStateConverter,
 ): ViewModel(),
     StateProvider<ArtistViewState> by StateDelegate(ArtistViewState()
 ) {
@@ -23,8 +23,10 @@ internal class ArtistViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val artist = checkNotNull(getArtistUseCase(artistId))
-            updateState { artist.toViewState() }
+            val artistWithSongs = checkNotNull(songRepository.getArtist(artistId))
+            with(artistViewStateConverter) {
+                updateState { artistWithSongs.toViewState() }
+            }
         }
     }
 

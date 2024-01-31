@@ -5,14 +5,14 @@ import org.mrlem.sample.compose.features.library.ui.ItemViewState
 
 internal object ArtistsViewStateConverter {
 
-    fun List<Artist>.toViewState() =
+    fun List<Pair<Artist, Int>>.toViewState() =
         map { it.toViewState() }
 
-    private fun Artist.toViewState() =
+    private fun Pair<Artist, Int>.toViewState() =
         ItemViewState<ArtistsViewAction>(
-            label = name,
-            description = "$songCount songs", // TODO - use plural string
-            onClickAction = ArtistsViewAction.ArtistClick(id),
+            label = first.name,
+            description = "$second songs", // TODO - use plural string
+            onClickAction = ArtistsViewAction.ArtistClick(first.id),
         )
 
 }

@@ -11,6 +11,7 @@ import org.mrlem.sample.compose.features.library.data.remote.api.SongsApi
 import org.mrlem.sample.compose.features.library.data.remote.mappers.ArtistMapper.toEntity
 import org.mrlem.sample.compose.features.library.data.remote.mappers.SongMapper.toEntity
 import org.mrlem.sample.compose.features.library.domain.model.Artist
+import org.mrlem.sample.compose.features.library.domain.model.Song
 import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import se.ansman.dagger.auto.AutoBind
 import javax.inject.Inject
@@ -34,12 +35,12 @@ class DefaultSongRepository @Inject constructor(
         initDatabase()
     }
 
-    override fun getArtists(): Flow<List<Artist>> =
+    override fun getArtists(): Flow<List<Pair<Artist, Int>>> =
         artistDao.listArtistWithSongCount()
-            .map { artists -> artists.map { it.toDomain() } }
+            .map { artistWithSongCount -> artistWithSongCount.map { it.toDomain() } }
 
-    override suspend fun getArtist(id: Long): Artist? =
-        artistDao.findArtistWithSongCount(id)
+    override suspend fun getArtist(id: Long): Pair<Artist, List<Song>>? =
+        artistDao.findArtistWithSongs(id)
             ?.toDomain()
 
     override suspend fun download(): Int =

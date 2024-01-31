@@ -11,8 +11,7 @@ import org.mrlem.sample.compose.core.feature.ui.EffectsDelegate
 import org.mrlem.sample.compose.core.feature.ui.EffectsProvider
 import org.mrlem.sample.compose.core.feature.ui.StateDelegate
 import org.mrlem.sample.compose.core.feature.ui.StateProvider
-import org.mrlem.sample.compose.features.library.domain.usecases.GetArtistsUseCase
-import org.mrlem.sample.compose.features.library.domain.usecases.RefreshArtistsUseCase
+import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import org.mrlem.sample.compose.features.library.nav.LibraryDestination
 import org.mrlem.sample.compose.features.library.ui.artists.ArtistsViewStateConverter.toViewState
 import timber.log.Timber
@@ -21,8 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class ArtistsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    getArtistsUseCase: GetArtistsUseCase,
-    private val refreshArtistsUseCase: RefreshArtistsUseCase,
+    private val songRepository: SongRepository,
 ) : ViewModel(),
     StateProvider<ArtistsViewState> by StateDelegate(ArtistsViewState()),
     EffectsProvider<ArtistsViewEffect> by EffectsDelegate()
@@ -33,7 +31,7 @@ internal class ArtistsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            getArtistsUseCase()
+            songRepository.getArtists()
                 .collectLatest { artists ->
                     updateState { copy(items = artists.toViewState()) }
                 }
@@ -43,7 +41,7 @@ internal class ArtistsViewModel @Inject constructor(
             refreshRequested
                 .collectLatest {
                     try {
-                        refreshArtistsUseCase()
+                        songRepository.download()
                     } catch (e: Exception) {
                         Timber.e(e, "failed to download new songs")
                         sendEffect(ArtistsViewEffect.ShowError)
