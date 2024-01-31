@@ -1,14 +1,11 @@
 package org.mrlem.sample.compose.features.library.data.repositories
 
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.mrlem.sample.compose.features.library.data.local.daos.ArtistDao
 import org.mrlem.sample.compose.features.library.data.local.daos.SongDao
-import org.mrlem.sample.compose.features.library.data.local.entities.Artist as ArtistEntity
-import org.mrlem.sample.compose.features.library.data.local.entities.Song as SongEntity
 import org.mrlem.sample.compose.features.library.data.local.mappers.ArtistMapper.toDomain
 import org.mrlem.sample.compose.features.library.data.remote.api.SongsApi
 import org.mrlem.sample.compose.features.library.data.remote.mappers.ArtistMapper.toEntity
@@ -26,48 +23,6 @@ class DefaultSongRepository @Inject constructor(
     private val songDao: SongDao,
     private val songsApi: SongsApi,
 ) : SongRepository {
-
-    private val artists = listOf(
-        ArtistEntity(
-            id = 0,
-            name = "Cocoon",
-        ),
-        ArtistEntity(
-            id = 1,
-            name = "Elvis Presley",
-        ),
-        ArtistEntity(
-            id = 2,
-            name = "Muse",
-        ),
-    )
-
-    private val songs = listOf(
-        SongEntity(
-            id = 0,
-            title = "Let me!",
-            duration = 127,
-            artistId = 0,
-        ),
-        SongEntity(
-            id = 1,
-            title = "The final countdown",
-            duration = 148,
-            artistId = 0,
-        ),
-        SongEntity(
-            id = 2,
-            title = "Fireworks",
-            duration = 112,
-            artistId = 1,
-        ),
-        SongEntity(
-            id = 3,
-            title = "Words are words",
-            duration = 136,
-            artistId = 2,
-        ),
-    )
 
     init {
         initDatabase()
@@ -102,8 +57,8 @@ class DefaultSongRepository @Inject constructor(
         runBlocking {
             songDao.clear()
             artistDao.clear()
-            artists
-                .map { artist -> artist to songs.filter { it.artistId == artist.id } }
+            SampleData.artists
+                .map { artist -> artist to SampleData.songs.filter { it.artistId == artist.id } }
                 .forEach { artistAndSongs ->
                     val artistId = artistDao.add(artistAndSongs.first.copy(id = 0))
                     songDao.add(
