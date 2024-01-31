@@ -5,7 +5,3 @@ plugins {
 android {
     namespace = "org.mrlem.sample.compose.features.library.nav"
 }
-
-dependencies {
-    api(project(":core:feature:nav"))
-}

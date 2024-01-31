@@ -15,7 +15,7 @@ class FeatureNavConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                add("implementation", project(":core:feature:nav"))
+                add("api", project(":core:feature:nav"))
                 add("implementation", platform(libs.findLibrary("androidx-compose-bom").get()))
                 add("implementation", libs.findLibrary("androidx-navigation").get())
                 add("implementation", libs.findLibrary("androidx-material3").get())
