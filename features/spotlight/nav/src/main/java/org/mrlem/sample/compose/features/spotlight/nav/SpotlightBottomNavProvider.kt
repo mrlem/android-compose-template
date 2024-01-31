@@ -11,7 +11,7 @@ class SpotlightBottomNavProvider @Inject constructor() : BottomNavProvider {
 
     override val navBarItem = BottomNavProvider.Item(
         index = 0,
-        label = "Spotlight",
+        labelResId = R.string.spotlight_bottomnav_label,
         icon = Icons.Filled.Info,
         route = SpotlightDestination.route,
     )

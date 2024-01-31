@@ -11,7 +11,7 @@ class LibraryBottomNavProvider @Inject constructor() : BottomNavProvider {
 
     override val navBarItem = BottomNavProvider.Item(
         index = 1,
-        label = "Library",
+        labelResId = R.string.library_bottomnav_label,
         icon = Icons.Filled.List,
         route = LibraryDestination.route,
     )
