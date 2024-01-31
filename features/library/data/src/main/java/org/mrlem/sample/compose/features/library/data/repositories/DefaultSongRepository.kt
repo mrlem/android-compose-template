@@ -24,6 +24,12 @@ class DefaultSongRepository @Inject constructor(
     private val songsApi: SongsApi,
 ) : SongRepository {
 
+    companion object {
+
+        private const val TIMEOUT = 1000L
+
+    }
+
     init {
         initDatabase()
     }
@@ -37,7 +43,7 @@ class DefaultSongRepository @Inject constructor(
             ?.toDomain()
 
     override suspend fun download(): Int =
-        withTimeout(500) {
+        withTimeout(TIMEOUT) {
             val artists = songsApi.list()
 
             artists.forEach { artist ->
