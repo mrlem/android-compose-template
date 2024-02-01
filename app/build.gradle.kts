@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose"
+    namespace = "org.mrlem.composesample"
 
     defaultConfig {
-        applicationId = "org.mrlem.sample.compose"
+        applicationId = "org.mrlem.composesample"
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.features.library.ui"
+    namespace = "org.mrlem.composesample.features.library.ui"
 }
 
 dependencies {

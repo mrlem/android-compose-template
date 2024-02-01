@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.features.spotlight.ui"
+    namespace = "org.mrlem.composesample.features.spotlight.ui"
 }
 
 dependencies {

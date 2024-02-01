@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.features.library.nav"
+    namespace = "org.mrlem.composesample.features.library.nav"
 }

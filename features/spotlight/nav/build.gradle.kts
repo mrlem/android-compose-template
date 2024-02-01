@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.features.spotlight.nav"
+    namespace = "org.mrlem.composesample.features.spotlight.nav"
 }
