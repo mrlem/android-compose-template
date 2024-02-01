@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.gradleplugins
+package org.mrlem.android.core.gradleplugins
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion

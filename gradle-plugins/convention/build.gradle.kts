@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "org.mrlem.sample.compose.gradleplugins"
+group = "org.mrlem.android.core.gradleplugins"
 
 java {
     toolchain {

@@ -1,7 +1,7 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.mrlem.sample.compose.gradleplugins.commonExtension
-import org.mrlem.sample.compose.gradleplugins.configureAndroidCompose
+import org.mrlem.android.core.gradleplugins.commonExtension
+import org.mrlem.android.core.gradleplugins.configureAndroidCompose
 
 class AndroidComposeConventionPlugin : Plugin<Project> {
 

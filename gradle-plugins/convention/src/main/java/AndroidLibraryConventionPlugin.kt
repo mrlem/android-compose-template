@@ -1,8 +1,8 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.mrlem.sample.compose.gradleplugins.commonExtension
-import org.mrlem.sample.compose.gradleplugins.configureKotlin
-import org.mrlem.sample.compose.gradleplugins.configureKotlinAndroid
+import org.mrlem.android.core.gradleplugins.commonExtension
+import org.mrlem.android.core.gradleplugins.configureKotlin
+import org.mrlem.android.core.gradleplugins.configureKotlinAndroid
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
 
