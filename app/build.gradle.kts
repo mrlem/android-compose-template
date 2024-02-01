@@ -34,12 +34,12 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui:theme"))
-    implementation(project(":features:spotlight:nav"))
-    implementation(project(":features:spotlight:ui"))
     implementation(project(":features:library:data"))
     implementation(project(":features:library:nav"))
     implementation(project(":features:library:ui"))
+    implementation(project(":features:spotlight:nav"))
+    implementation(project(":features:spotlight:ui"))
+    implementation(project(":theme"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.navigation)

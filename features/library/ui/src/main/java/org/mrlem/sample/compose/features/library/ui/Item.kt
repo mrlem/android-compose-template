@@ -8,7 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import org.mrlem.sample.compose.core.ui.theme.Theme
+import org.mrlem.sample.compose.theme.Theme
 
 @Composable
 internal fun <Action> Item(

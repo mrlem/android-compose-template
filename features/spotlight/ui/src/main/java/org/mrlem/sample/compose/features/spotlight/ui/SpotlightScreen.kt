@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.hilt.navigation.compose.hiltViewModel
 import org.mrlem.android.core.feature.ui.UiModePreviews
-import org.mrlem.sample.compose.core.ui.theme.Theme
+import org.mrlem.sample.compose.theme.Theme
 
 @Composable
 internal fun SpotlightScreen(
