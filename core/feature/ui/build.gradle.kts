@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.core.feature.ui"
+    namespace = "org.mrlem.android.core.feature.ui"
 }
 
 dependencies {

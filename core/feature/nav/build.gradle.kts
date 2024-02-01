@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "org.mrlem.sample.compose.core.feature.nav"
+    namespace = "org.mrlem.android.core.feature.nav"
 }
 
 dependencies {
