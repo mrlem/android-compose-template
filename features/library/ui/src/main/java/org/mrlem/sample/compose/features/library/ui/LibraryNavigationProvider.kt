@@ -5,8 +5,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import org.mrlem.sample.compose.core.feature.nav.navigate
-import org.mrlem.sample.compose.core.feature.ui.NavProvider
+import org.mrlem.android.core.feature.nav.navigate
+import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.sample.compose.features.library.nav.LibraryDestination
 import org.mrlem.sample.compose.features.library.ui.artist.ArtistDestination
 import org.mrlem.sample.compose.features.library.ui.artist.ArtistScreen

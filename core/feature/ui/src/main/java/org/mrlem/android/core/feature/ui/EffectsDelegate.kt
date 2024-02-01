@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.feature.ui
+package org.mrlem.android.core.feature.ui
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow

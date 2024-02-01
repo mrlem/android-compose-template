@@ -8,8 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
-import org.mrlem.sample.compose.core.feature.ui.NavProvider
+import org.mrlem.android.core.feature.nav.BottomNavProvider
+import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.sample.compose.core.ui.theme.Theme
 import javax.inject.Inject
 

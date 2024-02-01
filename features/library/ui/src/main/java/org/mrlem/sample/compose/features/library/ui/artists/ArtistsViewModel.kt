@@ -7,10 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import org.mrlem.sample.compose.core.feature.ui.EffectsDelegate
-import org.mrlem.sample.compose.core.feature.ui.EffectsProvider
-import org.mrlem.sample.compose.core.feature.ui.StateDelegate
-import org.mrlem.sample.compose.core.feature.ui.StateProvider
+import org.mrlem.android.core.feature.ui.EffectsDelegate
+import org.mrlem.android.core.feature.ui.EffectsProvider
+import org.mrlem.android.core.feature.ui.StateDelegate
+import org.mrlem.android.core.feature.ui.StateProvider
 import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import org.mrlem.sample.compose.features.library.nav.LibraryDestination
 import org.mrlem.sample.compose.features.library.ui.artists.ArtistsViewStateConverter.toViewState

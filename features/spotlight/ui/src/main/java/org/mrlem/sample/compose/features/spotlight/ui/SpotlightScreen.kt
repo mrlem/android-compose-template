@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.hilt.navigation.compose.hiltViewModel
-import org.mrlem.sample.compose.core.feature.ui.UiModePreviews
+import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable

@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.mrlem.sample.compose.core.feature.ui.StateDelegate
-import org.mrlem.sample.compose.core.feature.ui.StateProvider
+import org.mrlem.android.core.feature.ui.StateDelegate
+import org.mrlem.android.core.feature.ui.StateProvider
 import org.mrlem.sample.compose.features.library.domain.repositories.SongRepository
 import javax.inject.Inject
 

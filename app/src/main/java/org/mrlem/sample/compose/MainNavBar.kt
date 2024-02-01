@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
-import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
+import org.mrlem.android.core.feature.nav.BottomNavProvider
 
 @Composable
 fun MainNavBar(

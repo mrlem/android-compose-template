@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.feature.nav
+package org.mrlem.android.core.feature.nav
 
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.vector.ImageVector

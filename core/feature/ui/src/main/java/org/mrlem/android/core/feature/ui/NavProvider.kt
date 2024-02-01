@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.feature.ui
+package org.mrlem.android.core.feature.ui
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.navigation.NavController

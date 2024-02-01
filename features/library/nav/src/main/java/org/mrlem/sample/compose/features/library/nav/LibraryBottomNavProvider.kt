@@ -2,7 +2,7 @@ package org.mrlem.sample.compose.features.library.nav
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
-import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
+import org.mrlem.android.core.feature.nav.BottomNavProvider
 import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 

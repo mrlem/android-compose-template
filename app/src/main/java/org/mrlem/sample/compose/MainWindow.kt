@@ -9,8 +9,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import org.mrlem.sample.compose.core.feature.nav.BottomNavProvider
-import org.mrlem.sample.compose.core.feature.ui.NavProvider
+import org.mrlem.android.core.feature.nav.BottomNavProvider
+import org.mrlem.android.core.feature.ui.NavProvider
 
 @Composable
 fun MainWindow(

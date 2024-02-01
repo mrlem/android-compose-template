@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.feature.ui
+package org.mrlem.android.core.feature.ui
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES

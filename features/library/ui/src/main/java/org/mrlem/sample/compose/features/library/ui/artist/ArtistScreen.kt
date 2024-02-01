@@ -17,7 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
-import org.mrlem.sample.compose.core.feature.ui.UiModePreviews
+import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.sample.compose.core.ui.theme.Theme
 
 @Composable

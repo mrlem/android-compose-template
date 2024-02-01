@@ -1,4 +1,4 @@
-package org.mrlem.sample.compose.core.feature.nav
+package org.mrlem.android.core.feature.nav
 
 import androidx.navigation.NamedNavArgument
 
