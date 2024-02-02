@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import org.mrlem.android.core.feature.nav.BottomNavProvider
 import org.mrlem.android.core.feature.ui.NavProvider
+import org.mrlem.composesample.features.spotlight.nav.SpotlightDestination
 
 @Composable
 fun MainWindow(
@@ -34,7 +35,7 @@ fun MainWindow(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "spotlight",
+            startDestination = SpotlightDestination.route,
             modifier = Modifier
                 .padding(innerPadding),
         ) {

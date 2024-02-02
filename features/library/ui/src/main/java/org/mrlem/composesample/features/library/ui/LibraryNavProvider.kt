@@ -16,7 +16,7 @@ import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 
 @AutoBindIntoSet
-class LibraryNavigationProvider @Inject constructor() : NavProvider {
+class LibraryNavProvider @Inject constructor() : NavProvider {
 
     override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) =
         builder.run {

@@ -7,14 +7,15 @@ import androidx.navigation.compose.composable
 import org.mrlem.android.core.feature.nav.navigate
 import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.composesample.features.library.nav.LibraryDestination
+import org.mrlem.composesample.features.spotlight.nav.SpotlightDestination
 import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 
 @AutoBindIntoSet
-class SpotlightNavigationProvider @Inject constructor() : NavProvider {
+class SpotlightNavProvider @Inject constructor() : NavProvider {
 
     override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) = builder.run {
-        composable("spotlight") {
+        composable(SpotlightDestination.route) {
             SpotlightScreen(
                 onSuggestionClick = { artistId ->
                     navController.navigate(LibraryDestination(artistId = artistId)) {
