@@ -2,6 +2,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.project
+import org.mrlem.android.core.gradleplugins.applicationExtension
 import org.mrlem.android.core.gradleplugins.commonExtension
 import org.mrlem.android.core.gradleplugins.configureKotlin
 import org.mrlem.android.core.gradleplugins.configureKotlinAndroid
@@ -15,7 +16,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
             }
 
-            commonExtension.apply {
+            requireNotNull(applicationExtension).apply {
                 configureKotlin()
                 configureKotlinAndroid(this)
                 dependencies {
