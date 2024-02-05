@@ -32,6 +32,6 @@ data class LibraryDestination(val artistId: Long) : Destination {
     }
 
     override fun toString() =
-        "$libraryRoute?artistId=$artistId"
+        "$libraryRoute?$artistIdArg=$artistId"
 
 }
