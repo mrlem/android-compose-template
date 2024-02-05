@@ -40,7 +40,6 @@ dependencies {
     implementation(project(":features:spotlight:nav"))
     implementation(project(":features:spotlight:ui"))
     implementation(project(":theme"))
-    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
