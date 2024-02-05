@@ -17,11 +17,16 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             requireNotNull(applicationExtension).apply {
+                buildFeatures {
+                    buildConfig = true
+                }
+
                 configureKotlin()
                 configureKotlinAndroid(this)
-                dependencies {
-                    add("implementation", project(":core:feature:ui"))
-                }
+            }
+
+            dependencies {
+                add("implementation", project(":core:feature:ui"))
             }
         }
     }

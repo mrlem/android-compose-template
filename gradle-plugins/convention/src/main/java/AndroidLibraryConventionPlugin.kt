@@ -1,6 +1,5 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.mrlem.android.core.gradleplugins.commonExtension
 import org.mrlem.android.core.gradleplugins.configureKotlin
 import org.mrlem.android.core.gradleplugins.configureKotlinAndroid
 import org.mrlem.android.core.gradleplugins.libraryExtension
@@ -15,6 +14,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             requireNotNull(libraryExtension).apply {
+                buildFeatures {
+                    buildConfig = true
+                }
+
                 configureKotlin()
                 configureKotlinAndroid(this)
             }
