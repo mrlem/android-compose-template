@@ -9,17 +9,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import org.mrlem.android.core.feature.nav.BottomNavProvider
 import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.composesample.features.spotlight.nav.SpotlightDestination
 
 @Composable
 fun MainWindow(
     navProviders: Set<NavProvider>,
-    bottomNavProviders: Set<BottomNavProvider>,
 ) {
     val navController = rememberNavController()
-    val items = bottomNavProviders
+    val items = navProviders
         .mapNotNull { it.navBarItem }
         .sortedBy { it.index }
     val snackbarHostState = remember { SnackbarHostState() }
