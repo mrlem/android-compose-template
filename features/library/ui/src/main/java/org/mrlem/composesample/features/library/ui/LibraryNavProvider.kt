@@ -26,6 +26,7 @@ class LibraryNavProvider @Inject constructor() : NavProvider {
         labelResId = R.string.library_bottomnav_label,
         icon = Icons.Filled.Home,
         route = LibraryDestination.route,
+        isStart = false,
     )
 
     override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) =

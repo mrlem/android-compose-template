@@ -22,6 +22,7 @@ class SpotlightNavProvider @Inject constructor() : NavProvider {
         labelResId = R.string.spotlight_bottomnav_label,
         icon = Icons.Filled.Info,
         route = SpotlightDestination.route,
+        isStart = true,
     )
 
     override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) = builder.run {

@@ -35,9 +35,7 @@ android {
 
 dependencies {
     implementation(project(":features:library:data"))
-    implementation(project(":features:library:nav"))
     implementation(project(":features:library:ui"))
-    implementation(project(":features:spotlight:nav"))
     implementation(project(":features:spotlight:ui"))
     implementation(project(":theme"))
     androidTestImplementation(libs.androidx.test.ext.junit)

@@ -13,6 +13,7 @@ interface NavProvider {
         @StringRes val labelResId: Int,
         val icon: ImageVector,
         val route: String,
+        val isStart: Boolean,
     )
 
     val navBarItem: BottomBarItem?
