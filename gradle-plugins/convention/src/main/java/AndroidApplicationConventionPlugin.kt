@@ -3,7 +3,6 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.project
 import org.mrlem.android.core.gradleplugins.applicationExtension
-import org.mrlem.android.core.gradleplugins.commonExtension
 import org.mrlem.android.core.gradleplugins.configureJUnit
 import org.mrlem.android.core.gradleplugins.configureKotlin
 import org.mrlem.android.core.gradleplugins.configureKotlinAndroid
@@ -28,6 +27,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", project(":core:feature:ui"))
+                add("implementation", project(":core:feature:nav"))
             }
             configureJUnit()
         }
