@@ -20,7 +20,6 @@ interface NavProvider {
 
     fun graph(
         builder: NavGraphBuilder,
-        navController: NavController,
         snackbarHostState: SnackbarHostState,
     )
 

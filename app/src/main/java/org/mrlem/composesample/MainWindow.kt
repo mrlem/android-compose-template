@@ -9,17 +9,25 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import org.mrlem.android.core.feature.nav.NavigationLaunchedEffect
+import org.mrlem.android.core.feature.nav.Navigator
 import org.mrlem.android.core.feature.ui.NavProvider
 
 @Composable
 fun MainWindow(
     navProviders: Set<NavProvider>,
+    navigator: Navigator,
 ) {
     val navController = rememberNavController()
     val items = navProviders
         .mapNotNull { it.navBarItem }
         .sortedBy { it.index }
     val snackbarHostState = remember { SnackbarHostState() }
+
+    NavigationLaunchedEffect(
+        navigator = navigator,
+        navController = navController,
+    )
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -37,7 +45,7 @@ fun MainWindow(
                 .padding(innerPadding),
         ) {
             navProviders.forEach { subGraph ->
-                subGraph.graph(this, navController, snackbarHostState)
+                subGraph.graph(this, snackbarHostState)
             }
         }
     }

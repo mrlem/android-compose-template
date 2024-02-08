@@ -3,11 +3,10 @@ package org.mrlem.composesample.features.library.ui
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.SnackbarHostState
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import org.mrlem.android.core.feature.nav.navigate
+import org.mrlem.android.core.feature.nav.Navigator
 import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.composesample.features.library.nav.LibraryDestination
 import org.mrlem.composesample.features.library.nav.R
@@ -19,7 +18,9 @@ import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 
 @AutoBindIntoSet
-class LibraryNavProvider @Inject constructor() : NavProvider {
+class LibraryNavProvider @Inject constructor(
+    private val navigator: Navigator,
+) : NavProvider {
 
     override val navBarItem = NavProvider.BottomBarItem(
         index = 1,
@@ -29,7 +30,7 @@ class LibraryNavProvider @Inject constructor() : NavProvider {
         isStart = false,
     )
 
-    override fun graph(builder: NavGraphBuilder, navController: NavController, snackbarHostState: SnackbarHostState) =
+    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState) =
         builder.run {
             navigation(
                 startDestination = ArtistsDestination.route,
@@ -41,7 +42,7 @@ class LibraryNavProvider @Inject constructor() : NavProvider {
                 ) {
                     ArtistsScreen(
                         snackbarHostState = snackbarHostState,
-                        onArtistSelect = { id -> navController.navigate(ArtistDestination(id)) },
+                        onArtistSelect = { id -> navigator.navigate(ArtistDestination(id)) },
                     )
                 }
                 composable(
