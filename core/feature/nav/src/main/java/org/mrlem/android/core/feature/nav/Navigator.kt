@@ -8,6 +8,7 @@ import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.navOptions
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -35,9 +36,11 @@ class Navigator {
 fun NavigationLaunchedEffect(
     navigator: Navigator,
     navController: NavController,
+    target: Destination.Target = Destination.Target.DEFAULT,
 ) {
     LaunchedEffect(Unit) {
         navigator.operations
+            .filter { it.destination.target == target }
             .onEach { (destination, navOptions) ->
                 navController.navigate(destination.toString(), navOptions)
             }
