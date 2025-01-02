@@ -23,7 +23,7 @@ androidx-compose-compiler = "1.5.1"
 compile-sdk = "34"
 min-sdk = "24"
 target-sdk = "34"
-jvm = "11"
+jvm = "17"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
