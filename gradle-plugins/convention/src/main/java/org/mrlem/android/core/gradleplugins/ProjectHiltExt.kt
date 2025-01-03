@@ -6,7 +6,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
 internal fun Project.configureAndroidHilt(
-    commonExtension: CommonExtension<*, *, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     if (commonExtension is ApplicationExtension) {
         pluginManager.apply(libs.findPlugin("hilt-android").get().get().pluginId)
