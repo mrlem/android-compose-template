@@ -8,18 +8,17 @@ androidx-activity-compose = "1.9.3"
 androidx-compose-bom = "2024.12.01"
 androidx-navigation = "2.8.5"
 androidx-room = "2.6.1"
-autodagger = "1.0.0"
-hilt = "2.50"
+autodagger = "1.5.0"
+hilt = "2.52"
 javax-inject = "1"
 junit = "4.13.2"
-kotlin = "1.9.24"
-kotlin-coroutines = "1.9.0"
-ksp = "1.9.24-1.0.20"
+kotlin = "2.0.21"
+kotlin-coroutines = "1.10.1"
+ksp = "2.0.21-1.0.28"
 retrofit = "2.9.0"
 timber = "5.0.1"
 
 # used directly in gradle plugins
-androidx-compose-compiler = "1.5.14"
 compile-sdk = "35"
 min-sdk = "24"
 target-sdk = "35"
@@ -42,7 +41,7 @@ retrofit-moshi = { group = "com.squareup.retrofit2", name="converter-moshi", ver
 
 # used directly in gradle plugins
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
-androidx-hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.1.0" }
+androidx-hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
@@ -69,6 +68,7 @@ retrofit = [ "retrofit-core", "retrofit-moshi" ]
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
