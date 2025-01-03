@@ -1,4 +1,4 @@
-package org.mrlem.composesample.features.library.data
+package org.mrlem.composesample.features.library.data.di
 
 import android.content.Context
 import androidx.room.Room
