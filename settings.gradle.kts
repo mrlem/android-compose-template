@@ -21,6 +21,7 @@ dependencyResolutionManagement {
 rootProject.name = "app"
 include(
     ":app",
+    ":core:di",
     ":core:feature:nav",
     ":core:feature:ui",
     ":features:library:data",

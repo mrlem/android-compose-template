@@ -1,9 +1,11 @@
 package org.mrlem.composesample.features.library.data.repositories
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
+import org.mrlem.android.core.di.ApplicationScope
 import org.mrlem.composesample.features.library.data.local.daos.ArtistDao
 import org.mrlem.composesample.features.library.data.local.daos.SongDao
 import org.mrlem.composesample.features.library.data.local.mappers.ArtistMapper.toDomain
@@ -23,6 +25,7 @@ class DefaultSongRepository @Inject constructor(
     private val artistDao: ArtistDao,
     private val songDao: SongDao,
     private val songsApi: SongsApi,
+    @ApplicationScope private val coroutineScope: CoroutineScope,
 ) : SongRepository {
 
     companion object {
@@ -62,7 +65,7 @@ class DefaultSongRepository @Inject constructor(
     private fun initDatabase() {
         // In this sample, wait until our test data gets populated before we consider the repo ready.
         // In a real-life app we wouldn't do this, but the spotlight screen has a hardcoded link.
-        runBlocking {
+        coroutineScope.launch {
             songDao.clear()
             artistDao.clear()
             SampleData.artists

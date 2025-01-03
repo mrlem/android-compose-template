@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:di"))
     implementation(project(":features:library:domain"))
     implementation(libs.kotlin.coroutines)
     implementation(libs.bundles.retrofit)
