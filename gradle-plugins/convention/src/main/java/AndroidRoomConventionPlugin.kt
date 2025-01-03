@@ -1,24 +1,16 @@
+import androidx.room.gradle.RoomExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
-import org.mrlem.android.core.gradleplugins.commonExtension
+import org.gradle.kotlin.dsl.findByType
 import org.mrlem.android.core.gradleplugins.libs
 
 class AndroidRoomConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
-            commonExtension.apply {
-                defaultConfig {
-                    javaCompileOptions {
-                        annotationProcessorOptions {
-                            arguments += mapOf(
-                                "room.schemaLocation" to "$projectDir/schemas",
-                                "room.incremental" to "true"
-                            )
-                        }
-                    }
-                }
+            extensions.findByType<RoomExtension>()?.apply {
+                schemaDirectory("$projectDir/schemas")
             }
 
             dependencies {

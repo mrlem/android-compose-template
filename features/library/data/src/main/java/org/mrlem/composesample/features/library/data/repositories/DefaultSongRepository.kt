@@ -63,8 +63,6 @@ class DefaultSongRepository @Inject constructor(
         artistDao.findArtistIdByName("Muse")
 
     private fun initDatabase() {
-        // In this sample, wait until our test data gets populated before we consider the repo ready.
-        // In a real-life app we wouldn't do this, but the spotlight screen has a hardcoded link.
         coroutineScope.launch {
             songDao.clear()
             artistDao.clear()

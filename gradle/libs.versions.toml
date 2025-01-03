@@ -63,6 +63,7 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 # project internal convention plugin
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "androidx-room" }
 
 [bundles]
 retrofit = [ "retrofit-core", "retrofit-moshi" ]
