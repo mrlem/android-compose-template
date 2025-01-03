@@ -26,6 +26,7 @@ Modules hierarchy:
 
 * **app**
 * **core**
+  * di
   * feature
     * nav
     * ui
