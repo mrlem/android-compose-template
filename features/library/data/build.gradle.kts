@@ -11,4 +11,6 @@ dependencies {
     implementation(project(":features:library:domain"))
     implementation(libs.kotlin.coroutines)
     implementation(libs.bundles.retrofit)
+
+    ksp(libs.retrofit.moshi.codegen)
 }

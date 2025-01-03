@@ -15,7 +15,8 @@ junit = "4.13.2"
 kotlin = "2.0.21"
 kotlin-coroutines = "1.10.1"
 ksp = "2.0.21-1.0.28"
-retrofit = "2.9.0"
+moshi = "1.15.2"
+retrofit = "2.11.0"
 timber = "5.0.1"
 
 # used directly in gradle plugins
@@ -38,6 +39,7 @@ kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutine
 androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidx-navigation" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name="converter-moshi", version.ref = "retrofit" }
+retrofit-moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
 
 # used directly in gradle plugins
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
