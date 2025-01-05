@@ -22,7 +22,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
 
                 configureKotlin()
-                configureKotlinAndroid(this)
+                configureKotlinAndroid()
             }
 
             dependencies {
