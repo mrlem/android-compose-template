@@ -25,6 +25,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         }
 
         dependencies {
+            add("implementation", project(":core:di"))
             add("implementation", project(":core:feature:ui"))
             add("implementation", project(":core:feature:nav"))
         }
