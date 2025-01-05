@@ -5,15 +5,13 @@ import org.mrlem.android.core.gradleplugins.libs
 
 class FeatureDomainConventionPlugin : Plugin<Project> {
 
-    override fun apply(target: Project) {
-        with(target) {
-            pluginManager.run {
-                apply("app.android.library")
-            }
+    override fun apply(target: Project) = with(target) {
+        pluginManager.run {
+            apply("app.android.library")
+        }
 
-            dependencies {
-                add("implementation", libs.findLibrary("javax-inject").get())
-            }
+        dependencies {
+            add("implementation", libs.findLibrary("javax-inject").get())
         }
     }
 

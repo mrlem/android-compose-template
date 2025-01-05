@@ -9,28 +9,26 @@ import org.mrlem.android.core.gradleplugins.configureKotlinAndroid
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
 
-    override fun apply(target: Project) {
-        with(target) {
-            pluginManager.run {
-                apply("com.android.application")
-                apply("org.jetbrains.kotlin.android")
-            }
-
-            requireNotNull(applicationExtension).apply {
-                buildFeatures {
-                    buildConfig = true
-                }
-
-                configureKotlin()
-                configureKotlinAndroid()
-            }
-
-            dependencies {
-                add("implementation", project(":core:feature:ui"))
-                add("implementation", project(":core:feature:nav"))
-            }
-            configureJUnit()
+    override fun apply(target: Project) = with(target) {
+        pluginManager.run {
+            apply("com.android.application")
+            apply("org.jetbrains.kotlin.android")
         }
+
+        requireNotNull(applicationExtension).apply {
+            buildFeatures {
+                buildConfig = true
+            }
+
+            configureKotlin()
+            configureKotlinAndroid()
+        }
+
+        dependencies {
+            add("implementation", project(":core:feature:ui"))
+            add("implementation", project(":core:feature:nav"))
+        }
+        configureJUnit()
     }
 
 }
