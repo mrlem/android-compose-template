@@ -5,7 +5,7 @@ A project template with the following objectives in mind:
 * use **modern UI** tools
 * use a **single source of truth**
 * make it **painless** to write **new features**
-* optimize for **incremental build**
+* optimized for **incremental build**
 
 ## Technical stack
 

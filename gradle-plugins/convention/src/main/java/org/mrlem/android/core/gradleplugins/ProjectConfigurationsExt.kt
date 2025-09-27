@@ -56,6 +56,7 @@ internal fun Project.configureAndroidCompose() {
         add("implementation", libs.findLibrary("androidx-navigation").get())
         add("implementation", libs.findLibrary("androidx-ui").get())
         add("implementation", libs.findLibrary("androidx-ui-graphics").get())
+        add("implementation", libs.findLibrary("androidx.material.icons").get())
         add("implementation", libs.findLibrary("androidx-material3").get())
         add("implementation", libs.findLibrary("androidx-ui-tooling-preview").get())
         add("debugImplementation", libs.findLibrary("androidx-ui-tooling").get())

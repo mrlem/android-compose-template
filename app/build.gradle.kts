@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "org.mrlem.composesample"
-        targetSdk = 35
+        targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 

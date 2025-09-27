@@ -4,14 +4,6 @@ plugins {
 
 group = "org.mrlem.android.core.gradleplugins"
 
-java {
-    toolchain {
-        // This sets the JVM version needed to build this project.
-        // Notice that we set this version in the Version Catalog, and we can use it here!
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.get()))
-    }
-}
-
 dependencies {
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
