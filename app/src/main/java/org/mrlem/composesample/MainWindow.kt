@@ -40,7 +40,8 @@ fun MainWindow(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = (items.firstOrNull { it.isStart } ?: items.first()).route,
+            startDestination = navProviders.firstNotNullOfOrNull { it.startRoute }
+                ?: throw RuntimeException("no start destination defined"),
             modifier = Modifier
                 .padding(innerPadding),
         ) {

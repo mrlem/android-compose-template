@@ -20,14 +20,13 @@ import javax.inject.Inject
 @AutoBindIntoSet
 class LibraryNavProvider @Inject constructor(
     private val navigator: Navigator,
-) : NavProvider {
+) : NavProvider() {
 
-    override val navBarItem = NavProvider.BottomBarItem(
+    override val navBarItem = BottomBarItem(
         index = 1,
         labelResId = R.string.library_bottomnav_label,
         icon = Icons.Filled.Home,
         route = LibraryDestination.route,
-        isStart = false,
     )
 
     override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState) =

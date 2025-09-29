@@ -16,14 +16,14 @@ import javax.inject.Inject
 @AutoBindIntoSet
 class SpotlightNavProvider @Inject constructor(
     private val navigator: Navigator,
-) : NavProvider {
+) : NavProvider() {
 
-    override val navBarItem = NavProvider.BottomBarItem(
+    override val startRoute = SpotlightDestination.route
+    override val navBarItem = BottomBarItem(
         index = 0,
         labelResId = R.string.spotlight_bottomnav_label,
         icon = Icons.Filled.Info,
         route = SpotlightDestination.route,
-        isStart = true,
     )
 
     override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState) = builder.run {

@@ -55,7 +55,6 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 ## TODO
 
-* isStart in destination instead of item
 * pass inner padding to nav provider
 * fix non-working nav on cta click just after launch
 * ui: coil
