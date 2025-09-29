@@ -60,7 +60,7 @@ class DefaultSongRepository @Inject constructor(
         }
 
     override suspend fun findArtistIdByName(name: String): Long? =
-        artistDao.findArtistIdByName("Muse")
+        artistDao.findArtistIdByName(name)
 
     private fun initDatabase() {
         coroutineScope.launch {
