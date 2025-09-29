@@ -55,7 +55,7 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 ## TODO
 
-* fix non-working nav on cta click just after launch
+* vms: express state using an expression (using actions flow)
 * ui: coil
 * room: database in the library module makes sense for this sample app, for not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
