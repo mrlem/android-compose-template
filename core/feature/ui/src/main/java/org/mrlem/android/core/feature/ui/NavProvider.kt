@@ -1,8 +1,10 @@
 package org.mrlem.android.core.feature.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 
 abstract class NavProvider {
@@ -20,6 +22,7 @@ abstract class NavProvider {
     abstract fun graph(
         builder: NavGraphBuilder,
         snackbarHostState: SnackbarHostState,
+        innerPadding: PaddingValues = PaddingValues(0.dp),
     )
 
 }

@@ -1,5 +1,6 @@
 package org.mrlem.composesample.features.spotlight.ui
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.SnackbarHostState
@@ -26,7 +27,7 @@ class SpotlightNavProvider @Inject constructor(
         route = SpotlightDestination.route,
     )
 
-    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState) = builder.run {
+    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) = builder.run {
         composable(SpotlightDestination.route) {
             SpotlightScreen(
                 onSuggestionClick = { artistId ->

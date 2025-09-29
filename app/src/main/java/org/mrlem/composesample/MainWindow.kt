@@ -46,7 +46,11 @@ fun MainWindow(
                 .padding(innerPadding),
         ) {
             navProviders.forEach { subGraph ->
-                subGraph.graph(this, snackbarHostState)
+                subGraph.graph(
+                    builder = this,
+                    snackbarHostState = snackbarHostState,
+                    innerPadding = innerPadding,
+                )
             }
         }
     }

@@ -1,5 +1,6 @@
 package org.mrlem.composesample.features.library.ui
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.SnackbarHostState
@@ -29,7 +30,7 @@ class LibraryNavProvider @Inject constructor(
         route = LibraryDestination.route,
     )
 
-    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState) =
+    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) =
         builder.run {
             navigation(
                 startDestination = ArtistsDestination.route,

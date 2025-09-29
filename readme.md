@@ -55,7 +55,6 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 ## TODO
 
-* pass inner padding to nav provider
 * fix non-working nav on cta click just after launch
 * ui: coil
 * room: database in the library module makes sense for this sample app, for not for a real app. If
