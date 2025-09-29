@@ -1,12 +1,12 @@
 package org.mrlem.composesample.features.library.ui.artist
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.mrlem.android.core.feature.ui.StateDelegate
-import org.mrlem.android.core.feature.ui.StateProvider
+import org.mrlem.android.core.feature.ui.UnidirectionalViewModel
 import org.mrlem.composesample.features.library.domain.repositories.SongRepository
 import javax.inject.Inject
 
@@ -15,10 +15,9 @@ internal class ArtistViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     songRepository: SongRepository,
     artistViewStateConverter: ArtistViewStateConverter,
-): ViewModel(),
-    StateProvider<ArtistViewState> by StateDelegate(
-        ArtistViewState()
-) {
+): UnidirectionalViewModel<ArtistViewState, Unit, Unit>() {
+
+    override val state = MutableStateFlow(ArtistViewState())
 
     private val artistId = ArtistDestination.Args(savedStateHandle).id
 
@@ -26,7 +25,7 @@ internal class ArtistViewModel @Inject constructor(
         viewModelScope.launch {
             val artistWithSongs = checkNotNull(songRepository.getArtist(artistId))
             with(artistViewStateConverter) {
-                updateState { artistWithSongs.toViewState() }
+                state.update { artistWithSongs.toViewState() }
             }
         }
     }
