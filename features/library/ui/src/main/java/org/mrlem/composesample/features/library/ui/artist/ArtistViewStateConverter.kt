@@ -9,13 +9,13 @@ internal class ArtistViewStateConverter @Inject constructor(
     private val formatDurationUseCase: FormatDurationUseCase,
 ) {
 
-    fun Pair<Artist, List<Song>>.toViewState() =
+    fun toViewState(artist: Artist, songs: List<Song>) =
         ArtistViewState(
-            name = first.name,
-            songs = second.map { it.toViewState() }
+            name = artist.name,
+            songs = songs.map { it.toViewState() },
         )
 
-    fun Song.toViewState() =
+    private fun Song.toViewState() =
         ArtistViewState.Song(
             name = title,
             duration = formatDurationUseCase(duration),
