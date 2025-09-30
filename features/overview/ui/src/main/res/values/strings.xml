@@ -1,0 +1,5 @@
+<resources>
+    <string name="overview.title">Wikipedia bookmarks</string>
+    <string name="overview.description">A sample app that displays a list of Wikipedia bookmarks and allows to add a random one. Pretty useless, except that it showcase what the code of a relatively simple android app using this template looks like.</string>
+    <string name="overview.cta">Go to random article</string>
+</resources>

@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
@@ -40,10 +41,10 @@ private fun Overview(
             .padding(Theme.size.medium),
     ) {
         Text(
-            text = "Wikipedia bookmarks",
+            text = stringResource(R.string.overview_title),
         )
         Text(
-            text = "A sample app that displays a list of Wikipedia bookmarks and allows to add a random one.\n\nPretty useless, except that it showcase what the code of a relatively simple android app using this template looks like.",
+            text = stringResource(R.string.overview_description),
             modifier = Modifier
                 .alpha(0.4f)
                 .weight(1f),
@@ -51,9 +52,11 @@ private fun Overview(
         Button(
             onClick = { onSuggestionClick() },
             modifier = Modifier
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.CenterHorizontally),
         ) {
-            Text(text = "Go to Muse")
+            Text(
+                text = stringResource(R.string.overview_cta),
+            )
         }
     }
 }
