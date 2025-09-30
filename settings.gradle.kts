@@ -28,7 +28,7 @@ include(
     ":features:library:domain",
     ":features:library:nav",
     ":features:library:ui",
-    ":features:spotlight:nav",
-    ":features:spotlight:ui",
+    ":features:overview:nav",
+    ":features:overview:ui",
     ":theme",
 )
