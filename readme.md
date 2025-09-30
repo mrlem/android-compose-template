@@ -59,4 +59,3 @@ Navigation is using dedicated modules for stronger feature isolation.
 * room: database in the library module makes sense for this sample app, for not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling
-* vm: allow shared vms in a given navigationGraph
