@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -67,13 +68,12 @@ private fun Detail(state: DetailViewState) {
                     .padding(
                         bottom = Theme.size.medium,
                     )
-                    .alpha(0.5f),
+                    .alpha(0.4f),
             )
         }
 
+        var showLoader by remember { mutableStateOf(false) }
         state.image?.let { image ->
-            var showLoader by remember { mutableStateOf(false) }
-
             AsyncImage(
                 model = image,
                 contentDescription = null,
@@ -85,15 +85,17 @@ private fun Detail(state: DetailViewState) {
                     .size(250.dp)
                     .align(Alignment.CenterHorizontally),
             )
+        }
 
-            if (showLoader) {
-                Box(
-                    modifier = Modifier
-                        .size(250.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    CircularProgressIndicator()
-                }
+        val localInspectionMode = LocalInspectionMode.current
+        if (showLoader || localInspectionMode) {
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .size(250.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircularProgressIndicator()
             }
         }
     }
@@ -107,6 +109,7 @@ private fun Preview() {
             Detail(
                 state = DetailViewState(
                     name = "Saturn",
+                    description = "Saturn is the sixth planet from the Sun.",
                 ),
             )
         }
