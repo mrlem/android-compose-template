@@ -56,10 +56,8 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 ## TODO
 
-* better sample, with images:
-  * get a random wiki article: https://en.wikipedia.org/w/api.php?action=query&format=json&list=random&rnlimit=1&rnnamespace=0
-  * get the image of an article: https://en.wikipedia.org/w/api.php?action=query&titles=Uranus&prop=pageimages&format=json
 * ui: coil
+* sample: add removal
 * room: database in the library module makes sense for this sample app, for not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling

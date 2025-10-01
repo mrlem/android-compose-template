@@ -21,12 +21,12 @@ import org.mrlem.composesample.theme.Theme
 @Composable
 internal fun OverviewScreen(
     viewModel: OverviewViewModel = hiltViewModel(),
-    onSuggestionClick: (artistId: Long) -> Unit = {},
+    onSuggestionClick: (itemId: Long) -> Unit = {},
 ) {
     val state by viewModel.state.collectAsState()
 
     Overview(
-        onSuggestionClick = { state.buttonArtistId?.let { onSuggestionClick(it) } },
+        onSuggestionClick = { state.buttonBookmarkId?.let { onSuggestionClick(it) } },
     )
 }
 

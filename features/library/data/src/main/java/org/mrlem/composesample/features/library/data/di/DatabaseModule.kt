@@ -7,9 +7,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import org.mrlem.composesample.features.library.data.datasources.local.BookmarkDataSource
 import org.mrlem.composesample.features.library.data.local.AppDatabase
-import org.mrlem.composesample.features.library.data.local.daos.ArtistDao
-import org.mrlem.composesample.features.library.data.local.daos.SongDao
 import javax.inject.Singleton
 
 @Module
@@ -28,11 +27,7 @@ class DatabaseModule {
             .build()
 
     @Provides
-    fun artistDao(database: AppDatabase): ArtistDao =
-        database.artistDao()
-
-    @Provides
-    fun songDao(database: AppDatabase): SongDao =
-        database.songDao()
+    fun bookmarkDataSource(database: AppDatabase): BookmarkDataSource =
+        database.bookmarkDataSource()
 
 }

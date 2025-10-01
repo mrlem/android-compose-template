@@ -30,8 +30,8 @@ class OverviewNavProvider @Inject constructor(
     override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) = builder.run {
         composable(OverviewDestination.route) {
             OverviewScreen(
-                onSuggestionClick = { artistId ->
-                    navigator.navigate(LibraryDestination(artistId = artistId)) {
+                onSuggestionClick = { itemId ->
+                    navigator.navigate(LibraryDestination(itemId = itemId)) {
                         popUpTo(0)
                         launchSingleTop = true
                     }

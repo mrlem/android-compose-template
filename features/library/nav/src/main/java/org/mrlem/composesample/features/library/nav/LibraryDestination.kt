@@ -6,15 +6,17 @@ import androidx.navigation.navArgument
 import org.mrlem.android.core.feature.nav.Destination
 import org.mrlem.android.core.feature.nav.DestinationDefinition
 
-private const val libraryRoute = "library"
-private const val artistIdArg = "artistId"
+private const val routeName = "library"
+private const val itemIdArg = "itemId"
 
-data class LibraryDestination(val artistId: Long) : Destination {
+data class LibraryDestination(
+    val itemId: Long,
+) : Destination {
 
     companion object : DestinationDefinition(
-        route = "$libraryRoute?$artistIdArg={$artistIdArg}",
+        route = "$routeName?$itemIdArg={$itemIdArg}",
         args = listOf(
-            navArgument(artistIdArg) {
+            navArgument(itemIdArg) {
                 type = NavType.StringType
                 nullable = true
             }
@@ -22,16 +24,18 @@ data class LibraryDestination(val artistId: Long) : Destination {
     )
 
     data class Args(
-        val artistId: Long?,
+        val itemId: Long?,
     ) {
 
         constructor(savedStateHandle: SavedStateHandle) : this(
-            artistId = savedStateHandle.get<String>(artistIdArg)?.toLongOrNull(),
+            itemId = savedStateHandle
+                .get<String>(itemIdArg)
+                ?.toLongOrNull(),
         )
 
     }
 
     override fun toString() =
-        "$libraryRoute?$artistIdArg=$artistId"
+        "$routeName?$itemIdArg=$itemId"
 
 }

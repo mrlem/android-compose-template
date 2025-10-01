@@ -11,10 +11,10 @@ import org.mrlem.android.core.feature.nav.Navigator
 import org.mrlem.android.core.feature.ui.NavProvider
 import org.mrlem.composesample.features.library.nav.LibraryDestination
 import org.mrlem.composesample.features.library.nav.R
-import org.mrlem.composesample.features.library.ui.artist.ArtistDestination
-import org.mrlem.composesample.features.library.ui.artist.ArtistScreen
-import org.mrlem.composesample.features.library.ui.artists.ArtistsDestination
-import org.mrlem.composesample.features.library.ui.artists.ArtistsScreen
+import org.mrlem.composesample.features.library.ui.detail.DetailDestination
+import org.mrlem.composesample.features.library.ui.detail.DetailScreen
+import org.mrlem.composesample.features.library.ui.list.ListDestination
+import org.mrlem.composesample.features.library.ui.list.ListScreen
 import se.ansman.dagger.auto.AutoBindIntoSet
 import javax.inject.Inject
 
@@ -33,23 +33,23 @@ class LibraryNavProvider @Inject constructor(
     override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) =
         builder.run {
             navigation(
-                startDestination = ArtistsDestination.route,
+                startDestination = ListDestination.route,
                 route = LibraryDestination.route,
                 arguments = LibraryDestination.args,
             ) {
                 composable(
-                    route = ArtistsDestination.route,
+                    route = ListDestination.route,
                 ) {
-                    ArtistsScreen(
+                    ListScreen(
                         snackbarHostState = snackbarHostState,
-                        onArtistSelect = { id -> navigator.navigate(ArtistDestination(id)) },
+                        onItemSelect = { id -> navigator.navigate(DetailDestination(id)) },
                     )
                 }
                 composable(
-                    route = ArtistDestination.route,
-                    arguments = ArtistDestination.args,
+                    route = DetailDestination.route,
+                    arguments = DetailDestination.args,
                 ) {
-                    ArtistScreen()
+                    DetailScreen()
                 }
             }
         }

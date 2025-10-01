@@ -2,16 +2,12 @@ package org.mrlem.composesample.features.library.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import org.mrlem.composesample.features.library.data.local.daos.ArtistDao
-import org.mrlem.composesample.features.library.data.local.daos.SongDao
-import org.mrlem.composesample.features.library.data.local.entities.Artist
-import org.mrlem.composesample.features.library.data.local.entities.Song
+import org.mrlem.composesample.features.library.data.datasources.local.BookmarkDataSource
+import org.mrlem.composesample.features.library.data.datasources.local.entities.BookmarkEntity
 
-@Database(entities = [Song::class, Artist::class], version = 4)
+@Database(entities = [BookmarkEntity::class], version = 5)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun songDao(): SongDao
-
-    abstract fun artistDao(): ArtistDao
+    abstract fun bookmarkDataSource(): BookmarkDataSource
 
 }
