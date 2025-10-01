@@ -19,6 +19,7 @@ internal class BookmarkMapper @Inject constructor() {
         Bookmark(
             id = entity.id,
             name = entity.name,
+            description = entity.description,
             image = entity.image,
         )
 
@@ -26,6 +27,7 @@ internal class BookmarkMapper @Inject constructor() {
         BookmarkEntity(
             id = domain.id,
             name = domain.name,
+            description = domain.description,
             image = domain.image,
         )
 

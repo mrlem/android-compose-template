@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class BookmarkEntity(
     @PrimaryKey val id: Long,
     val name: String,
+    val description: String?,
     val image: String?,
 )

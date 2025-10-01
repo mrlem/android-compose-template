@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,9 +43,11 @@ private fun Overview(
     ) {
         Text(
             text = stringResource(R.string.overview_title),
+            style = MaterialTheme.typography.titleLarge,
         )
         Text(
             text = stringResource(R.string.overview_description),
+            style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
                 .alpha(0.4f)
                 .weight(1f),

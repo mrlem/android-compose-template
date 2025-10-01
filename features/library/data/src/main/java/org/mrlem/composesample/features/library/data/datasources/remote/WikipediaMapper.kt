@@ -14,6 +14,7 @@ internal class WikipediaMapper @Inject constructor() {
         return Bookmark(
             id = page.pageId,
             name = page.title,
+            description = page.properties?.shortDescription,
             image = page.thumbnail?.source,
         )
     }

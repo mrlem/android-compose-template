@@ -8,6 +8,7 @@ internal class DetailViewStateConverter @Inject constructor() {
     fun toViewState(bookmark: Bookmark) =
         DetailViewState(
             name = bookmark.name,
+            description = bookmark.description,
             image = bookmark.image,
         )
 

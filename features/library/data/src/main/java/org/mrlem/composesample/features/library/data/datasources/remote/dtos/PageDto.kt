@@ -8,4 +8,5 @@ data class PageDto(
     @Json(name = "pageid") val pageId: Long,
     val title: String,
     val thumbnail: ThumbnailDto?,
+    @Json(name = "pageprops") val properties: PagePropertiesDto?,
 )

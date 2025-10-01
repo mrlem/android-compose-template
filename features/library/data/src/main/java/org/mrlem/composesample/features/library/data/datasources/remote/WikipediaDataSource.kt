@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface WikipediaDataSource {
 
-    @GET("api.php?action=query&format=json&prop=pageimages&pithumbsize=250")
+    @GET("api.php?action=query&format=json&prop=pageimages|pageprops&pithumbsize=250")
     suspend fun findByName(@Query("titles") name: String): ResultDto
 
     @GET("api.php?action=query&format=json&list=random&rnnamespace=0")

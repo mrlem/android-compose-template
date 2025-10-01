@@ -18,9 +18,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -30,7 +30,6 @@ import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.mrlem.android.core.feature.ui.UiModePreviews
-import org.mrlem.composesample.features.library.ui.R
 import org.mrlem.composesample.theme.Theme
 
 @Composable
@@ -57,10 +56,25 @@ private fun Detail(state: DetailViewState) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    vertical = Theme.size.larger,
-                    horizontal = Theme.size.medium,
+                    top = Theme.size.larger,
+                    bottom = Theme.size.small,
+                    start = Theme.size.medium,
+                    end = Theme.size.medium,
                 ),
         )
+        state.description?.let { description ->
+            Text(
+                text = description,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        bottom = Theme.size.medium,
+                    )
+                    .alpha(0.5f),
+            )
+        }
 
         val context = LocalContext.current
         val imageLoader = remember {
@@ -69,6 +83,7 @@ private fun Detail(state: DetailViewState) {
                     add(
                         OkHttpNetworkFetcherFactory(
                             callFactory = {
+                                // TODO - inject this using hilt
                                 OkHttpClient.Builder()
                                     .addInterceptor { chain ->
                                         val originRequest = chain.request()
