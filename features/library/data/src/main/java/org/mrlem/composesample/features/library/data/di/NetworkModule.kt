@@ -5,7 +5,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.mrlem.composesample.features.library.data.datasources.remote.WikipediaDataSource
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -24,20 +23,9 @@ class NetworkModule {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
+    @Singleton
     @Provides
     fun wikipediaDataSource(retrofit: Retrofit): WikipediaDataSource =
         retrofit.create(WikipediaDataSource::class.java)
-
-    @Provides
-    fun httpClient(): OkHttpClient =
-        OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val originRequest: Request = chain.request()
-                val requestWithUserAgent: Request = originRequest.newBuilder()
-                    .header("User-Agent", "ComposeSample/1.0 (https://github.com/mrlem/android-compose-template)")
-                    .build()
-                chain.proceed(requestWithUserAgent)
-            }
-            .build()
 
 }

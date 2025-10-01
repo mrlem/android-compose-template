@@ -20,15 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import coil3.ImageLoader
 import coil3.compose.AsyncImage
-import coil3.network.okhttp.OkHttpNetworkFetcherFactory
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
@@ -76,35 +71,11 @@ private fun Detail(state: DetailViewState) {
             )
         }
 
-        val context = LocalContext.current
-        val imageLoader = remember {
-            ImageLoader.Builder(context)
-                .components {
-                    add(
-                        OkHttpNetworkFetcherFactory(
-                            callFactory = {
-                                // TODO - inject this using hilt
-                                OkHttpClient.Builder()
-                                    .addInterceptor { chain ->
-                                        val originRequest = chain.request()
-                                        val requestWithUserAgent: Request = originRequest.newBuilder()
-                                            .header("User-Agent", "ComposeSample/1.0 (https://github.com/mrlem/android-compose-template)")
-                                            .build()
-                                        chain.proceed(requestWithUserAgent)
-                                    }
-                                    .build()
-                            }
-                        )
-                    )
-                }
-                .build()
-        }
         state.image?.let { image ->
             var showLoader by remember { mutableStateOf(false) }
 
             AsyncImage(
                 model = image,
-                imageLoader = imageLoader,
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 onLoading = { showLoader = true },
