@@ -11,4 +11,6 @@ dependencies {
     implementation(project(":features:library:nav"))
     implementation(project(":features:overview:nav"))
     implementation(project(":theme"))
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
 }

@@ -4,5 +4,7 @@ import androidx.compose.runtime.Immutable
 
 @Immutable
 internal data class OverviewViewState(
-    val buttonBookmarkId: Long? = null,
+    val suggestionName: String? = null,
+    val suggestionImage: String? = null,
+    val suggestionId: Long? = null,
 )

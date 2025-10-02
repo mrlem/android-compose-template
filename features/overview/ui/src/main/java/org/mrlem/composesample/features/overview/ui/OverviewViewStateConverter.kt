@@ -5,10 +5,11 @@ import javax.inject.Inject
 
 internal class OverviewViewStateConverter @Inject constructor() {
 
-    // TODO - should render with thumbnail
     fun toViewState(bookmark: Bookmark?): OverviewViewState =
         OverviewViewState(
-            buttonBookmarkId = bookmark?.id,
+            suggestionName = bookmark?.name,
+            suggestionImage = bookmark?.image,
+            suggestionId = bookmark?.id,
         )
 
 }
