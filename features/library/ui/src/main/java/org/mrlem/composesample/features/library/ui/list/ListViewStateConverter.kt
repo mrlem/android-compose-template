@@ -5,8 +5,9 @@ import javax.inject.Inject
 
 internal class ListViewStateConverter @Inject constructor() {
 
-    fun toViewState(items: List<BookmarkItem>) =
+    fun toViewState(filter: String, items: List<BookmarkItem>) =
         ListViewState(
+            filter = filter,
             items = items.map { it.toViewState() },
         )
 

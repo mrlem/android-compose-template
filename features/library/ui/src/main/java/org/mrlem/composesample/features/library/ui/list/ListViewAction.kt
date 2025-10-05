@@ -6,4 +6,6 @@ internal sealed interface ListViewAction {
 
     data object ImportRandomClick : ListViewAction
 
+    data class FilterChange(val value: String) : ListViewAction
+
 }
