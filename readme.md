@@ -57,8 +57,7 @@ Navigation is using dedicated modules for stronger feature isolation.
 ## TODO
 
 * sample:
-  - add picture on overview
   - add removal
-* room: database in the library module makes sense for this sample app, for not for a real app. If
+* room: database in the library module makes sense for this sample app, not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling
