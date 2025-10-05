@@ -58,6 +58,10 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 * sample:
   - add removal
+* scripts:
+  - add renaming script
+  - add feature script
+  - document all this
 * room: database in the library module makes sense for this sample app, not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling
