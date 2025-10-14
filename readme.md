@@ -54,14 +54,16 @@ Each adds all requirements for the module of a given layer, save the android nam
 
 Navigation is using dedicated modules for stronger feature isolation.
 
-## TODO
+## Future
 
 * sample:
-  - add removal
+  - add item removal
 * scripts:
   - add renaming script
   - add feature script
+  - migrate scripts to Kotlin + runnable through gradle
   - document all this
 * room: database in the library module makes sense for this sample app, not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling
+* di: investigate moving from hilt+autodagger to [metro](https://github.com/ZacSweers/metro) once it gets more mature
