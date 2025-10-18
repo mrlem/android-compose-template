@@ -55,5 +55,9 @@ gradlePlugin {
             id = "app.feature.nav"
             implementationClass = "FeatureNavConventionPlugin"
         }
+        register("scripts") {
+            id = "app.scripts"
+            implementationClass = "ScriptsConventionPlugin"
+        }
     }
 }

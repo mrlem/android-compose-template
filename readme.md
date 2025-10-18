@@ -59,10 +59,9 @@ Navigation is using dedicated modules for stronger feature isolation.
 * sample:
   - add item removal
 * scripts:
-  - add renaming script
   - add feature script
-  - migrate scripts to Kotlin + runnable through gradle
   - document all this
+* unit tests
 * room: database in the library module makes sense for this sample app, not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
 * room: migration handling

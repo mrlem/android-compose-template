@@ -83,12 +83,13 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # project internal convention plugins
-app-android-application = { id = "app.android.application", version = "unspecified" }
-app-android-library = { id = "app.android.library", version = "unspecified" }
-app-android-compose = { id = "app.android.compose", version = "unspecified" }
-app-android-hilt = { id = "app.android.hilt", version = "unspecified" }
-app-android-room = { id = "app.android.room", version = "unspecified" }
-app-feature-ui = { id = "app.feature.ui", version = "unspecified" }
-app-feature-domain = { id = "app.feature.domain", version = "unspecified" }
-app-feature-data = { id = "app.feature.data", version = "unspecified" }
-app-feature-nav = { id = "app.feature.nav", version = "unspecified" }
+app-android-application = { id = "app.android.application" }
+app-android-library = { id = "app.android.library" }
+app-android-compose = { id = "app.android.compose" }
+app-android-hilt = { id = "app.android.hilt" }
+app-android-room = { id = "app.android.room" }
+app-feature-ui = { id = "app.feature.ui" }
+app-feature-domain = { id = "app.feature.domain" }
+app-feature-data = { id = "app.feature.data" }
+app-feature-nav = { id = "app.feature.nav" }
+app-scripts = { id = "app.scripts" }
