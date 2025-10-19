@@ -56,11 +56,11 @@ Navigation is using dedicated modules for stronger feature isolation.
 
 ## Future
 
+* doc:
+  - document appInit task
+  - document features creation
 * sample:
   - add item removal
-* scripts:
-  - add feature script
-  - document all this
 * unit tests
 * room: database in the library module makes sense for this sample app, not for a real app. If
   you find a multi-module pattern for room, please call me (I'd say this is not possible, by design)
