@@ -17,7 +17,7 @@ kotlin = "2.2.21"
 kotlin-coroutines = "1.10.2"
 ksp = "2.3.3"
 moshi = "1.15.2"
-okhttp = "5.1.0"
+okhttp = "5.3.2"
 retrofit = "3.0.0"
 timber = "5.0.1"
 
