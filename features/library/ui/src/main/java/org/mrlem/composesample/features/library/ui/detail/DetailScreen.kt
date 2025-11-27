@@ -20,6 +20,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
+private const val DESCRIPTION_ALPHA = 0.4f
+
 @Composable
 internal fun DetailScreen(viewModel: DetailViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsState()
@@ -58,7 +60,7 @@ private fun Detail(state: DetailViewState) {
                     .padding(
                         bottom = Theme.size.medium,
                     )
-                    .alpha(0.4f),
+                    .alpha(DESCRIPTION_ALPHA),
             )
         }
 

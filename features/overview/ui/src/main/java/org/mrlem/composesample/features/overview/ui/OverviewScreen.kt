@@ -30,6 +30,8 @@ import coil3.compose.AsyncImage
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
+private const val DESCRIPTION_ALPHA = 0.4f
+
 @Composable
 internal fun OverviewScreen(
     viewModel: OverviewViewModel = hiltViewModel(),
@@ -62,11 +64,11 @@ private fun Overview(
             text = stringResource(R.string.overview_description),
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
-                .alpha(0.4f)
+                .alpha(DESCRIPTION_ALPHA)
                 .weight(1f),
         )
 
-        state.suggestionId?.let { id ->
+        state.suggestionId?.let {
             Text(
                 text = stringResource(R.string.overview_selection),
                 style = MaterialTheme.typography.titleMedium,

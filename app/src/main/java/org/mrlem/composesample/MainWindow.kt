@@ -41,7 +41,7 @@ fun MainWindow(
         NavHost(
             navController = navController,
             startDestination = navProviders.firstNotNullOfOrNull { it.startRoute }
-                ?: throw RuntimeException("no start destination defined"),
+                ?: throw IllegalArgumentException("no start destination defined"),
             modifier = Modifier
                 .padding(innerPadding),
         ) {

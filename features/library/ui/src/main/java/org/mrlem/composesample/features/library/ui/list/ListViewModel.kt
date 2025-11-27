@@ -14,6 +14,7 @@ import org.mrlem.composesample.features.library.domain.repositories.BookmarkRepo
 import org.mrlem.composesample.features.library.domain.usecase.ImportRandomBookmark
 import org.mrlem.composesample.features.library.nav.LibraryDestination
 import timber.log.Timber
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -48,7 +49,7 @@ internal class ListViewModel @Inject constructor(
                     is ListViewAction.ImportRandomClick -> {
                         try {
                             importRandomBookmark()
-                        } catch (e: Exception) {
+                        } catch (e: IOException) {
                             Timber.e(e, "failed to import new bookmark")
                             trigger(ListViewEffect.ShowError)
                         }

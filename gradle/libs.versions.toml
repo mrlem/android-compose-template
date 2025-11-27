@@ -10,6 +10,7 @@ androidx-navigation = "2.9.6"
 androidx-room = "2.8.4"
 autodagger = "2.1.0"
 coil = "3.3.0"
+detekt = "1.23.8"
 hilt = "2.57.2"
 javax-inject = "1"
 junit = "4.13.2"
@@ -79,6 +80,7 @@ retrofit = [ "retrofit-core", "retrofit-moshi" ]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

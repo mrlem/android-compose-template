@@ -1,0 +1,13 @@
+# Compose settings can be found here:
+#   https://detekt.dev/docs/introduction/compose/
+
+style:
+  NewLineAtEndOfFile:
+    active: false
+  MagicNumber:
+    ignorePropertyDeclaration: true
+  UnusedPrivateMember:
+    ignoreAnnotated: ['Preview', 'UiModePreviews']
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ['Composable']
