@@ -18,16 +18,15 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun database(@ApplicationContext context: Context): AppDatabase =
-        Room
-            .databaseBuilder(
-                context,
-                AppDatabase::class.java, "database-name"
-            )
+        Room.databaseBuilder(
+            context,
+            klass = AppDatabase::class.java,
+            name = "database-name",
+        )
             .fallbackToDestructiveMigration(false)
             .build()
 
     @Provides
     fun bookmarkDataSource(database: AppDatabase): BookmarkDataSource =
         database.bookmarkDataSource()
-
 }

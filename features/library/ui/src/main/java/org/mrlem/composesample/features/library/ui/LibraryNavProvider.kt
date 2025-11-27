@@ -30,28 +30,30 @@ class LibraryNavProvider @Inject constructor(
         route = LibraryDestination.route,
     )
 
-    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) =
-        builder.run {
-            navigation(
-                startDestination = ListDestination.route,
-                route = LibraryDestination.route,
-                arguments = LibraryDestination.args,
+    override fun graph(
+        builder: NavGraphBuilder,
+        snackbarHostState: SnackbarHostState,
+        innerPadding: PaddingValues,
+    ) = builder.run {
+        navigation(
+            startDestination = ListDestination.route,
+            route = LibraryDestination.route,
+            arguments = LibraryDestination.args,
+        ) {
+            composable(
+                route = ListDestination.route,
             ) {
-                composable(
-                    route = ListDestination.route,
-                ) {
-                    ListScreen(
-                        snackbarHostState = snackbarHostState,
-                        onItemSelect = { id -> navigator.navigate(DetailDestination(id)) },
-                    )
-                }
-                composable(
-                    route = DetailDestination.route,
-                    arguments = DetailDestination.args,
-                ) {
-                    DetailScreen()
-                }
+                ListScreen(
+                    snackbarHostState = snackbarHostState,
+                    onItemSelect = { id -> navigator.navigate(DetailDestination(id)) },
+                )
+            }
+            composable(
+                route = DetailDestination.route,
+                arguments = DetailDestination.args,
+            ) {
+                DetailScreen()
             }
         }
-
+    }
 }

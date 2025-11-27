@@ -15,7 +15,7 @@ internal class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     repository: BookmarkRepository,
     converter: DetailViewStateConverter,
-): UnidirectionalViewModel<DetailViewState, Unit, Unit>() {
+) : UnidirectionalViewModel<DetailViewState, Unit, Unit>() {
 
     private val id = DetailDestination.Args(savedStateHandle).id
 
@@ -23,5 +23,4 @@ internal class DetailViewModel @Inject constructor(
         emit(converter.toViewState(bookmark = repository.get(id)))
     }
         .stateIn(viewModelScope, WhileSubscribed(), DetailViewState())
-
 }

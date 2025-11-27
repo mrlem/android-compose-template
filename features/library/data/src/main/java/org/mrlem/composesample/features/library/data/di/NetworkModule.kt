@@ -27,5 +27,4 @@ class NetworkModule {
     @Provides
     fun wikipediaDataSource(retrofit: Retrofit): WikipediaDataSource =
         retrofit.create(WikipediaDataSource::class.java)
-
 }

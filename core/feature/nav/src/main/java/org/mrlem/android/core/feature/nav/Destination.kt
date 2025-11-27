@@ -10,9 +10,6 @@ interface Destination {
         companion object {
 
             val DEFAULT = object : Target {}
-
         }
-
     }
-
 }

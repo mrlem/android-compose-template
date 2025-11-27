@@ -7,7 +7,9 @@ import javax.inject.Inject
 internal class WikipediaMapper @Inject constructor() {
 
     fun toRandomName(dto: ResultDto): String =
-        dto.query.random!![0].title
+        dto.query
+            .random!![0]
+            .title
 
     fun toDomain(dto: ResultDto): Bookmark {
         val page = dto.query.pages!!.values.first()
@@ -18,5 +20,4 @@ internal class WikipediaMapper @Inject constructor() {
             image = page.thumbnail?.source,
         )
     }
-
 }

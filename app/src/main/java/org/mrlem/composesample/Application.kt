@@ -11,7 +11,9 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltAndroidApp
-class Application : Application(), SingletonImageLoader.Factory {
+class Application :
+    Application(),
+    SingletonImageLoader.Factory {
 
     @Inject
     lateinit var httpClient: OkHttpClient
@@ -30,5 +32,4 @@ class Application : Application(), SingletonImageLoader.Factory {
                 add(OkHttpNetworkFetcherFactory(callFactory = { httpClient }))
             }
             .build()
-
 }

@@ -21,9 +21,7 @@ import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
 @Composable
-internal fun DetailScreen(
-    viewModel: DetailViewModel = hiltViewModel(),
-) {
+internal fun DetailScreen(viewModel: DetailViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsState()
 
     Detail(

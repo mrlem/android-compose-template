@@ -24,5 +24,4 @@ abstract class NavProvider {
         snackbarHostState: SnackbarHostState,
         innerPadding: PaddingValues = PaddingValues(0.dp),
     )
-
 }

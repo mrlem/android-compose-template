@@ -30,5 +30,4 @@ internal class BookmarkMapper @Inject constructor() {
             description = domain.description,
             image = domain.image,
         )
-
 }

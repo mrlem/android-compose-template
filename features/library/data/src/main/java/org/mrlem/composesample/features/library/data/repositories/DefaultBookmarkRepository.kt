@@ -33,15 +33,18 @@ internal class DefaultBookmarkRepository @Inject constructor(
             .stateIn(scope, WhileSubscribed(), emptyList())
 
     override suspend fun add(bookmark: Bookmark): Long =
-        bookmarkDataSource.add(bookmarkMapper.toEntity(bookmark))
+        bookmarkDataSource
+            .add(bookmarkMapper.toEntity(bookmark))
 
     override suspend fun get(id: Long): Bookmark =
-        bookmarkMapper.toDomain(bookmarkDataSource.get(id))
+        bookmarkMapper
+            .toDomain(bookmarkDataSource.get(id))
 
     override suspend fun getRandom(): String =
-        wikipediaMapper.toRandomName(wikipediaDataSource.findRandom())
+        wikipediaMapper
+            .toRandomName(wikipediaDataSource.findRandom())
 
     override suspend fun import(name: String): Bookmark =
-        wikipediaMapper.toDomain(wikipediaDataSource.findByName(name))
-
+        wikipediaMapper
+            .toDomain(wikipediaDataSource.findByName(name))
 }

@@ -126,7 +126,6 @@ private fun DetailImage(
     }
 }
 
-
 @UiModePreviews
 @Composable
 private fun Preview() {

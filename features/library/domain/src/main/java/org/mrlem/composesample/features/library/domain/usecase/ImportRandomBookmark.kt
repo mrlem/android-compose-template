@@ -12,5 +12,4 @@ class ImportRandomBookmark @Inject constructor(
         val bookmark = repository.import(randomName)
         repository.add(bookmark)
     }
-
 }

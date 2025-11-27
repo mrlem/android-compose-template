@@ -27,7 +27,11 @@ class OverviewNavProvider @Inject constructor(
         route = OverviewDestination.route,
     )
 
-    override fun graph(builder: NavGraphBuilder, snackbarHostState: SnackbarHostState, innerPadding: PaddingValues) = builder.run {
+    override fun graph(
+        builder: NavGraphBuilder,
+        snackbarHostState: SnackbarHostState,
+        innerPadding: PaddingValues,
+    ) = builder.run {
         composable(OverviewDestination.route) {
             OverviewScreen(
                 onSuggestionClick = { itemId ->
@@ -39,5 +43,4 @@ class OverviewNavProvider @Inject constructor(
             )
         }
     }
-
 }

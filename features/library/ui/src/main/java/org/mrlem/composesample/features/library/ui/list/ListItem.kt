@@ -18,12 +18,12 @@ internal fun <Action> ListItem(
         modifier = Modifier
             .then(
                 viewState.onClickAction
-                    ?.let { Modifier.clickable { onAction(it) }}
-                    ?: Modifier
+                    ?.let { Modifier.clickable { onAction(it) } }
+                    ?: Modifier,
             )
             .fillMaxWidth()
             .padding(Theme.size.medium),
-    ){
+    ) {
         Text(
             text = viewState.label,
         )

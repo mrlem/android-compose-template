@@ -8,4 +8,6 @@ fun NavDestination.belongsTo(route: String) =
         .any { it.route.withoutArgs == route.withoutArgs }
 
 private val String?.withoutArgs
-    get() = this?.split('?')?.firstOrNull()
+    get() = this
+        ?.split('?')
+        ?.firstOrNull()

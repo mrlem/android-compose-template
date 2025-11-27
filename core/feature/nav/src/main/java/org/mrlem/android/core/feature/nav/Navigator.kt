@@ -22,14 +22,16 @@ class Navigator {
     private val _operations = MutableSharedFlow<Operation>(extraBufferCapacity = 3)
     val operations: Flow<Operation> = _operations
 
-    fun navigate(destination: Destination, builder: (NavOptionsBuilder.() -> Unit)? = null) {
+    fun navigate(
+        destination: Destination,
+        builder: (NavOptionsBuilder.() -> Unit)? = null,
+    ) {
         val operation = Operation(
             destination = destination,
             navOptions = builder?.let { navOptions(builder) },
         )
         _operations.tryEmit(operation)
     }
-
 }
 
 @Composable

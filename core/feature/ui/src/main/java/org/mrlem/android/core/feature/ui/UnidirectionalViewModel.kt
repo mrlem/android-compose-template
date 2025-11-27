@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
-abstract class UnidirectionalViewModel<State : Any, Action: Any, Effect : Any> : ViewModel() {
+abstract class UnidirectionalViewModel<State : Any, Action : Any, Effect : Any> : ViewModel() {
 
     abstract val state: StateFlow<State>
 
@@ -28,5 +28,4 @@ abstract class UnidirectionalViewModel<State : Any, Action: Any, Effect : Any> :
             _effects.emit(effect)
         }
     }
-
 }

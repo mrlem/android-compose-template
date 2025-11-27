@@ -12,5 +12,4 @@ interface BookmarkRepository {
     suspend fun get(id: Long): Bookmark
     suspend fun getRandom(): String
     suspend fun import(name: String): Bookmark
-
 }

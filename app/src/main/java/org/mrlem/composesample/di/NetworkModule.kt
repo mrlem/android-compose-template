@@ -24,5 +24,4 @@ class NetworkModule {
                 chain.proceed(requestWithUserAgent)
             }
             .build()
-
 }

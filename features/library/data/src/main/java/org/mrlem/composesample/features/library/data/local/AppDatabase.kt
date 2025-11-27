@@ -9,5 +9,4 @@ import org.mrlem.composesample.features.library.data.datasources.local.entities.
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun bookmarkDataSource(): BookmarkDataSource
-
 }

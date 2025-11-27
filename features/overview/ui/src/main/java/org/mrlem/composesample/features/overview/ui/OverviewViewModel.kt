@@ -18,5 +18,4 @@ internal class OverviewViewModel @Inject constructor(
     override val state = getRandomBookmark()
         .map { bookmark -> converter.toViewState(bookmark) }
         .stateIn(viewModelScope, WhileSubscribed(), OverviewViewState())
-
 }

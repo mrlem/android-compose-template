@@ -8,5 +8,4 @@ open class DestinationDefinition(
 ) {
 
     override fun toString() = route
-
 }

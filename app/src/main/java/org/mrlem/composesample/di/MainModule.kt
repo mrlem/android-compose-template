@@ -25,5 +25,4 @@ class MainModule {
     @Provides
     @ApplicationScope
     fun provideApplicationScope() = applicationScope
-
 }

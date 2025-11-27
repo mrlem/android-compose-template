@@ -11,5 +11,4 @@ internal class OverviewViewStateConverter @Inject constructor() {
             suggestionImage = bookmark?.image,
             suggestionId = bookmark?.id,
         )
-
 }

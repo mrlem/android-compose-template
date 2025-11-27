@@ -27,5 +27,4 @@ class GetRandomBookmark @Inject constructor(
             .map { randomId -> randomId?.let { repository.get(it) } }
             .distinctUntilChanged()
             .flowOn(Dispatchers.Default)
-
 }

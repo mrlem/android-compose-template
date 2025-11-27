@@ -6,20 +6,20 @@ import androidx.navigation.navArgument
 import org.mrlem.android.core.feature.nav.Destination
 import org.mrlem.android.core.feature.nav.DestinationDefinition
 
-private const val routeName = "library"
-private const val itemIdArg = "itemId"
+private const val ROUTE_NAME = "library"
+private const val ITEM_ID_ARG = "itemId"
 
 data class LibraryDestination(
     val itemId: Long,
 ) : Destination {
 
     companion object : DestinationDefinition(
-        route = "$routeName?$itemIdArg={$itemIdArg}",
+        route = "$ROUTE_NAME?$ITEM_ID_ARG={$ITEM_ID_ARG}",
         args = listOf(
-            navArgument(itemIdArg) {
+            navArgument(ITEM_ID_ARG) {
                 type = NavType.StringType
                 nullable = true
-            }
+            },
         ),
     )
 
@@ -29,13 +29,10 @@ data class LibraryDestination(
 
         constructor(savedStateHandle: SavedStateHandle) : this(
             itemId = savedStateHandle
-                .get<String>(itemIdArg)
+                .get<String>(ITEM_ID_ARG)
                 ?.toLongOrNull(),
         )
-
     }
 
-    override fun toString() =
-        "$routeName?$itemIdArg=$itemId"
-
+    override fun toString() = "$ROUTE_NAME?$ITEM_ID_ARG=$itemId"
 }

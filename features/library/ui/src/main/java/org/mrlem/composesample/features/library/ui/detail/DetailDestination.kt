@@ -6,19 +6,19 @@ import androidx.navigation.navArgument
 import org.mrlem.android.core.feature.nav.Destination
 import org.mrlem.android.core.feature.nav.DestinationDefinition
 
-private const val routeName = "detail"
-private const val idArg = "id"
+private const val ROUTE_NAME = "detail"
+private const val ID_ARG = "id"
 
 data class DetailDestination(
     val id: Long,
 ) : Destination {
 
     companion object : DestinationDefinition(
-        route = "$routeName/{$idArg}",
+        route = "$ROUTE_NAME/{$ID_ARG}",
         args = listOf(
-            navArgument(idArg) {
+            navArgument(ID_ARG) {
                 type = NavType.LongType
-            }
+            },
         ),
     )
 
@@ -27,12 +27,9 @@ data class DetailDestination(
     ) {
 
         constructor(savedStateHandle: SavedStateHandle) : this(
-            id = savedStateHandle.get<Long>(idArg)!!,
+            id = savedStateHandle.get<Long>(ID_ARG)!!,
         )
-
     }
 
-    override fun toString() =
-        "$routeName/$id"
-
+    override fun toString() = "$ROUTE_NAME/$id"
 }

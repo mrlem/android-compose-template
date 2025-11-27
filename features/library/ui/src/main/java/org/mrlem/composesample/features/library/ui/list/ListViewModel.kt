@@ -44,6 +44,7 @@ internal class ListViewModel @Inject constructor(
                     is ListViewAction.ItemClick -> {
                         trigger(ListViewEffect.GoToItem(action.itemId))
                     }
+
                     is ListViewAction.ImportRandomClick -> {
                         try {
                             importRandomBookmark()
@@ -52,6 +53,7 @@ internal class ListViewModel @Inject constructor(
                             trigger(ListViewEffect.ShowError)
                         }
                     }
+
                     is ListViewAction.FilterChange -> {
                         filterFlow.value = action.value
                     }
@@ -65,5 +67,4 @@ internal class ListViewModel @Inject constructor(
             ?.let { trigger(ListViewEffect.GoToItem(it)) }
         itemId = null // handled
     }
-
 }

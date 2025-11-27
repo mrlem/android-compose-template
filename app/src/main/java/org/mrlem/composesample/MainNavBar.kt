@@ -31,7 +31,7 @@ fun MainNavBar(
                         popUpTo(0)
                         launchSingleTop = true
                     }
-                }
+                },
             )
         }
     }

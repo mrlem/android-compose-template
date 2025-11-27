@@ -11,5 +11,4 @@ internal class DetailViewStateConverter @Inject constructor() {
             description = bookmark.description,
             image = bookmark.image,
         )
-
 }
