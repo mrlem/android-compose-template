@@ -10,20 +10,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -36,9 +43,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import org.mrlem.android.core.feature.ui.UiModePreviews
+import org.mrlem.composesample.features.library.ui.R
 import org.mrlem.composesample.theme.Theme
 
 @Composable
@@ -48,6 +57,7 @@ internal fun ListScreen(
     onItemSelect: (id: Long) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
+    val errorMessage = stringResource(R.string.library_error)
 
     LaunchedEffect(Unit) {
         viewModel.effects
@@ -57,7 +67,7 @@ internal fun ListScreen(
                         onItemSelect(effect.id)
 
                     is ListViewEffect.ShowError ->
-                        snackbarHostState.showSnackbar("Failed to retrieve data")
+                        snackbarHostState.showSnackbar(errorMessage)
                 }
             }
     }
@@ -76,8 +86,11 @@ internal fun ListScreen(
 private fun ListScreen(
     state: ListViewState,
     onAction: (ListViewAction) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    Column {
+    Column(
+        modifier = modifier,
+    ) {
         var fieldValue by remember {
             mutableStateOf(TextFieldValue(state.filter))
         }
@@ -96,7 +109,12 @@ private fun ListScreen(
                 disabledIndicatorColor = Color.Transparent,
                 errorIndicatorColor = Color.Transparent,
             ),
-            placeholder = { Text("Filter articles") },
+            placeholder = {
+                Text(
+                    text = stringResource(id = R.string.library_search_action),
+                )
+            },
+            trailingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = null) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
@@ -115,74 +133,134 @@ private fun ListScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun List(
     state: ListViewState,
     modifier: Modifier = Modifier,
     onAction: (ListViewAction) -> Unit = {},
 ) {
+    val listState = rememberLazyListState()
+    val showShadow by remember {
+        derivedStateOf { listState.canScrollBackward }
+    }
+
     Box(
         modifier = modifier,
     ) {
-        val listState = rememberLazyListState()
-
-        val showShadow by remember {
-            derivedStateOf { listState.canScrollBackward }
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(),
+        LazyColumn(
+            state = listState,
+            modifier = Modifier.fillMaxSize(),
         ) {
-            LazyColumn(
-                state = listState,
-                modifier = Modifier
-                    .fillMaxSize(),
-            ) {
-                items(state.items) {
+            items(
+                items = state.items,
+                key = { item -> (item.onClickAction as ListViewAction.ItemClick).itemId },
+            ) { item ->
+                val dismissState = rememberSwipeToDismissBoxState(
+                    confirmValueChange = { dismissValue ->
+                        if (dismissValue == SwipeToDismissBoxValue.EndToStart) {
+                            val action = item.onClickAction as ListViewAction.ItemClick
+                            onAction(ListViewAction.ItemDismiss(action.itemId))
+                            true
+                        } else {
+                            false
+                        }
+                    },
+                )
+
+                SwipeToDismissBox(
+                    state = dismissState,
+                    enableDismissFromStartToEnd = false,
+                    backgroundContent = {
+                        if (dismissState.dismissDirection == SwipeToDismissBoxValue.EndToStart) {
+                            RemoveIcon()
+                        }
+                    },
+                ) {
                     ListItem(
-                        viewState = it,
+                        viewState = item,
                         onAction = onAction,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(MaterialTheme.colorScheme.background),
                     )
                 }
             }
-
-            AnimatedVisibility(
-                visible = showShadow,
-                enter = fadeIn(),
-                exit = fadeOut(),
-                modifier = Modifier.align(Alignment.TopCenter),
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(Theme.size.medium)
-                        .background(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    MaterialTheme.colorScheme.background,
-                                    Color.Transparent,
-                                ),
-                            ),
-                        ),
-                )
-            }
         }
 
-        FloatingActionButton(
-            onClick = { onAction(ListViewAction.ImportRandomClick) },
-            shape = CircleShape,
+        Shadow(
+            visible = showShadow,
+            modifier = Modifier
+                .align(Alignment.TopCenter),
+        )
+
+        ImportButton(
+            onAction = onAction,
             modifier = Modifier
                 .padding(Theme.size.medium)
                 .align(Alignment.BottomEnd),
-        ) {
-            Icon(imageVector = Icons.Filled.Add, contentDescription = "Import random bookmark")
-        }
+        )
+    }
+}
+
+@Composable
+private fun ImportButton(
+    onAction: (ListViewAction) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    FloatingActionButton(
+        onClick = { onAction(ListViewAction.ImportRandomClick) },
+        shape = CircleShape,
+        modifier = modifier,
+    ) {
+        Icon(imageVector = Icons.Filled.Add, contentDescription = stringResource(R.string.library_import_action))
+    }
+}
+
+@Composable
+private fun RemoveIcon() {
+    Icon(
+        imageVector = Icons.Default.Delete,
+        contentDescription = stringResource(R.string.library_remove_action),
+        tint = MaterialTheme.colorScheme.onErrorContainer,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.errorContainer)
+            .wrapContentSize(Alignment.CenterEnd)
+            .padding(Theme.size.small),
+    )
+}
+
+@Composable
+private fun Shadow(
+    visible: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(),
+        exit = fadeOut(),
+        modifier = modifier,
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(Theme.size.medium)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            MaterialTheme.colorScheme.background,
+                            Color.Transparent,
+                        ),
+                    ),
+                ),
+        )
     }
 }
 
 @UiModePreviews
 @Composable
+@Suppress("MagicNumber")
 private fun Preview() {
     Theme {
         Surface {
@@ -191,12 +269,15 @@ private fun Preview() {
                     items = listOf(
                         ListItemViewState(
                             label = "Georges Brassens",
+                            onClickAction = ListViewAction.ItemClick(1L),
                         ),
                         ListItemViewState(
                             label = "Jacques Brel",
+                            onClickAction = ListViewAction.ItemClick(2L),
                         ),
                         ListItemViewState(
                             label = "Joe Dassin",
+                            onClickAction = ListViewAction.ItemClick(3L),
                         ),
                     ),
                 ),

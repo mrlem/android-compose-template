@@ -10,6 +10,7 @@ interface BookmarkRepository {
 
     suspend fun add(bookmark: Bookmark): Long
     suspend fun get(id: Long): Bookmark
+    suspend fun delete(id: Long)
     suspend fun getRandom(): String
     suspend fun import(name: String): Bookmark
 }

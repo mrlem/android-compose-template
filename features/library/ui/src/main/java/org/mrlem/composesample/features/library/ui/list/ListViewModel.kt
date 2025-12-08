@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import org.mrlem.android.core.feature.ui.UnidirectionalViewModel
 import org.mrlem.composesample.features.library.domain.repositories.BookmarkRepository
 import org.mrlem.composesample.features.library.domain.usecase.ImportRandomBookmark
@@ -44,6 +45,17 @@ internal class ListViewModel @Inject constructor(
                 when (action) {
                     is ListViewAction.ItemClick -> {
                         trigger(ListViewEffect.GoToItem(action.itemId))
+                    }
+
+                    is ListViewAction.ItemDismiss -> {
+                        viewModelScope.launch {
+                            try {
+                                repository.delete(action.itemId)
+                            } catch (e: IOException) {
+                                Timber.e(e, "failed to remove bookmark")
+                                trigger(ListViewEffect.ShowError)
+                            }
+                        }
                     }
 
                     is ListViewAction.ImportRandomClick -> {

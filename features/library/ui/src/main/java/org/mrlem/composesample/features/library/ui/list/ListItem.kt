@@ -13,9 +13,10 @@ import org.mrlem.composesample.theme.Theme
 internal fun <Action> ListItem(
     viewState: ListItemViewState<Action>,
     onAction: (Action) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .then(
                 viewState.onClickAction
                     ?.let { Modifier.clickable { onAction(it) } }

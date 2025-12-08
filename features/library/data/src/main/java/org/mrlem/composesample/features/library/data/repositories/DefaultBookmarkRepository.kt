@@ -40,6 +40,10 @@ internal class DefaultBookmarkRepository @Inject constructor(
         bookmarkMapper
             .toDomain(bookmarkDataSource.get(id))
 
+    override suspend fun delete(id: Long) {
+        bookmarkDataSource.delete(id)
+    }
+
     override suspend fun getRandom(): String =
         wikipediaMapper
             .toRandomName(wikipediaDataSource.findRandom())

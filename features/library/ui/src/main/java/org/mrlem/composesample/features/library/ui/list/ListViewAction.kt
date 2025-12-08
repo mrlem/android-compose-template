@@ -6,6 +6,10 @@ internal sealed interface ListViewAction {
         val itemId: Long,
     ) : ListViewAction
 
+    data class ItemDismiss(
+        val itemId: Long,
+    ) : ListViewAction
+
     data object ImportRandomClick : ListViewAction
 
     data class FilterChange(

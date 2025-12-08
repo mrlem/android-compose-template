@@ -19,4 +19,7 @@ interface BookmarkDataSource {
 
     @Query("SELECT * FROM bookmark WHERE id = :id")
     suspend fun get(id: Long): BookmarkEntity
+
+    @Query("DELETE FROM bookmark WHERE id = :id")
+    suspend fun delete(id: Long)
 }
