@@ -8,9 +8,8 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-internal val Project.libs
-    get(): VersionCatalog = versionCatalogsExtension
-        .named("libs")
+internal val Project.libs: VersionCatalog
+    get() = versionCatalogsExtension.named("libs")
 
 internal fun Project.configureKotlin() {
     tasks.withType<KotlinCompile>().configureEach {

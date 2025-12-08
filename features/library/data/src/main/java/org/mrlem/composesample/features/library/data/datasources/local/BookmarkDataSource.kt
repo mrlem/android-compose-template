@@ -14,7 +14,7 @@ interface BookmarkDataSource {
     @Query("SELECT * FROM bookmark")
     fun list(): Flow<List<BookmarkEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(bookmark: BookmarkEntity): Long
 
     @Query("SELECT * FROM bookmark WHERE id = :id")

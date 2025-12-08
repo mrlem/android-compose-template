@@ -3,7 +3,7 @@ package org.mrlem.composesample.theme
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-data class Size internal constructor(
+data class Size(
     val smaller: Dp = 4.dp,
     val small: Dp = 8.dp,
     val medium: Dp = 16.dp,
