@@ -6,6 +6,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -16,8 +17,11 @@ import org.mrlem.android.core.feature.ui.NavProvider
 fun MainNavBar(
     items: List<NavProvider.BottomBarItem>,
     navController: NavController,
+    modifier: Modifier = Modifier,
 ) {
-    NavigationBar {
+    NavigationBar(
+        modifier = modifier,
+    ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
 

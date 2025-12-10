@@ -1,5 +1,6 @@
 package org.mrlem.composesample
 
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -35,6 +36,8 @@ fun MainWindow(
             MainNavBar(
                 items = items,
                 navController = navController,
+                modifier = Modifier
+                    .imePadding(),
             )
         },
     ) { innerPadding ->
