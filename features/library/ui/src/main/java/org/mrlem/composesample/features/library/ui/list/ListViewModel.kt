@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 import org.mrlem.android.core.feature.ui.UnidirectionalViewModel
 import org.mrlem.composesample.features.library.domain.repositories.BookmarkRepository
 import org.mrlem.composesample.features.library.domain.usecase.ImportRandomBookmark
-import org.mrlem.composesample.features.library.nav.LibraryDestination
 import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
@@ -36,8 +35,6 @@ internal class ListViewModel @Inject constructor(
         )
     }
         .stateIn(viewModelScope, WhileSubscribed(), ListViewState(filter = filterFlow.value))
-
-    private var itemId = LibraryDestination.Args(savedStateHandle).itemId
 
     init {
         actions
@@ -73,11 +70,5 @@ internal class ListViewModel @Inject constructor(
                 }
             }
             .launchIn(viewModelScope)
-    }
-
-    fun handleRedirections() {
-        itemId
-            ?.let { trigger(ListViewEffect.GoToItem(it)) }
-        itemId = null // handled
     }
 }

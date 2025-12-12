@@ -19,7 +19,7 @@ A project template with the following objectives in mind:
   - ui: simplified **MVI**
 * build: **kts** gradle build scripts + gradle **convention plugins** to simplify + **version catalog**
 * dep injection: **hilt** + **auto-dagger**
-* ui: **compose** + **material3** + navigation
+* ui: **compose** + **material3** + navigation3
 * async: **coroutines** & **flow**
 * db: **room**
 * rest: **retrofit**

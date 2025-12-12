@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.app.scripts)
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.serialization) apply false
 }
 
 subprojects {

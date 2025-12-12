@@ -9,11 +9,13 @@ class FeatureNavConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         pluginManager.run {
             apply("app.android.library")
+            apply("org.jetbrains.kotlin.plugin.serialization")
         }
 
         dependencies {
             add("api", project(":core:feature:nav"))
-            add("implementation", libs.findLibrary("androidx-navigation").get())
+            add("implementation", libs.findLibrary("androidx.navigation3.ui").get())
+            add("implementation", libs.findLibrary("androidx.navigation3.runtime").get())
         }
     }
 

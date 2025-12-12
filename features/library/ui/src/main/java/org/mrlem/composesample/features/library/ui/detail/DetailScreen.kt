@@ -16,14 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
 private const val DESCRIPTION_ALPHA = 0.4f
 
 @Composable
-internal fun DetailScreen(viewModel: DetailViewModel = hiltViewModel()) {
+internal fun DetailScreen(viewModel: DetailViewModel) {
     val state by viewModel.state.collectAsState()
 
     Detail(

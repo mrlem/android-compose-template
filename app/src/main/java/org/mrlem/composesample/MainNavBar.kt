@@ -5,37 +5,30 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import org.mrlem.android.core.feature.nav.belongsTo
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import org.mrlem.android.core.feature.nav.Navigator
+import org.mrlem.android.core.feature.nav.Navigator.Operation
 import org.mrlem.android.core.feature.ui.NavProvider
 
 @Composable
 fun MainNavBar(
     items: List<NavProvider.BottomBarItem>,
-    navController: NavController,
+    backStack: NavBackStack<NavKey>,
+    navigator: Navigator,
     modifier: Modifier = Modifier,
 ) {
     NavigationBar(
         modifier = modifier,
     ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentDestination = navBackStackEntry?.destination
-
         items.forEach { item ->
             NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = null) },
                 label = { Text(stringResource(item.labelResId)) },
-                selected = currentDestination?.belongsTo(item.route) ?: false,
-                onClick = {
-                    navController.navigate(item.route) {
-                        popUpTo(0)
-                        launchSingleTop = true
-                    }
-                },
+                selected = backStack.firstOrNull() == item.key,
+                onClick = { navigator.navigate(Operation.ReplaceAll(item.key)) },
             )
         }
     }

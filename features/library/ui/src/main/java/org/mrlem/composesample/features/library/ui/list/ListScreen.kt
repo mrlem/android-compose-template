@@ -52,6 +52,7 @@ import org.mrlem.composesample.theme.Theme
 
 @Composable
 internal fun ListScreen(
+    modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState,
     viewModel: ListViewModel = hiltViewModel(),
     onItemSelect: (id: Long) -> Unit,
@@ -72,11 +73,8 @@ internal fun ListScreen(
             }
     }
 
-    LaunchedEffect(Unit) {
-        viewModel.handleRedirections()
-    }
-
     ListScreen(
+        modifier = modifier,
         state = state,
         onAction = viewModel::onAction,
     )
@@ -268,7 +266,7 @@ private fun Preview() {
                 state = ListViewState(
                     items = listOf(
                         ListItemViewState(
-                            label = "Georges Brassens",
+                            label = "Georges Plop",
                             onClickAction = ListViewAction.ItemClick(1L),
                         ),
                         ListItemViewState(

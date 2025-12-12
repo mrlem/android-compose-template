@@ -34,6 +34,7 @@ private const val DESCRIPTION_ALPHA = 0.4f
 
 @Composable
 internal fun OverviewScreen(
+    modifier: Modifier = Modifier,
     viewModel: OverviewViewModel = hiltViewModel(),
     onSuggestionClick: (itemId: Long) -> Unit = {},
 ) {
@@ -42,17 +43,19 @@ internal fun OverviewScreen(
     Overview(
         state = state,
         onSuggestionClick = { state.suggestionId?.let { onSuggestionClick(it) } },
+        modifier = modifier,
     )
 }
 
 @Composable
 private fun Overview(
     state: OverviewViewState,
+    modifier: Modifier = Modifier,
     onSuggestionClick: () -> Unit = {},
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Theme.size.medium),
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(Theme.size.large),
     ) {

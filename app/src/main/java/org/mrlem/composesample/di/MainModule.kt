@@ -15,14 +15,16 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class MainModule {
 
-    private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-
-    @Singleton
-    @Provides
-    fun provideNavigator() = Navigator()
+    private val applicationScope = CoroutineScope(context = SupervisorJob() + Dispatchers.Default)
 
     @Singleton
     @Provides
     @ApplicationScope
-    fun provideApplicationScope() = applicationScope
+    fun provideApplicationScope() =
+        applicationScope
+
+    @Singleton
+    @Provides
+    fun provideNavigator() =
+        Navigator(scope = applicationScope)
 }
