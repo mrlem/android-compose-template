@@ -26,7 +26,7 @@ class AppInitializer(
             .flatMap { feature ->
                 feature
                     .listFiles()
-                    .filter { it.isDirectory }
+                    .filter { it.isDirectory && File(it, "build.gradle.kts").exists() }
             }
             .forEach { module ->
                 val modulePath = "features/${module.parentFile.name}/${module.name}"
@@ -34,6 +34,7 @@ class AppInitializer(
                 val newModulePackage = "$basePackage.$subPackage"
                 updateModuleBuild(path = modulePath, newModulePackage = newModulePackage)
                 updateModuleSources(path = modulePath, sourceSet = "main", oldRootPackage = namespace, newRootPackage = basePackage)
+                updateModuleSources(path = modulePath, sourceSet = "test", oldRootPackage = namespace, newRootPackage = basePackage)
             }
     }
 

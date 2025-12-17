@@ -10,7 +10,6 @@ class ScriptsConventionPlugin : Plugin<Project> {
         const val TASK_APP_INIT = "appInit"
         const val PARAM_PROJECT_NAME = "projectName"
         const val PARAM_PACKAGE = "package"
-
     }
 
     private val appInitException = GradleException("Usage: ./gradlew $TASK_APP_INIT -P$PARAM_PROJECT_NAME=my-project -P$PARAM_PACKAGE=com.example.myproject")
