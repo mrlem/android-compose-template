@@ -1,7 +1,7 @@
 package org.mrlem.composesample
 
 import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -43,7 +43,7 @@ fun MainWindow(
                 backStack = backStack,
                 modifier = Modifier
                     .imePadding()
-                    .systemBarsPadding(),
+                    .navigationBarsPadding(),
             )
         },
     ) { innerPadding ->
