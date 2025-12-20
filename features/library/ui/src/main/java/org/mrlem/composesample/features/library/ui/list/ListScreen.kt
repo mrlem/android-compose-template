@@ -33,7 +33,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.features.library.ui.R
 import org.mrlem.composesample.theme.Theme
@@ -57,7 +57,7 @@ internal fun ListScreen(
     viewModel: ListViewModel = hiltViewModel(),
     onItemSelect: (id: Long) -> Unit,
 ) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val errorMessage = stringResource(R.string.library_error)
 
     LaunchedEffect(Unit) {

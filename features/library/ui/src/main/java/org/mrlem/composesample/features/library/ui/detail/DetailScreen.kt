@@ -9,13 +9,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.mrlem.android.core.feature.ui.UiModePreviews
 import org.mrlem.composesample.theme.Theme
 
@@ -23,7 +23,7 @@ private const val DESCRIPTION_ALPHA = 0.4f
 
 @Composable
 internal fun DetailScreen(viewModel: DetailViewModel) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     Detail(
         state = state,
