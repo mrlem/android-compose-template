@@ -3,12 +3,6 @@ plugins {
     alias(libs.plugins.app.android.room)
 }
 
-kotlin {
-    compilerOptions {
-        freeCompilerArgs = listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
-    }
-}
-
 android {
     namespace = "org.mrlem.composesample.features.library.data"
 }

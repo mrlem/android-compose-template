@@ -15,6 +15,7 @@ internal fun Project.configureKotlin() {
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
             jvmTarget.set(JvmTarget.fromTarget(libs.findVersion("jvm").get().toString()))
+            freeCompilerArgs.set(listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode"))
         }
     }
 }

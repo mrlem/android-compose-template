@@ -3,12 +3,6 @@ plugins {
     alias(libs.plugins.app.android.compose)
 }
 
-kotlin {
-    compilerOptions {
-        freeCompilerArgs = listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
-    }
-}
-
 android {
     namespace = "org.mrlem.android.core.feature.ui"
 }
