@@ -1,7 +1,7 @@
 package org.mrlem.composesample.features.overview.nav
 
-import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
+import org.mrlem.android.core.feature.nav.MainNavKey
 
 @Serializable
-data object OverviewKey : NavKey
+data object OverviewKey : MainNavKey

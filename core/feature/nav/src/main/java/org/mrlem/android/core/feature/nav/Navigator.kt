@@ -11,28 +11,22 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import kotlin.reflect.KClass
 
 class Navigator(
     private val scope: CoroutineScope,
 ) {
 
-    sealed interface Target {
-
-        data object Default : Target
-    }
-
     sealed interface Operation {
 
-        val target: Target
+        val key: NavKey
 
         data class Push(
-            val key: NavKey,
-            override val target: Target = Target.Default,
+            override val key: NavKey,
         ) : Operation
 
         data class ReplaceAll(
-            val key: NavKey,
-            override val target: Target = Target.Default,
+            override val key: NavKey,
         ) : Operation
     }
 
@@ -50,11 +44,11 @@ class Navigator(
 fun NavigationLaunchedEffect(
     navigator: Navigator,
     backStack: NavBackStack<NavKey>,
-    target: Navigator.Target = Navigator.Target.Default,
+    navKeyInterface: KClass<out NavKey> = MainNavKey::class,
 ) {
     LaunchedEffect(Unit) {
         navigator.operations
-            .filter { it.target == target }
+            .filter { navKeyInterface.isInstance(it.key) }
             .onEach { operation ->
                 when (operation) {
                     is Navigator.Operation.Push -> {
